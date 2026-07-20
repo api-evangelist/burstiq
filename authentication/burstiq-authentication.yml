@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: live probe of https://api.burstiq.com (HTTP 401 + WWW-Authenticate header)
+note: >-
+  The published LifeGraph OpenAPI (openapi/burstiq-lifegraph-openapi-original.json)
+  declares no components.securitySchemes, but the live API enforces bearer-token
+  authentication: unauthenticated requests to https://api.burstiq.com return
+  HTTP 401 with `WWW-Authenticate: Bearer`. This profile records the observed
+  runtime auth model; the spec itself omits the scheme.
+summary:
+  types:
+  - http
+  http_schemes:
+  - bearer
+  api_key_in: []
+  oauth2_flows: []
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearer_format: JWT
+  evidence: 'HTTP 401 WWW-Authenticate: Bearer on https://api.burstiq.com'
+  applied: runtime-enforced (not declared in OpenAPI)
+  sources:
+  - live-probe

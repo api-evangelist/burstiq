@@ -1,0 +1,261 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs Edge Definition Metadata APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: Edge Definition Metadata APIs
+  description: Edge Definitions are required for the system to know what edges are allowed between live node data
+paths:
+  /api/metadata/edge/{id}:
+    get:
+      tags:
+      - Edge Definition Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get an edge. based on id
+      operationId: getEdgeById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EdgeDef'
+    put:
+      tags:
+      - Edge Definition Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the edges in the secure data zone
+      operationId: putUpdateEdge
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEdgeDefRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+      - Edge Definition Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete an edge definition in the secure data zone, based on id
+      operationId: deleteEdgeById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/metadata/edge:
+    get:
+      tags:
+      - Edge Definition Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query edges from the secure data zone
+      operationId: getQueryEdges
+      parameters:
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fromDictionary
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: toDictionary
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EdgeDef'
+    post:
+      tags:
+      - Edge Definition Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>post (insert) the edges into the secure data zone
+      operationId: postCreateEdge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdgeDef'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EdgeDef'
+  /api/metadata/edge/{id}/history:
+    get:
+      tags:
+      - Edge Definition Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of an edge definition
+      operationId: getHistory_5
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EdgeDef'
+  /api/metadata/edge/{from}/{to}/{name}:
+    get:
+      tags:
+      - Edge Definition Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get an edge. based on from dictionary, to dictionary and label, from the secure data zone
+      operationId: getEdge
+      parameters:
+      - name: from
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EdgeDef'
+  /api/metadata/edge/search:
+    get:
+      tags:
+      - Edge Definition Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms
+      operationId: getSearch_5
+      parameters:
+      - name: terms
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EdgeDef'
+                uniqueItems: true
+components:
+  schemas:
+    EdgeDef:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        fromDictionary:
+          type: string
+          minLength: 1
+        toDictionary:
+          type: string
+          minLength: 1
+        condition:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeColumn'
+          minItems: 1
+      required:
+      - condition
+      - fromDictionary
+      - id
+      - name
+      - toDictionary
+    UpdateEdgeDefRequest:
+      type: object
+      properties:
+        condition:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeColumn'
+    EdgeColumn:
+      type: object
+      properties:
+        fromCol:
+          type: string
+          minLength: 1
+        toCol:
+          type: string
+          minLength: 1
+      required:
+      - fromCol
+      - toCol

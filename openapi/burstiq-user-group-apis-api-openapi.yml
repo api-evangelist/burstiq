@@ -1,0 +1,248 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs User Group APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: User Group APIs
+  description: User Groups are ways of identifying groups of users by name and referencing in various parts of the platform
+paths:
+  /api/metadata/usergroup/{id}:
+    get:
+      tags:
+      - User Group APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user group in the secure data zone
+      operationId: getUserGroupById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+    put:
+      tags:
+      - User Group APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>put (update) a User group into the secure data zone
+      operationId: putUpdateUserGroup
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroupReq'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+    delete:
+      tags:
+      - User Group APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>delete the user group in the secure data zone
+      operationId: deleteUserGroup
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/metadata/usergroup:
+    get:
+      tags:
+      - User Group APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query user groups from the secure data zone
+      operationId: getQueryUserGroups
+      parameters:
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: groupContains
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserGroup'
+    post:
+      tags:
+      - User Group APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>create a User group into the secure data zone
+      operationId: postCreateUserGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroupReq'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+  /api/metadata/usergroup/{id}/history:
+    get:
+      tags:
+      - User Group APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a userGroup
+      operationId: getHistory
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserGroup'
+  /api/metadata/usergroup/search:
+    get:
+      tags:
+      - User Group APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms
+      operationId: getSearch
+      parameters:
+      - name: terms
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserGroup'
+                uniqueItems: true
+  /api/metadata/usergroup/lookup:
+    get:
+      tags:
+      - User Group APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user group in the secure data zone
+      operationId: getUserGroupByName
+      parameters:
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+components:
+  schemas:
+    UserGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        group:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+      required:
+      - group
+      - id
+      - name
+    UserGroupReq:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        group:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true

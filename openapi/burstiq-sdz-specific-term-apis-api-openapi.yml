@@ -1,0 +1,246 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs SDZ Specific Term APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: SDZ Specific Term APIs
+  description: Terms are managed for the developer's use to find, present terms to users and records acceptance
+paths:
+  /api/metadata/terms/{id}:
+    get:
+      tags:
+      - SDZ Specific Term APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get a SDZ specific term (by Id)
+      operationId: getTermById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Terms'
+    put:
+      tags:
+      - SDZ Specific Term APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a terms record for a specific SDZ
+      operationId: putTerms
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Terms'
+        required: true
+      responses:
+        '200':
+          description: OK
+  /api/metadata/terms/{id}/{activeFlag}:
+    put:
+      tags:
+      - SDZ Specific Term APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>set a terms record to active (true) or inactive (false)
+      operationId: putTermsActiveFlag
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: activeFlag
+        in: path
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Terms'
+  /api/metadata/terms:
+    get:
+      tags:
+      - SDZ Specific Term APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query terms from a SDZ
+      operationId: getTerms
+      parameters:
+      - name: type
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: active
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: version
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Terms'
+    post:
+      tags:
+      - SDZ Specific Term APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a sdz specific terms record
+      operationId: postTerms
+      parameters:
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: active
+        in: query
+        required: true
+        schema:
+          type: boolean
+      - name: version
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+              required:
+              - file
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Terms'
+  /api/metadata/terms/{id}/history:
+    get:
+      tags:
+      - SDZ Specific Term APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a terms
+      operationId: getHistory_2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Terms'
+  /api/metadata/terms/search:
+    get:
+      tags:
+      - SDZ Specific Term APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Search for terms record within a specific SDZ
+      operationId: getSearch_2
+      parameters:
+      - name: terms
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Terms'
+                uniqueItems: true
+components:
+  schemas:
+    Terms:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        documentBase64:
+          type: string
+          minLength: 1
+        version:
+          type: string
+        type:
+          type: string
+        active:
+          type: boolean
+      required:
+      - active
+      - documentBase64
+      - id
+      - name

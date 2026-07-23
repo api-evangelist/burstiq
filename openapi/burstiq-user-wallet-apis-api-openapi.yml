@@ -1,0 +1,338 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs User Wallet APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: User Wallet APIs
+  description: For managing and obtaining information about user wallets
+paths:
+  /api/metadata/user/wallet/{id}:
+    get:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user's wallet in the secure data zone
+      operationId: getUserWalletById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserWalletResponse'
+    put:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>put (update) the user's wallet into the secure data zone.  these values will be overridden/updated with data from the next JWT token
+      operationId: putUpdateUserWallet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserWalletResponse'
+    delete:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete the user's wallet in the secure data zone
+      operationId: deleteUserWallet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/metadata/user/wallet/{id}/terms/{termsId}:
+    put:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>put (update) the user's terms into the secure data zone
+      operationId: putUpdateUserTerms
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: termsId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserWalletResponse'
+  /api/metadata/user/wallet:
+    get:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query user wallets from the secure data zone
+      operationId: getQueryUserWallets
+      parameters:
+      - name: principal
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: email
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fullName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: ids
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserWalletResponse'
+    post:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Insert user's wallet into the secure data zone
+      operationId: postUserWallet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserWalletResponse'
+  /api/metadata/user/wallet/{id}/history:
+    get:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a userWallet
+      operationId: getHistory_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserWalletResponse'
+  /api/metadata/user/wallet/self:
+    get:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the logged in user's wallet in the secure data zone
+      operationId: getUserWalletForLoggedInUser
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserWalletResponse'
+  /api/metadata/user/wallet/search:
+    get:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for wallet, search terms applied to email only
+      operationId: getSearch_1
+      parameters:
+      - name: terms
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserWallet'
+                uniqueItems: true
+  /api/metadata/user/wallet/lookup:
+    get:
+      tags:
+      - User Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get user wallet from email
+      operationId: getUserWalletByEmail
+      parameters:
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserWalletResponse'
+components:
+  schemas:
+    UserWalletResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        principal:
+          type: string
+        email:
+          type: string
+        fullName:
+          type: string
+        termsAgreed:
+          type: array
+          items:
+            $ref: '#/components/schemas/TermsAgreed'
+        hash:
+          type: string
+        author:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+    UserWalletUpdateRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        fullName:
+          type: string
+    UserWallet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        privateKey:
+          type: string
+          minLength: 1
+        publicKey:
+          type: string
+          minLength: 1
+        email:
+          type: string
+          minLength: 1
+        fullName:
+          type: string
+          minLength: 1
+        principal:
+          type: string
+        termsAgreed:
+          type: array
+          items:
+            $ref: '#/components/schemas/TermsAgreed'
+      required:
+      - email
+      - fullName
+      - id
+      - privateKey
+      - publicKey
+    TermsAgreed:
+      type: object
+      properties:
+        termsId:
+          type: string
+          format: uuid
+        metadata:
+          type: object
+        agreedAt:
+          type: string
+          format: date-time
+      required:
+      - agreedAt
+      - termsId

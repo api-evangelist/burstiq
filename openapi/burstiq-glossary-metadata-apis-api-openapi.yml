@@ -1,0 +1,290 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs Glossary Metadata APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: Glossary Metadata APIs
+  description: Glossary items hold no actual function in the secure data zone, merely a method for defining the business terms, usage, interactions, etc of the data within the SDZ
+paths:
+  /api/metadata/glossary:
+    get:
+      tags:
+      - Glossary Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query glossaries from the secure data zone
+      operationId: getQueryGlossaries
+      parameters:
+      - name: term
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: abbreviations
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: aliases
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Glossary'
+    put:
+      tags:
+      - Glossary Metadata APIs
+      description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Use /{id} endpoint instead. | Put (update or create) the Glossary in the secure data zone.<b><br/><br/>Deprecated since 02 OCT 2024</b>'
+      operationId: putGlossary
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Glossary'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Glossary'
+      deprecated: true
+    post:
+      tags:
+      - Glossary Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>create a glossary term into the secure data zone
+      operationId: postGlossary
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Glossary'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Glossary'
+  /api/metadata/glossary/{id}:
+    get:
+      tags:
+      - Glossary Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets a glossary by ID from the secure data zone; can be more than 1
+      operationId: getGlossary
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Glossary'
+    put:
+      tags:
+      - Glossary Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the Glossary in the secure data zone
+      operationId: putGlossary_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Glossary'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Glossary'
+    delete:
+      tags:
+      - Glossary Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>deletes a glossary by id from the secure data zone
+      operationId: deleteGlossary
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/metadata/glossary/import:
+    post:
+      tags:
+      - Glossary Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a file of glossary items; field names in file must match Glossary structure; any field not standard will be added to the properties sub-document; each record is an no upsert (id field will be the key)
+      operationId: postGlossaryFile
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+              required:
+              - file
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/metadata/glossary/{id}/history:
+    get:
+      tags:
+      - Glossary Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a glossary
+      operationId: getHistory_4
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Glossary'
+  /api/metadata/glossary/search:
+    get:
+      tags:
+      - Glossary Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms
+      operationId: getSearch_4
+      parameters:
+      - name: terms
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Glossary'
+                uniqueItems: true
+  /api/metadata/glossary/export:
+    get:
+      tags:
+      - Glossary Metadata APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Export glossaries as JSON
+      operationId: exportGlossary
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+components:
+  schemas:
+    Glossary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        term:
+          type: string
+          minLength: 1
+        type:
+          type: string
+        description:
+          type: string
+        abbreviations:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
+        aliases:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
+        groupName:
+          type: string
+        properties:
+          type: object
+      required:
+      - id
+      - term

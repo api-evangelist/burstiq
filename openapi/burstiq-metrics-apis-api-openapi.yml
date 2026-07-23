@@ -1,0 +1,126 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs Metrics APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: Metrics APIs
+  description: Set of operations metrics in a secure data zone
+paths:
+  /api/metrics/sdz:
+    get:
+      tags:
+      - Metrics APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>full set of sdz metrics
+      operationId: getSDZMetrics
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SDZMetrics'
+components:
+  schemas:
+    SDZMetrics:
+      type: object
+      properties:
+        customer:
+          type: string
+          minLength: 1
+        sdz:
+          type: string
+          minLength: 1
+        realm:
+          type: string
+          enum:
+          - PROD
+          - UAT
+          - STAGE
+          - DEV
+          - TRIAL
+        enabled:
+          type: boolean
+        lastUpdated:
+          type: string
+          format: date-time
+        totalNodes:
+          type: integer
+          format: int64
+        totalEdges:
+          type: integer
+          format: int64
+        totalBlobs:
+          type: integer
+          format: int64
+        totalBlobsGB:
+          type: number
+        chainMetrics:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ChainMetrics'
+          minProperties: 1
+      required:
+      - chainMetrics
+      - customer
+      - enabled
+      - lastUpdated
+      - realm
+      - sdz
+      - totalBlobs
+      - totalBlobsGB
+      - totalEdges
+      - totalNodes
+    ChainMetrics:
+      type: object
+      properties:
+        assets:
+          type: integer
+          format: int64
+        smartContracts:
+          type: integer
+          format: int64
+        consentContracts:
+          type: integer
+          format: int64
+        blobs:
+          type: integer
+          format: int64
+        blobsGB:
+          type: number
+        assetsHistory:
+          type: integer
+          format: int64
+        smartContractsHistory:
+          type: integer
+          format: int64
+        consentContractsHistory:
+          type: integer
+          format: int64
+        smartContractsReceipts:
+          type: integer
+          format: int64
+        consentContractsReceipts:
+          type: integer
+          format: int64
+        blobsGBFromBytes:
+          type: integer
+          format: int64
+          writeOnly: true
+      required:
+      - assets
+      - assetsHistory
+      - blobs
+      - blobsGB
+      - consentContracts
+      - consentContractsHistory
+      - consentContractsReceipts
+      - smartContracts
+      - smartContractsHistory
+      - smartContractsReceipts

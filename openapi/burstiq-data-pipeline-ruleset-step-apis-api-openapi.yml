@@ -1,0 +1,218 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs Data Pipeline RuleSet Step APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: Data Pipeline RuleSet Step APIs
+  description: RuleSet Step is a step used in Data Pipelines and is used to execute a series of rules
+paths:
+  /api/metadata/datapipeline/steps/ruleset/{id}:
+    get:
+      tags:
+      - Data Pipeline RuleSet Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get RuleSetStep by id
+      operationId: getRuleSetStepId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RuleSetStep'
+    put:
+      tags:
+      - Data Pipeline RuleSet Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a RuleSetStep
+      operationId: putRuleSetStep
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleSetStep'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RuleSetStep'
+    delete:
+      tags:
+      - Data Pipeline RuleSet Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete RuleSetStep by id
+      operationId: deleteRuleSetStepById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/metadata/datapipeline/steps/ruleset:
+    get:
+      tags:
+      - Data Pipeline RuleSet Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get RuleSetStep by query
+      operationId: getQueryRuleSetSteps
+      parameters:
+      - name: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RuleSetStep'
+    post:
+      tags:
+      - Data Pipeline RuleSet Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a new RuleSetStep
+      operationId: postStep
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleSetStep'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RuleSetStep'
+  /api/metadata/datapipeline/steps/ruleset/{id}/trial-run:
+    post:
+      tags:
+      - Data Pipeline RuleSet Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>using step id, looks up the step and executes a single step against a single data record and returns what the result would be
+      operationId: postRuleSetStepTrialRun
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataPipelineInput'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DataPipelineInput'
+  /api/metadata/datapipeline/steps/ruleset/{id}/history:
+    get:
+      tags:
+      - Data Pipeline RuleSet Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a ruleSetStep
+      operationId: getHistory_9
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RuleSetStep'
+components:
+  schemas:
+    RuleSetStep:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        ruleIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          minItems: 1
+          uniqueItems: true
+      required:
+      - name
+      - ruleIds
+    DataPipelineInput:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+      required:
+      - data

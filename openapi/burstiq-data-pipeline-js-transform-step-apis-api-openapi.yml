@@ -1,0 +1,216 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs Data Pipeline JS Transform Step APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: Data Pipeline JS Transform Step APIs
+  description: JS Transform  Step is a step used in Data Pipelines and is used to transform fields
+paths:
+  /api/metadata/datapipeline/steps/transform/{id}:
+    get:
+      tags:
+      - Data Pipeline JS Transform Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get JSTransformStep by id
+      operationId: getJSTransformStepById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/JSTransformStep'
+    put:
+      tags:
+      - Data Pipeline JS Transform Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a JsTransformStep
+      operationId: putJSTransformStep
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JSTransformStep'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/JSTransformStep'
+    delete:
+      tags:
+      - Data Pipeline JS Transform Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete JSTransformStep by id
+      operationId: deleteJSTransformStepById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/metadata/datapipeline/steps/transform:
+    get:
+      tags:
+      - Data Pipeline JS Transform Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get JSTransformSteps by query
+      operationId: getQueryJSTransformSteps
+      parameters:
+      - name: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JSTransformStep'
+    post:
+      tags:
+      - Data Pipeline JS Transform Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a new JsTransformStep
+      operationId: postJSTransformStep
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JSTransformStep'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/JSTransformStep'
+  /api/metadata/datapipeline/steps/transform/{id}/trial-run:
+    post:
+      tags:
+      - Data Pipeline JS Transform Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>using step id, looks up the step and executes a single step against a single data record and returns what the result would be
+      operationId: postJsTransformStepTrialRun
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataPipelineInput'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DataPipelineInput'
+  /api/metadata/datapipeline/steps/transform/{id}/history:
+    get:
+      tags:
+      - Data Pipeline JS Transform Step APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a jSTransformStep
+      operationId: getHistory_8
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JSTransformStep'
+components:
+  schemas:
+    JSTransformStep:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        funcName:
+          type: string
+        jsBase64:
+          type: string
+          minLength: 1
+      required:
+      - jsBase64
+      - name
+    DataPipelineInput:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+      required:
+      - data

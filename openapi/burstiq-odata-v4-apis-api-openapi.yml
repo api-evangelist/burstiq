@@ -1,0 +1,51 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs OData v4 APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: OData v4 APIs
+  description: 'Reference OData v4 documentation for usage: https://www.odata.org/getting-started/'
+paths:
+  /api/odata/v4/full:
+    get:
+      tags:
+      - OData v4 APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API
+      operationId: getProcess
+      responses:
+        '200':
+          description: OK
+  /api/odata/v4/full/*:
+    get:
+      tags:
+      - OData v4 APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API
+      operationId: getProcess_1
+      responses:
+        '200':
+          description: OK
+  /api/odata/v4/basic/*:
+    get:
+      tags:
+      - OData v4 APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex data
+      operationId: getProcessBasic
+      responses:
+        '200':
+          description: OK
+  /api/odata/v4/basic:
+    get:
+      tags:
+      - OData v4 APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex data
+      operationId: getProcessBasic_1
+      responses:
+        '200':
+          description: OK

@@ -1,0 +1,191 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs Customer Directory APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: Customer Directory APIs
+  description: Manages all customers and their Secure Data Zones
+paths:
+  /api/directory/{customerShortName}:
+    get:
+      tags:
+      - Customer Directory APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>biqAdmin</li><li>customerOwner</li><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the customer based on customer short name
+      operationId: getCustomer
+      parameters:
+      - name: customerShortName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Customer'
+  /api/directory/{customerShortName}/securedatazones:
+    get:
+      tags:
+      - Customer Directory APIs
+      description: '<b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>DEPRECATED: Use /{customerShortName}/available_sdzs instead. | Get secure data zones by based on customer short name.<b><br/><br/>Deprecated since 04 FEB 2025</b>'
+      operationId: getCustomerSDZNames
+      parameters:
+      - name: customerShortName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+                uniqueItems: true
+      deprecated: true
+  /api/directory/{customerShortName}/available_sdzs:
+    get:
+      tags:
+      - Customer Directory APIs
+      description: <b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>get secure data zones by based on customer short name
+      operationId: getCustomerSDZsWithRealm
+      parameters:
+      - name: customerShortName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties:
+                    type: string
+                uniqueItems: true
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        shortName:
+          type: string
+          minLength: 1
+        legalName:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        keycloakURL:
+          type: string
+          format: uri
+        keycloakRealm:
+          type: string
+        enabledServices:
+          type: array
+          items:
+            type: string
+            enum:
+            - DID_VC
+            - BLOBS
+            - DATA_PIPELINE
+            - UNKNOWN
+          uniqueItems: true
+        secureDataZones:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecureDataZone'
+        contactEmails:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
+        trial:
+          type: boolean
+        trialEndDate:
+          type: string
+          format: date-time
+        enabled:
+          type: boolean
+      required:
+      - legalName
+      - shortName
+    NotificationSubscription:
+      type: object
+      properties:
+        callbackURL:
+          type: string
+          format: uri
+        queueArn:
+          type: string
+        modifySDO:
+          type: boolean
+        smartContractExec:
+          type: boolean
+        fileUploadJob:
+          type: boolean
+        fileDownloadJob:
+          type: boolean
+    SecureDataZone:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        realm:
+          type: string
+          enum:
+          - PROD
+          - UAT
+          - STAGE
+          - DEV
+          - TRIAL
+        fingerprintKdks:
+          type: object
+          additionalProperties:
+            type: string
+        disableSignature:
+          type: boolean
+        strictDates:
+          type: boolean
+        throttleCapacity:
+          type: integer
+          format: int32
+          minimum: 0
+        notificationSubscription:
+          $ref: '#/components/schemas/NotificationSubscription'
+        dbHost:
+          type: string
+          minLength: 1
+        dbUsername:
+          type: string
+        dbPassword:
+          type: string
+        dbName:
+          type: string
+          minLength: 1
+      required:
+      - dbHost
+      - dbName
+      - name
+      - realm

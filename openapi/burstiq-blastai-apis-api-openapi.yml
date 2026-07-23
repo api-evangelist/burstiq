@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: BlastAI APIs
+  description: Set of operations for Blast AI
+paths:
+  /api/blastai/conversation/user:
+    post:
+      tags:
+      - BlastAI APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>request conversational response to user's prompt; where the user is a developer/admin/user
+      operationId: postDevConversation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ConversationResponse'
+  /api/blastai/conversation/public:
+    post:
+      tags:
+      - BlastAI APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>request conversational response to user's prompt; where the user is a public user, not a customer
+      operationId: postCorpConversation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ConversationResponse'
+  /api/blastai/conversation/{conversationId}:
+    get:
+      tags:
+      - BlastAI APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get conversation history
+      operationId: getConversationHistory
+      parameters:
+      - name: conversationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ConversationHistory'
+components:
+  schemas:
+    Conversation:
+      type: object
+      properties:
+        requestDateTime:
+          type: string
+          format: date-time
+        prompt:
+          type: string
+        answer:
+          type: string
+    ConversationRequest:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          format: uuid
+        userPrompt:
+          type: string
+        approvalToUseMetadata:
+          type: boolean
+    ConversationHistory:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          format: uuid
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/Conversation'
+    ConversationResponse:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          format: uuid
+        answer:
+          type: string

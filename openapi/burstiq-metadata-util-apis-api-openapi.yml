@@ -1,0 +1,455 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs Metadata Util APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: Metadata Util APIs
+  description: various metadata endpoints/functions
+paths:
+  /api/metadata/search:
+    get:
+      tags:
+      - Metadata Util APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms across all the metadata; any of the terms
+      operationId: getSearchMetadata
+      parameters:
+      - name: terms
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SearchResults'
+  /api/metadata/export:
+    get:
+      tags:
+      - Metadata Util APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>exports metadata as XLSX file
+      operationId: getExport
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+components:
+  schemas:
+    Terms:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        documentBase64:
+          type: string
+          minLength: 1
+        version:
+          type: string
+        type:
+          type: string
+        active:
+          type: boolean
+      required:
+      - active
+      - documentBase64
+      - id
+      - name
+    Dictionary:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        displayName:
+          type: string
+        groupName:
+          type: string
+        layoutMetadata:
+          type: object
+        undefinedAttributesAction:
+          type: string
+          enum:
+          - KEEP
+          - REMOVE
+          - ERROR
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeDef'
+        indexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndexDef'
+          maxItems: 50
+          minItems: 0
+        properties:
+          type: object
+      required:
+      - attributes
+      - name
+      - undefinedAttributesAction
+    SearchResults:
+      type: object
+      properties:
+        dictionaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dictionary'
+          uniqueItems: true
+        edgeDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeDef'
+          uniqueItems: true
+        userGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserGroup'
+          uniqueItems: true
+        userWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserWallet'
+          uniqueItems: true
+        systemWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemWallet'
+          uniqueItems: true
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Terms'
+          uniqueItems: true
+        dataPipelines:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipeline'
+          uniqueItems: true
+        glossaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Glossary'
+          uniqueItems: true
+    EdgeColumn:
+      type: object
+      properties:
+        fromCol:
+          type: string
+          minLength: 1
+        toCol:
+          type: string
+          minLength: 1
+      required:
+      - fromCol
+      - toCol
+    AttributeDef:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        displayName:
+          type: string
+        datatype:
+          type: string
+          enum:
+          - STRING
+          - INTEGER
+          - LONG
+          - STRING_REFERENCE
+          - INTEGER_REFERENCE
+          - LONG_REFERENCE
+          - BOOLEAN
+          - DECIMAL
+          - DATE
+          - DATETIME
+          - ENUM
+          - FINGERPRINT
+          - CLOB
+          - BLOB
+          - OBJECT
+          - STRING_ARRAY
+          - INTEGER_ARRAY
+          - LONG_ARRAY
+          - STRING_REFERENCE_ARRAY
+          - INTEGER_REFERENCE_ARRAY
+          - LONG_REFERENCE_ARRAY
+          - BOOLEAN_ARRAY
+          - DECIMAL_ARRAY
+          - DATE_ARRAY
+          - DATETIME_ARRAY
+          - ENUM_ARRAY
+          - BLOB_ARRAY
+          - OBJECT_ARRAY
+          - VECTOR
+        required:
+          type: boolean
+        precision:
+          type: integer
+          format: int32
+        defaultValue:
+          type: string
+        min:
+          type: number
+        max:
+          type: number
+        regex:
+          type: string
+        enumValues:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
+        fingerprintAttributes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        vectorAttributes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        referenceDictionaryName:
+          type: string
+      required:
+      - datatype
+      - enumValues
+      - fingerprintAttributes
+      - name
+      - vectorAttributes
+    UserGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        group:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+      required:
+      - group
+      - id
+      - name
+    UserWallet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        privateKey:
+          type: string
+          minLength: 1
+        publicKey:
+          type: string
+          minLength: 1
+        email:
+          type: string
+          minLength: 1
+        fullName:
+          type: string
+          minLength: 1
+        principal:
+          type: string
+        termsAgreed:
+          type: array
+          items:
+            $ref: '#/components/schemas/TermsAgreed'
+      required:
+      - email
+      - fullName
+      - id
+      - privateKey
+      - publicKey
+    Glossary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        term:
+          type: string
+          minLength: 1
+        type:
+          type: string
+        description:
+          type: string
+        abbreviations:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
+        aliases:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
+        groupName:
+          type: string
+        properties:
+          type: object
+      required:
+      - id
+      - term
+    DataPipeline:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        stepIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      required:
+      - id
+      - name
+    IndexDef:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        attributes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          minItems: 1
+        type:
+          type: string
+          enum:
+          - PRIMARY
+          - UNIQUE
+          - NORMAL
+          - KEYWORD
+          - FULL
+          - VECTOR
+        numDimensions:
+          type: integer
+          format: int32
+          maximum: 8192
+          minimum: 1
+        partialFilterTql:
+          type: string
+      required:
+      - attributes
+      - name
+      - numDimensions
+      - type
+    EdgeDef:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        fromDictionary:
+          type: string
+          minLength: 1
+        toDictionary:
+          type: string
+          minLength: 1
+        condition:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeColumn'
+          minItems: 1
+      required:
+      - condition
+      - fromDictionary
+      - id
+      - name
+      - toDictionary
+    SystemWallet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        privateKey:
+          type: string
+          minLength: 1
+        publicKey:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          enum:
+          - CUSTODIAN_OWNER
+          - CUSTODIAN_LIMITED_OWNER
+          - TENANT_OWNER
+          - TENANT_LIMITED_OWNER
+        description:
+          type: string
+          minLength: 1
+        writeUserGroup:
+          type: string
+          format: uuid
+        accessControlUserGroup:
+          type: string
+          format: uuid
+      required:
+      - accessControlUserGroup
+      - description
+      - id
+      - privateKey
+      - publicKey
+      - type
+    TermsAgreed:
+      type: object
+      properties:
+        termsId:
+          type: string
+          format: uuid
+        metadata:
+          type: object
+        agreedAt:
+          type: string
+          format: date-time
+      required:
+      - agreedAt
+      - termsId

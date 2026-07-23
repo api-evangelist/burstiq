@@ -1,0 +1,156 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs Wallet APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: Wallet APIs
+  description: For interacting with wallets when the type of wallet (user or system) is unknown
+paths:
+  /api/metadata/wallet:
+    get:
+      tags:
+      - Wallet APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query user OR system wallets from the secure data zone
+      operationId: getQueryWallets
+      parameters:
+      - name: email
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fullName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: ids
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/WalletResolverResponse'
+components:
+  schemas:
+    WalletResolverResponse:
+      type: object
+      properties:
+        userWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserWalletResponse'
+        systemWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemWalletResponse'
+    UserWalletResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        principal:
+          type: string
+        email:
+          type: string
+        fullName:
+          type: string
+        termsAgreed:
+          type: array
+          items:
+            $ref: '#/components/schemas/TermsAgreed'
+        hash:
+          type: string
+        author:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+    SystemWalletResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        description:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          enum:
+          - CUSTODIAN_OWNER
+          - CUSTODIAN_LIMITED_OWNER
+          - TENANT_OWNER
+          - TENANT_LIMITED_OWNER
+        accessControlUserGroup:
+          type: string
+          format: uuid
+        writeUserGroup:
+          type: string
+          format: uuid
+        hash:
+          type: string
+        author:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - accessControlUserGroup
+      - description
+      - id
+      - type
+    TermsAgreed:
+      type: object
+      properties:
+        termsId:
+          type: string
+          format: uuid
+        metadata:
+          type: object
+        agreedAt:
+          type: string
+          format: date-time
+      required:
+      - agreedAt
+      - termsId

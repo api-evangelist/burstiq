@@ -1,0 +1,263 @@
+openapi: 3.1.0
+info:
+  title: LifeGraph APIs BlastAI APIs Data Pipeline APIs API
+  description: LifeGraph API descriptions
+  license:
+    name: BurstIQ, Inc.
+    url: https://www.burstiq.com
+  version: 2.42.0
+servers:
+- url: https://api.burstiq.com
+  description: Generated server url
+tags:
+- name: Data Pipeline APIs
+  description: Data Pipelines are managed for use of manipulating data
+paths:
+  /api/metadata/datapipeline/{id}:
+    get:
+      tags:
+      - Data Pipeline APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get data pipeline in the secure data zone
+      operationId: getIPById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DataPipeline'
+    put:
+      tags:
+      - Data Pipeline APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a data pipeline in the secure data zone (see POST for description of body)
+      operationId: putPipeline
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataPipeline'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DataPipeline'
+    delete:
+      tags:
+      - Data Pipeline APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>get data pipeline in the secure data zone
+      operationId: deleteById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/metadata/datapipeline:
+    get:
+      tags:
+      - Data Pipeline APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query data pipelines from the secure data zone
+      operationId: getPipelines
+      parameters:
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: stepIdsContains
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataPipeline'
+    post:
+      tags:
+      - Data Pipeline APIs
+      description: "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a data pipeline in the secure data zone.\n\nFor all the details, see the Dev Docs!\n\nAn data pipeline is a series of steps (at least 1) that GraphChain will process inbound\ndata through. These steps are of 3 types:  Field Mapping, JavaScript Transform, and\nRules.  The input to the first step is the full record of the inbound data. The output\nof that step is then the input into the next step and so forth.\n\nThe structure of an data pipeline is name, stepIds (optional), and description\n(optional).  This is the basic structure:\n\n<pre>\n{\n  \"name\": \"testPipeline\",\n  \"description\": \"a test pipeline\",\n  \"stepIds\": [ ... ]\n}\n</pre>\n\nThe stepIds are an array of stepIds these stepIds refer to objects of these three types.\n\n* FieldMappingStep\n\n* JSTransformStep\n\n* RuleSetStep\n\nThis typically is the order of simplest to most complex of steps.  Each subsequent step\nin the list is capable of performing the functions of the previous steps.  It is up to\nthe admin (or developer) to decide the best tool for the job.\n\n<b>FieldMappingStep</b>\n\nThis step will rename inbound field names into the field (attribute) names expected by\nthe dictionary. Can rename nested attributes too, using a dot path notation.  Not all\nfields must be in the map; if the inbound field name is already correct it can be omitted\nfrom the map.  If a field is in the map but the value is NULL then it will be removed from\nthe inbound data.\n\nThe step has a required map field and type field (FIELD_MAPPING). The name and description\nfields are optional, the exist to help the user with documentation.\n\n\n<b>JSTransformStep</b>\n\nThis step will take the entire inbound data record as the only argument to a function.\nThat function needs to return a JS dictionary (object) as the return value.  The\ntype (JS_TRANSFORM) and jsBase64 fields are required. The JavaScript can contain more\nthan 1 function if that helps the developer, but there must be one function that is the\nentry point of the transform.  If the developer names that function \"xform\" then the\nfuncName field is not required (since it defaults to xform). In this case the JS has a\nfunction called \"convert\" that should be called.  The name and description fields are\noptional for this step just like Field Mapping (omitted here for example).\n\n<b>RuleSetStep</b>\n\nThe final step available is RuleSet, a Ruleset contains an array of ruleIds, each ruleId\nrefers to  a Drools Rule that is to be executed.  This rule set can be used\nfor numerous use-cases: field mapping, transforming data, applying data quality rules,\nrejecting or tagging data as issues.  T\n"
+      operationId: postPipeline
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataPipeline'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DataPipeline'
+  /api/metadata/datapipeline/{id}/trial-run:
+    post:
+      tags:
+      - Data Pipeline APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>using datapipeline id, looks up the steps and executes a each step in sequence against a single data record and returns what the result would be
+      operationId: postDataPipelineTrialRun
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataPipelineInput'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DataPipelineInput'
+  /api/metadata/datapipeline/{id}/history:
+    get:
+      tags:
+      - Data Pipeline APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a dataPipeline
+      operationId: getHistory_7
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataPipeline'
+  /api/metadata/datapipeline/summary:
+    get:
+      tags:
+      - Data Pipeline APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get step summary info for all steps in the secure data zone
+      operationId: getStepSummaries
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: object
+  /api/metadata/datapipeline/search:
+    get:
+      tags:
+      - Data Pipeline APIs
+      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms
+      operationId: getSearch_7
+      parameters:
+      - name: terms
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataPipeline'
+                uniqueItems: true
+components:
+  schemas:
+    DataPipelineInput:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+      required:
+      - data
+    DataPipeline:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        stepIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      required:
+      - id
+      - name

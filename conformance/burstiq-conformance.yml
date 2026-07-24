@@ -1,0 +1,22 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/burstiq-lifegraph-openapi-original.json
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: spec declares openapi 3.1.0
+- id: odata-v4
+  conforms: true
+  evidence: dedicated "OData v4 APIs" tag with /api/odata/v4/basic and /api/odata/v4/full endpoints
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 securityScheme; API uses bearer-token (JWT) auth
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: spec documents only 200 responses; no application/problem+json envelopes declared
+- id: fhir-r4
+  conforms: false
+  evidence: health-data platform but no FHIR resource shapes in the graph/wallet model
+- id: rfc8594-sunset
+  conforms: false
+  evidence: no Sunset/Deprecation header contract documented

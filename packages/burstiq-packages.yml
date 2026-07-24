@@ -1,0 +1,21 @@
+generated: '2026-07-18'
+method: searched
+source: npm registry
+note: >-
+  Only one first-party package located. `create-burstiq-workspace` is an official
+  BurstIQ npm initializer (author "BurstIQ", homepage burstiq.com) that scaffolds
+  an NX monorepo and bundles BurstIQ's Angular client libraries for building on
+  BurstChain/LifeGraph. No first-party PyPI, Maven, NuGet, Go, RubyGems, or crates
+  package was found (the PyPI `lifegraph` package is an unrelated third-party project).
+packages:
+- language: javascript
+  registry: npm
+  name: create-burstiq-workspace
+  url: https://www.npmjs.com/package/create-burstiq-workspace
+  install: npm create burstiq-workspace
+  version: 0.7.0
+  official: true
+  kind: workspace-scaffolder
+  description: >-
+    Installer that scaffolds a BurstIQ NX monorepo and includes BurstIQ's Angular
+    libraries to jump-start development against BurstChain.

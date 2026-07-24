@@ -1,0 +1,28 @@
+# BurstIQ
+
+> BurstIQ is a health-and-data company whose LifeGraph platform combines a
+> blockchain-secured knowledge graph (GraphChain), granular consent/ownership
+> wallets, and data pipelines to power trusted, agent-ready enterprise data.
+> The LifeGraph REST API (OpenAPI 3.1, v2.42.0) exposes GraphChain assets,
+> user/system wallets, data pipelines, and an OData v4 query surface.
+
+## APIs
+- [LifeGraph APIs](https://docs.burstiq.com): GraphChain assets (SDOs), wallets, dictionaries/glossaries/edges metadata, data pipelines, jobs, and OData v4 query. Base URL https://api.burstiq.com. Bearer (JWT) auth.
+
+## Specs
+- [OpenAPI 3.1 (LifeGraph)](https://api.burstiq.com/v3/api-docs): 125 paths / 171 operations / 112 schemas.
+
+## Artifacts
+- [Authentication](authentication/burstiq-authentication.yml): runtime-enforced bearer JWT.
+- [Conventions](conventions/burstiq-conventions.yml): offset pagination (limit/skip), OData v4, versioning.
+- [Conformance](conformance/burstiq-conformance.yml): OpenAPI 3.1, OData v4.
+- [Data model](data-model/burstiq-data-model.yml): 112 entities, 74 relationships.
+- [Agentic access](agentic-access/burstiq-agentic-access.yml): recommended x-agentic-access contracts for 171 operations.
+- [MCP (candidate)](mcp/burstiq-mcp.yml): 171 candidate tools derived from the OpenAPI.
+- [Agent Skills](skills/_index.yml): GraphChain asset lifecycle, user wallet management, data pipeline run.
+- [Packages](packages/burstiq-packages.yml): create-burstiq-workspace (npm, official).
+
+## Docs
+- [GraphChain Docs](https://docs.burstiq.com)
+- [BurstIQ](https://burstiq.com)
+- [Blog](https://burstiq.com/blog)

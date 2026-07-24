@@ -1,0 +1,20 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/burstiq-lifegraph-openapi-original.json
+versioning:
+  scheme: semantic (spec version) + uri-path
+  current: 2.42.0
+  api_prefix: /api
+  spec_docs: https://api.burstiq.com/v3/api-docs
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: no deprecation policy or RFC 8594 Sunset support found
+sla:
+  url: null
+status_page: null
+status_page_note: >-
+  burstiq.statuspage.io resolves but returns the default unconfigured Atlassian
+  Statuspage placeholder, not a claimed BurstIQ status page; not asserted.
+deprecated_operations: []
+deprecated_operations_note: no operations marked deprecated:true in the OpenAPI

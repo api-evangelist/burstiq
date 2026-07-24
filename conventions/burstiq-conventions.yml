@@ -1,0 +1,37 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/burstiq-lifegraph-openapi-original.json
+note: >-
+  Cross-cutting request/response semantics derived from the LifeGraph OpenAPI.
+  BurstIQ's public GraphChain docs (https://docs.burstiq.com) render client-side,
+  so prose conventions could not be captured verbatim; values here are what the
+  spec implies.
+authentication:
+  style: bearer-token (JWT)
+  header: 'Authorization: Bearer <token>'
+  detail: authentication/burstiq-authentication.yml
+pagination:
+  style: offset
+  params:
+  - limit
+  - skip
+  detail: query parameters observed on list/search operations
+idempotency:
+  supported: false
+  detail: no Idempotency-Key header or idempotent-retry contract found in the spec
+versioning:
+  scheme: uri-path + semantic spec version
+  api_prefix: /api
+  spec_docs_path: /v3/api-docs
+  current_spec_version: 2.42.0
+base_url: https://api.burstiq.com
+odata:
+  supported: true
+  detail: OData v4 query surface under /api/odata/v4/{basic,full}
+error_envelope:
+  detail: not documented in spec (only 200 responses declared); runtime returns HTTP 401 for unauthenticated calls
+cross_links:
+  authentication: authentication/burstiq-authentication.yml
+  conformance: conformance/burstiq-conformance.yml
+  lifecycle: lifecycle/burstiq-lifecycle.yml
+  data_model: data-model/burstiq-data-model.yml

@@ -1,25 +1,401 @@
 aid: burstiq
 name: BurstIQ
-description: BurstIQ is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  BurstIQ is a health-and-data technology company whose LifeGraph platform pairs a
+  blockchain-secured knowledge graph (GraphChain) with granular consent-and-ownership
+  wallets and configurable data pipelines to give enterprises trusted, agent-ready
+  data. The LifeGraph REST API (OpenAPI 3.1, version 2.42.0) exposes 171 operations
+  across GraphChain Smart Data Objects, user and system wallets, dictionaries,
+  glossaries, edge definitions, data pipelines, job management, and an OData v4
+  query surface, secured with bearer (JWT) authentication. BurstIQ was surfaced as a
+  500 Global portfolio company and enriched into the API Evangelist network.
 url: https://raw.githubusercontent.com/api-evangelist/burstiq/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: live-openapi-found
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://burstiq.com/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Health
+- Data
+- Blockchain
+- Knowledge Graph
+- Consent
+- Agentic AI
+apis:
+- aid: burstiq:burstiq-blastai-apis-api
+  name: BurstIQ BlastAI APIs API
+  description: Set of operations for Blast AI
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - BlastAI APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-blastai-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-customer-directory-apis-api
+  name: BurstIQ Customer Directory APIs API
+  description: Manages all customers and their Secure Data Zones
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Customer Directory APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-customer-directory-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-data-pipeline-apis-api
+  name: BurstIQ Data Pipeline APIs API
+  description: Data Pipelines are managed for use of manipulating data
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Data Pipeline APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-data-pipeline-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-data-pipeline-field-mapping-step-apis-api
+  name: BurstIQ Data Pipeline Field Mapping Step APIs API
+  description: Field Mapping Step is a step used in Data Pipelines and is used to map fields
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Data Pipeline Field Mapping Step APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-data-pipeline-field-mapping-step-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-data-pipeline-js-transform-step-apis-api
+  name: BurstIQ Data Pipeline JS Transform Step APIs API
+  description: JS Transform  Step is a step used in Data Pipelines and is used to transform fields
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Data Pipeline JS Transform Step APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-data-pipeline-js-transform-step-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-data-pipeline-rule-apis-api
+  name: BurstIQ Data Pipeline Rule APIs API
+  description: DataPipeline Rule are created individually then later added to rule sets
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Data Pipeline Rule APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-data-pipeline-rule-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-data-pipeline-ruleset-step-apis-api
+  name: BurstIQ Data Pipeline RuleSet Step APIs API
+  description: RuleSet Step is a step used in Data Pipelines and is used to execute a series of rules
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Data Pipeline RuleSet Step APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-data-pipeline-ruleset-step-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-dbschema-apis-api
+  name: BurstIQ DbSchema APIs API
+  description: >-
+    DbSchema is an alternative method to define the dictionaries of the SDZ; it is a 3rd party tool https://dbschema.com/
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - DbSchema APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-dbschema-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-dictionary-metadata-apis-api
+  name: BurstIQ Dictionary Metadata APIs API
+  description: >-
+    Dictionaries are schemas essentially, they describe the data allowed within a Node of a LifeGraph
+    (can be thought of as a record too); a Node in the LG is akin to a Smart Data Object
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Dictionary Metadata APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-dictionary-metadata-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-edge-definition-metadata-apis-api
+  name: BurstIQ Edge Definition Metadata APIs API
+  description: >-
+    Edge Definitions are required for the system to know what edges are allowed between live node data
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Edge Definition Metadata APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-edge-definition-metadata-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-glossary-metadata-apis-api
+  name: BurstIQ Glossary Metadata APIs API
+  description: >-
+    Glossary items hold no actual function in the secure data zone, merely a method for defining the business
+    terms, usage, interactions, etc of the data within the SDZ
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Glossary Metadata APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-glossary-metadata-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-graph-chain-apis-api
+  name: BurstIQ Graph Chain APIs API
+  description: >-
+    In basic terms, these endpoints are the CRUD+T operations for transactional data on the platform
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Graph Chain APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-graph-chain-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-job-manager-apis-api
+  name: BurstIQ Job Manager APIs API
+  description: >-
+    Platform support asynchronous jobs, and these endpoints allow for the creation, status, and management
+    of these jobs
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Job Manager APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-job-manager-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-metadata-util-apis-api
+  name: BurstIQ Metadata Util APIs API
+  description: various metadata endpoints/functions
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Metadata Util APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-metadata-util-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-metrics-apis-api
+  name: BurstIQ Metrics APIs API
+  description: Set of operations metrics in a secure data zone
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Metrics APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-metrics-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-odata-v4-apis-api
+  name: BurstIQ OData v4 APIs API
+  description: 'Reference OData v4 documentation for usage: https://www.odata.org/getting-started/'
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - OData v4 APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-odata-v4-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-sdz-specific-term-apis-api
+  name: BurstIQ SDZ Specific Term APIs API
+  description: >-
+    Terms are managed for the developer's use to find, present terms to users and records acceptance
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - SDZ Specific Term APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-sdz-specific-term-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-system-wallet-apis-api
+  name: BurstIQ System Wallet APIs API
+  description: >-
+    System wallets are used for non-humans to perform functions in the platform; ie custodian, etc
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - System Wallet APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-system-wallet-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-user-group-apis-api
+  name: BurstIQ User Group APIs API
+  description: >-
+    User Groups are ways of identifying groups of users by name and referencing in various parts of the
+    platform
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - User Group APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-user-group-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-user-wallet-apis-api
+  name: BurstIQ User Wallet APIs API
+  description: For managing and obtaining information about user wallets
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - User Wallet APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-user-wallet-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
+- aid: burstiq:burstiq-wallet-apis-api
+  name: BurstIQ Wallet APIs API
+  description: For interacting with wallets when the type of wallet (user or system) is unknown
+  humanURL: https://docs.burstiq.com
+  baseURL: https://api.burstiq.com
+  tags:
+  - Wallet APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/burstiq-wallet-apis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.burstiq.com
+  - type: APIReference
+    url: https://docs.burstiq.com/api-docs
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/burstiq-agentic-access.yml
+- type: DomainSecurity
+  url: security/burstiq-domain-security.yml
+- type: Authentication
+  url: authentication/burstiq-authentication.yml
+- type: MCPServer
+  url: mcp/burstiq-mcp.yml
+- type: LLMsTxt
+  url: llms/burstiq-llms.txt
+- type: Overlay
+  url: overlays/burstiq-lifegraph-overlay.yaml
+- type: Conformance
+  url: conformance/burstiq-conformance.yml
+- type: Conventions
+  url: conventions/burstiq-conventions.yml
+- type: Lifecycle
+  url: lifecycle/burstiq-lifecycle.yml
+- type: DataModel
+  url: data-model/burstiq-data-model.yml
+- type: Packages
+  url: packages/burstiq-packages.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DeveloperPortal
+  url: https://docs.burstiq.com
+- type: Documentation
+  url: https://docs.burstiq.com
+- type: APIReference
+  url: https://docs.burstiq.com/api-docs
+- type: Blog
+  url: https://burstiq.com/blog
+- type: Support
+  url: https://burstiq.com/contact
+- type: PrivacyPolicy
+  url: https://burstiq.com/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/BurstIQ
 - type: Website
   url: https://burstiq.com
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

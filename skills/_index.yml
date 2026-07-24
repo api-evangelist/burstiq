@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/burstiq-lifegraph-openapi-original.json
+skills:
+- file: burstiq-graphchain-asset-lifecycle.md
+  name: Manage a GraphChain asset lifecycle
+  api: openapi/burstiq-lifegraph-openapi-original.json
+  operations: [postCreateAsset, getSDO, putUpdateAsset, patchAsset, deleteSDO]
+- file: burstiq-user-wallet-management.md
+  name: Manage LifeGraph user wallets
+  api: openapi/burstiq-lifegraph-openapi-original.json
+  operations: [postUserWallet, getQueryUserWallets, getUserWalletById, getUserWalletByEmail, putUpdateUserWallet, putUpdateUserTerms]
+- file: burstiq-data-pipeline-run.md
+  name: Build and trial-run a LifeGraph data pipeline
+  api: openapi/burstiq-lifegraph-openapi-original.json
+  operations: [postPipeline, getPipelines, getIPById, postDataPipelineTrialRun, getHistory_7]

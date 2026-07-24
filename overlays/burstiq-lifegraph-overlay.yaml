@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for BurstIQ LifeGraph APIs
+  version: 1.0.0
+extends: openapi/burstiq-lifegraph-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-18'
+    x-apievangelist-provider: burstiq
+    x-apievangelist-note: >-
+      Enrichment captured a live-enforced bearer (JWT) auth model absent from the
+      source spec, an offset pagination convention (limit/skip), and an OData v4
+      query surface. See authentication/, conventions/, and conformance/ artifacts.
+- target: $.components.securitySchemes
+  update:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: >-
+        Runtime-observed auth. api.burstiq.com returns 401 WWW-Authenticate:Bearer
+        for unauthenticated requests; the source OpenAPI declared no securitySchemes.
+- target: $.info
+  update:
+    x-agentic-access-profile: agentic-access/burstiq-agentic-access.yml

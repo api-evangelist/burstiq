@@ -1,0 +1,292 @@
+{
+  "item": [
+    {
+      "id": "94a7ef95-3984-4f63-8c03-c9e5b55a0d00",
+      "name": "OData v4 APIs",
+      "description": {
+        "content": "Reference OData v4 documentation for usage: https://www.odata.org/getting-started/",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa25eb6e-989e-449b-bc60-c1165b7a5696",
+          "name": "get Process",
+          "request": {
+            "name": "get Process",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "odata",
+                "v4",
+                "full"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "491e1c2a-8fec-4f81-b393-65d963ddb0fb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "odata",
+                    "v4",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "649c3c3a-7484-4396-a156-8768618d53d4",
+          "name": "get Process 1",
+          "request": {
+            "name": "get Process 1",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "odata",
+                "v4",
+                "full",
+                "*"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "236ed2dd-d522-4401-aab1-636b514b819d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "odata",
+                    "v4",
+                    "full",
+                    "*"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7c87d96-c9e1-422a-bceb-6cee52379a68",
+          "name": "get Process Basic",
+          "request": {
+            "name": "get Process Basic",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "odata",
+                "v4",
+                "basic",
+                "*"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e64debd7-07a3-45d1-92c4-285856c31f48",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "odata",
+                    "v4",
+                    "basic",
+                    "*"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "652229e3-419a-4efd-ba4d-c0b1db2d34a3",
+          "name": "get Process Basic 1",
+          "request": {
+            "name": "get Process Basic 1",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "odata",
+                "v4",
+                "basic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f02d0bbc-335a-4859-9eda-ed63e361f606",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "odata",
+                    "v4",
+                    "basic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6ef75f11-51eb-4cac-b0cb-c9e5545762c4",
+    "name": "LifeGraph APIs BlastAI APIs OData v4 APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

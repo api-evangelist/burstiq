@@ -1,0 +1,648 @@
+{
+  "item": [
+    {
+      "id": "f9a799e5-c2aa-4996-8330-6136b2278f24",
+      "name": "Data Pipeline Rule APIs",
+      "description": {
+        "content": "DataPipeline Rule are created individually then later added to rule sets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "68cefaef-8c5b-4ae3-bb82-c439dbab99aa",
+          "name": "get Rule By Id",
+          "request": {
+            "name": "get Rule By Id",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get Rule by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                "rule",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b817b37-43b9-4dbb-8727-b85b83f6d1f1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    "rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"f2e28c5b-3066-e048-8925-d2958f569195\",\n  \"importSet\": [\n    \"string\"\n  ],\n  \"name\": \"stri\",\n  \"thenBase64\": \"string\",\n  \"whenBase64\": \"string\",\n  \"description\": \"string\",\n  \"globalSet\": [\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3fed873-5869-4cfd-8935-a674e88fc053",
+          "name": "put Rule",
+          "request": {
+            "name": "put Rule",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a Rule",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                "rule",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"importSet\": [\n    \"<string>\"\n  ],\n  \"name\": \"<string>\",\n  \"thenBase64\": \"<string>\",\n  \"whenBase64\": \"<string>\",\n  \"description\": \"<string>\",\n  \"globalSet\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d97234c-304b-4d73-97ec-031cd5740edc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    "rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"importSet\": [\n    \"<string>\"\n  ],\n  \"name\": \"<string>\",\n  \"thenBase64\": \"<string>\",\n  \"whenBase64\": \"<string>\",\n  \"description\": \"<string>\",\n  \"globalSet\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"f2e28c5b-3066-e048-8925-d2958f569195\",\n  \"importSet\": [\n    \"string\"\n  ],\n  \"name\": \"stri\",\n  \"thenBase64\": \"string\",\n  \"whenBase64\": \"string\",\n  \"description\": \"string\",\n  \"globalSet\": [\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "481ddb24-9d9b-4e2b-948d-b2fdd5d3dcda",
+          "name": "delete Rule By Id",
+          "request": {
+            "name": "delete Rule By Id",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete Rule by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                "rule",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "947819d1-769c-406b-8059-2f6fdaf3d76f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    "rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7963bea4-b6f8-4ee9-84c8-efc334e9f68e",
+          "name": "get Query Rules",
+          "request": {
+            "name": "get Query Rules",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get Rules by query",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                "rule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e165e5aa-74e0-4165-90c2-5b5aa0d3ad38",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    "rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"4211ec9c-9d19-80d9-65bf-c36cb2b58df1\",\n    \"importSet\": [\n      \"string\"\n    ],\n    \"name\": \"string\",\n    \"thenBase64\": \"string\",\n    \"whenBase64\": \"string\",\n    \"description\": \"string\",\n    \"globalSet\": [\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"ca738758-5db3-b98f-c480-f6245acd595e\",\n    \"importSet\": [\n      \"string\"\n    ],\n    \"name\": \"string\",\n    \"thenBase64\": \"string\",\n    \"whenBase64\": \"string\",\n    \"description\": \"string\",\n    \"globalSet\": [\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50606eec-e248-45aa-9891-fbaf7a406cd8",
+          "name": "post Rule",
+          "request": {
+            "name": "post Rule",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a new Rule",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                "rule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"importSet\": [\n    \"<string>\"\n  ],\n  \"name\": \"<string>\",\n  \"thenBase64\": \"<string>\",\n  \"whenBase64\": \"<string>\",\n  \"description\": \"<string>\",\n  \"globalSet\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c80f8d2b-e786-4830-9d34-997ad5e5afa6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    "rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"importSet\": [\n    \"<string>\"\n  ],\n  \"name\": \"<string>\",\n  \"thenBase64\": \"<string>\",\n  \"whenBase64\": \"<string>\",\n  \"description\": \"<string>\",\n  \"globalSet\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"f2e28c5b-3066-e048-8925-d2958f569195\",\n  \"importSet\": [\n    \"string\"\n  ],\n  \"name\": \"stri\",\n  \"thenBase64\": \"string\",\n  \"whenBase64\": \"string\",\n  \"description\": \"string\",\n  \"globalSet\": [\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9be87c4-124d-473a-8690-4775d60e3b20",
+          "name": "get History 11",
+          "request": {
+            "name": "get History 11",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a rule",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                "rule",
+                ":id",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3afc02e-fd9e-4341-a6fa-68008b3034b0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    "rule",
+                    ":id",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"4211ec9c-9d19-80d9-65bf-c36cb2b58df1\",\n    \"importSet\": [\n      \"string\"\n    ],\n    \"name\": \"string\",\n    \"thenBase64\": \"string\",\n    \"whenBase64\": \"string\",\n    \"description\": \"string\",\n    \"globalSet\": [\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"ca738758-5db3-b98f-c480-f6245acd595e\",\n    \"importSet\": [\n      \"string\"\n    ],\n    \"name\": \"string\",\n    \"thenBase64\": \"string\",\n    \"whenBase64\": \"string\",\n    \"description\": \"string\",\n    \"globalSet\": [\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a18b7795-dbae-441b-8a13-83405eba1704",
+    "name": "LifeGraph APIs BlastAI APIs Data Pipeline Rule APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

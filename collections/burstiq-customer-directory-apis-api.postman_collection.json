@@ -1,0 +1,306 @@
+{
+  "item": [
+    {
+      "id": "d468bc04-d045-4b9d-90f1-feaec971695b",
+      "name": "Customer Directory APIs",
+      "description": {
+        "content": "Manages all customers and their Secure Data Zones",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e70b1139-1f1d-41d9-8a05-ea4131602d91",
+          "name": "get Customer",
+          "request": {
+            "name": "get Customer",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>biqAdmin</li><li>customerOwner</li><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the customer based on customer short name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "directory",
+                ":customerShortName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerShortName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93f26ad8-8cb9-46ff-a80c-5033babff921",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "directory",
+                    ":customerShortName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerShortName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"legalName\": \"string\",\n  \"shortName\": \"string\",\n  \"created\": \"1993-08-02T02:19:26.777Z\",\n  \"description\": \"string\",\n  \"keycloakURL\": \"http://hVyAG.sqqPg05Vjt2Kn,dRAvGNOClqFYqo+N+L9LE9Ze5mwf4lb,uxnBGFUz0G2aBD\",\n  \"keycloakRealm\": \"string\",\n  \"enabledServices\": [\n    \"BLOBS\",\n    \"DATA_PIPELINE\"\n  ],\n  \"secureDataZones\": [\n    {\n      \"dbHost\": \"string\",\n      \"dbName\": \"string\",\n      \"name\": \"string\",\n      \"realm\": \"PROD\",\n      \"fingerprintKdks\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"disableSignature\": true,\n      \"strictDates\": true,\n      \"throttleCapacity\": 4611,\n      \"notificationSubscription\": {\n        \"callbackURL\": \"http://ixrPtUxrTdPzWzHGhYAyrrjqKGj.fapGc7sXxNHWhsREdkkLEBJoo6rGaLod9uJ8tDEGby\",\n        \"queueArn\": \"string\",\n        \"modifySDO\": true,\n        \"smartContractExec\": false,\n        \"fileUploadJob\": false,\n        \"fileDownloadJob\": true\n      },\n      \"dbUsername\": \"string\",\n      \"dbPassword\": \"string\"\n    },\n    {\n      \"dbHost\": \"string\",\n      \"dbName\": \"string\",\n      \"name\": \"string\",\n      \"realm\": \"STAGE\",\n      \"fingerprintKdks\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"disableSignature\": false,\n      \"strictDates\": false,\n      \"throttleCapacity\": 6060,\n      \"notificationSubscription\": {\n        \"callbackURL\": \"http://gxqeHYpcbPYNdxSSvuQuoYAGLjloMKbxX.xdlaiNxRqyRtIh5YZQE+us1t.jc1qnqgHzmwqDtD3WZRctM7ShKM2zwgqM,A6y8Si\",\n        \"queueArn\": \"string\",\n        \"modifySDO\": true,\n        \"smartContractExec\": true,\n        \"fileUploadJob\": true,\n        \"fileDownloadJob\": false\n      },\n      \"dbUsername\": \"string\",\n      \"dbPassword\": \"string\"\n    }\n  ],\n  \"contactEmails\": [\n    \"string\",\n    \"strin\"\n  ],\n  \"trial\": true,\n  \"trialEndDate\": \"1987-12-24T11:52:36.648Z\",\n  \"enabled\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38bf4c6d-b6b6-47c9-904c-b391c3e00569",
+          "name": "get Customer SDZ Names",
+          "request": {
+            "name": "get Customer SDZ Names",
+            "description": {
+              "content": "<b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>DEPRECATED: Use /{customerShortName}/available_sdzs instead. | Get secure data zones by based on customer short name.<b><br/><br/>Deprecated since 04 FEB 2025</b>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "directory",
+                ":customerShortName",
+                "securedatazones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerShortName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38743733-70fa-4e9c-aea6-9948bd463478",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "directory",
+                    ":customerShortName",
+                    "securedatazones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerShortName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f713ff77-c740-40c1-b713-34293549ae4f",
+          "name": "get Customer SD Zs With Realm",
+          "request": {
+            "name": "get Customer SD Zs With Realm",
+            "description": {
+              "content": "<b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>get secure data zones by based on customer short name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "directory",
+                ":customerShortName",
+                "available_sdzs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerShortName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62a9e774-4be8-47f0-80fd-427031307d62",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "directory",
+                    ":customerShortName",
+                    "available_sdzs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerShortName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": \"string\"\n  },\n  {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9f527809-3082-4e85-a4ef-5b0b3ab30cdb",
+    "name": "LifeGraph APIs BlastAI APIs Customer Directory APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

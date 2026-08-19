@@ -1,0 +1,188 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs User Group APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Group APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getUserGroupById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/usergroup/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user group in the secure data zone"
+        },
+        {
+          "info": {
+            "name": "putUpdateUserGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/metadata/usergroup/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>put (update) a User group into the secure data zone"
+        },
+        {
+          "info": {
+            "name": "deleteUserGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/metadata/usergroup/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>delete the user group in the secure data zone"
+        },
+        {
+          "info": {
+            "name": "getQueryUserGroups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/usergroup",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupContains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query user groups from the secure data zone"
+        },
+        {
+          "info": {
+            "name": "postCreateUserGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/metadata/usergroup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>create a User group into the secure data zone"
+        },
+        {
+          "info": {
+            "name": "getHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/usergroup/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a userGroup"
+        },
+        {
+          "info": {
+            "name": "getSearch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/usergroup/search",
+            "params": [
+              {
+                "name": "terms",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms"
+        },
+        {
+          "info": {
+            "name": "getUserGroupByName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/usergroup/lookup",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user group in the secure data zone"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

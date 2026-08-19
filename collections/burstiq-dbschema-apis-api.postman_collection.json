@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "db518ea7-b7d5-434f-8ddc-cea669fcb8fc",
+      "name": "DbSchema APIs",
+      "description": {
+        "content": "DbSchema is an alternative method to define the dictionaries of the SDZ; it is a 3rd party tool https://dbschema.com/",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74a418b7-eb5c-4e48-acf4-9b1ad178741c",
+          "name": "get Export Db Schema Xml",
+          "request": {
+            "name": "get Export Db Schema Xml",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>export the SDZ metadata (dictionaries and edge defs) as DbSchema XML file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dbschema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a479448-b655-44ee-80ce-65a78b53d294",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dbschema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <database>(string)</database>\n  <name>(string)</name>\n  <id>(string)</id>\n  <comment>(string)</comment>\n  <schema>\n    <name>(string)</name>\n    <table>\n      <name>(string)</name>\n      <comment>(string)</comment>\n      <comment_tag>\n        <name>(string)</name>\n        <value>(string)</value>\n      </comment_tag>\n      <comment_tag>\n        <name>(string)</name>\n        <value>(string)</value>\n      </comment_tag>\n      <column>\n        <name>(string)</name>\n        <type>(string)</type>\n        <mandatory>(string)</mandatory>\n        <length>(string)</length>\n        <decimal>(string)</decimal>\n        <enumeration>(string)</enumeration>\n        <comment>(string)</comment>\n        <defo>(string)</defo>\n        <type_options>(string)</type_options>\n      </column>\n      <column>\n        <name>(string)</name>\n        <type>(string)</type>\n        <mandatory>(string)</mandatory>\n        <length>(string)</length>\n        <decimal>(string)</decimal>\n        <enumeration>(string)</enumeration>\n        <comment>(string)</comment>\n        <defo>(string)</defo>\n        <type_options>(string)</type_options>\n      </column>\n      <index>\n        <name>(string)</name>\n        <unique>(string)</unique>\n      </index>\n      <index>\n        <name>(string)</name>\n        <unique>(string)</unique>\n      </index>\n      <fk>\n        <toSchema>(string)</toSchema>\n        <name>(string)</name>\n        <toTable>(string)</toTable>\n      </fk>\n      <fk>\n        <toSchema>(string)</toSchema>\n        <name>(string)</name>\n        <toTable>(string)</toTable>\n      </fk>\n    </table>\n    <table>\n      <name>(string)</name>\n      <comment>(string)</comment>\n      <comment_tag>\n        <name>(string)</name>\n        <value>(string)</value>\n      </comment_tag>\n      <comment_tag>\n        <name>(string)</name>\n        <value>(string)</value>\n      </comment_tag>\n      <column>\n        <name>(string)</name>\n        <type>(string)</type>\n        <mandatory>(string)</mandatory>\n        <length>(string)</length>\n        <decimal>(string)</decimal>\n        <enumeration>(string)</enumeration>\n        <comment>(string)</comment>\n        <defo>(string)</defo>\n        <type_options>(string)</type_options>\n      </column>\n      <column>\n        <name>(string)</name>\n        <type>(string)</type>\n        <mandatory>(string)</mandatory>\n        <length>(string)</length>\n        <decimal>(string)</decimal>\n        <enumeration>(string)</enumeration>\n        <comment>(string)</comment>\n        <defo>(string)</defo>\n        <type_options>(string)</type_options>\n      </column>\n      <index>\n        <name>(string)</name>\n        <unique>(string)</unique>\n      </index>\n      <index>\n        <name>(string)</name>\n        <unique>(string)</unique>\n      </index>\n      <fk>\n        <toSchema>(string)</toSchema>\n        <name>(string)</name>\n        <toTable>(string)</toTable>\n      </fk>\n      <fk>\n        <toSchema>(string)</toSchema>\n        <name>(string)</name>\n        <toTable>(string)</toTable>\n      </fk>\n    </table>\n  </schema>\n  <layout>\n    <name>(string)</name>\n    <id>(string)</id>\n    <showColumnType>(string)</showColumnType>\n    <showRelation>(string)</showRelation>\n    <joinedRouting>(string)</joinedRouting>\n    <entity>\n      <name>(string)</name>\n      <schema>(string)</schema>\n      <color>(string)</color>\n      <column>(string)</column>\n      <x>(string)</x>\n      <y>(string)</y>\n    </entity>\n    <entity>\n      <name>(string)</name>\n      <schema>(string)</schema>\n      <color>(string)</color>\n      <column>(string)</column>\n      <x>(string)</x>\n      <y>(string)</y>\n    </entity>\n    <group>\n      <name>(string)</name>\n      <schema>(string)</schema>\n      <color>(string)</color>\n      <entity>\n        <name>(string)</name>\n        <schema>(string)</schema>\n        <color>(string)</color>\n        <column>(string)</column>\n        <x>(string)</x>\n        <y>(string)</y>\n      </entity>\n      <entity>\n        <name>(string)</name>\n        <schema>(string)</schema>\n        <color>(string)</color>\n        <column>(string)</column>\n        <x>(string)</x>\n        <y>(string)</y>\n      </entity>\n    </group>\n    <group>\n      <name>(string)</name>\n      <schema>(string)</schema>\n      <color>(string)</color>\n      <entity>\n        <name>(string)</name>\n        <schema>(string)</schema>\n        <color>(string)</color>\n        <column>(string)</column>\n        <x>(string)</x>\n        <y>(string)</y>\n      </entity>\n      <entity>\n        <name>(string)</name>\n        <schema>(string)</schema>\n        <color>(string)</color>\n        <column>(string)</column>\n        <x>(string)</x>\n        <y>(string)</y>\n      </entity>\n    </group>\n  </layout>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4eef34ea-63a5-4853-8430-66db4b7034c4",
+    "name": "LifeGraph APIs BlastAI APIs DbSchema APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

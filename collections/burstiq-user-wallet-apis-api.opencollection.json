@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs User Wallet APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Wallet APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getUserWalletById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user's wallet in the secure data zone"
+        },
+        {
+          "info": {
+            "name": "putUpdateUserWallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>put (update) the user's wallet into the secure data zone.  these values will be overridden/updated with data from the next JWT token"
+        },
+        {
+          "info": {
+            "name": "deleteUserWallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete the user's wallet in the secure data zone"
+        },
+        {
+          "info": {
+            "name": "putUpdateUserTerms",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet/:id/terms/:termsId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "termsId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>put (update) the user's terms into the secure data zone"
+        },
+        {
+          "info": {
+            "name": "getQueryUserWallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet",
+            "params": [
+              {
+                "name": "principal",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fullName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query user wallets from the secure data zone"
+        },
+        {
+          "info": {
+            "name": "postUserWallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Insert user's wallet into the secure data zone"
+        },
+        {
+          "info": {
+            "name": "getHistory_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a userWallet"
+        },
+        {
+          "info": {
+            "name": "getUserWalletForLoggedInUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet/self"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the logged in user's wallet in the secure data zone"
+        },
+        {
+          "info": {
+            "name": "getSearch_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet/search",
+            "params": [
+              {
+                "name": "terms",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for wallet, search terms applied to email only"
+        },
+        {
+          "info": {
+            "name": "getUserWalletByEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/user/wallet/lookup",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get user wallet from email"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

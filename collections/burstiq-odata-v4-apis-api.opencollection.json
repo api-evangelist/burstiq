@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs OData v4 APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OData v4 APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getProcess",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/odata/v4/full"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API"
+        },
+        {
+          "info": {
+            "name": "getProcess_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/odata/v4/full/*"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API"
+        },
+        {
+          "info": {
+            "name": "getProcessBasic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/odata/v4/basic/*"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex data"
+        },
+        {
+          "info": {
+            "name": "getProcessBasic_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/odata/v4/basic"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

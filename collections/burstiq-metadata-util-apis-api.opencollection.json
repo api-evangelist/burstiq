@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs Metadata Util APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata Util APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSearchMetadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/search",
+            "params": [
+              {
+                "name": "terms",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms across all the metadata; any of the terms"
+        },
+        {
+          "info": {
+            "name": "getExport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/export"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>exports metadata as XLSX file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

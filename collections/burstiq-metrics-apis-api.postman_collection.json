@@ -1,0 +1,106 @@
+{
+  "item": [
+    {
+      "id": "92032395-1fd5-415d-8e06-d59dda620f5e",
+      "name": "Metrics APIs",
+      "description": {
+        "content": "Set of operations metrics in a secure data zone",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a2ed980-5569-4957-9dd2-ea7f3ccbb2b4",
+          "name": "get SDZ Metrics",
+          "request": {
+            "name": "get SDZ Metrics",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>full set of sdz metrics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metrics",
+                "sdz"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0ba57df-ae77-45fc-817e-a784f0f7f671",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metrics",
+                    "sdz"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"chainMetrics\": {\n    \"key_0\": {\n      \"assets\": 3579,\n      \"assetsHistory\": 1116,\n      \"blobs\": 7674,\n      \"blobsGB\": 4346.747071692941,\n      \"consentContracts\": 1774,\n      \"consentContractsHistory\": 5922,\n      \"consentContractsReceipts\": 513,\n      \"smartContracts\": 7417,\n      \"smartContractsHistory\": 1520,\n      \"smartContractsReceipts\": 5814\n    },\n    \"key_1\": {\n      \"assets\": 9536,\n      \"assetsHistory\": 4759,\n      \"blobs\": 5498,\n      \"blobsGB\": 9198.044898858428,\n      \"consentContracts\": 2391,\n      \"consentContractsHistory\": 7393,\n      \"consentContractsReceipts\": 6854,\n      \"smartContracts\": 7573,\n      \"smartContractsHistory\": 5398,\n      \"smartContractsReceipts\": 5454\n    },\n    \"key_2\": {\n      \"assets\": 4216,\n      \"assetsHistory\": 1287,\n      \"blobs\": 9630,\n      \"blobsGB\": 5178.183276726244,\n      \"consentContracts\": 4702,\n      \"consentContractsHistory\": 4577,\n      \"consentContractsReceipts\": 9636,\n      \"smartContracts\": 4470,\n      \"smartContractsHistory\": 5975,\n      \"smartContractsReceipts\": 5708\n    }\n  },\n  \"customer\": \"string\",\n  \"enabled\": true,\n  \"lastUpdated\": \"2022-08-05T21:42:15.727Z\",\n  \"realm\": \"UAT\",\n  \"sdz\": \"string\",\n  \"totalBlobs\": 3184,\n  \"totalBlobsGB\": 3606.79624954776,\n  \"totalEdges\": 7612,\n  \"totalNodes\": 2878\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9f08cfa8-4c3a-46a8-af03-d83ab57bb2da",
+    "name": "LifeGraph APIs BlastAI APIs Metrics APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

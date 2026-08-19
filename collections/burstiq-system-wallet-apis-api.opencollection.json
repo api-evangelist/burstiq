@@ -1,0 +1,176 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs System Wallet APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "System Wallet APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSystemWalletById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/system/wallet/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the system's wallet in the secure data zone"
+        },
+        {
+          "info": {
+            "name": "putUpdateSystemWallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/metadata/system/wallet/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>put (update) the system's wallet into the secure data zone"
+        },
+        {
+          "info": {
+            "name": "deleteSystemWallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/metadata/system/wallet/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>delete the system's wallet in the secure data zone"
+        },
+        {
+          "info": {
+            "name": "getQuerySystemWallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/system/wallet",
+            "params": [
+              {
+                "name": "description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query system wallets from the secure data zone"
+        },
+        {
+          "info": {
+            "name": "postCreateSystemWallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/metadata/system/wallet",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>create a system's wallet into the secure data zone"
+        },
+        {
+          "info": {
+            "name": "getHistory_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/system/wallet/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a systemWallet"
+        },
+        {
+          "info": {
+            "name": "getUserMemberSystemWallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/system/wallet/self"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query system wallets from the secure data zone the the user is a member of"
+        },
+        {
+          "info": {
+            "name": "getSearch_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/system/wallet/search",
+            "params": [
+              {
+                "name": "terms",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

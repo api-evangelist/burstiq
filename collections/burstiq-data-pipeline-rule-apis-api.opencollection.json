@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs Data Pipeline Rule APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Pipeline Rule APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getRuleById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/datapipeline/rule/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get Rule by id"
+        },
+        {
+          "info": {
+            "name": "putRule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/metadata/datapipeline/rule/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a Rule"
+        },
+        {
+          "info": {
+            "name": "deleteRuleById",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/metadata/datapipeline/rule/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete Rule by id"
+        },
+        {
+          "info": {
+            "name": "getQueryRules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/datapipeline/rule",
+            "params": [
+              {
+                "name": "description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get Rules by query"
+        },
+        {
+          "info": {
+            "name": "postRule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/metadata/datapipeline/rule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a new Rule"
+        },
+        {
+          "info": {
+            "name": "getHistory_11",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/datapipeline/rule/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a rule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

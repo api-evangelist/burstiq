@@ -1,0 +1,857 @@
+{
+  "item": [
+    {
+      "id": "30803c8b-2356-42f4-a37e-edaac75e2973",
+      "name": "Edge Definition Metadata APIs",
+      "description": {
+        "content": "Edge Definitions are required for the system to know what edges are allowed between live node data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8999358a-84b0-48e1-ae42-41220b770bf5",
+          "name": "get Edge By Id",
+          "request": {
+            "name": "get Edge By Id",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get an edge. based on id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "edge",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64d24e40-ba24-4743-88ec-4a6c270b7643",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "edge",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"condition\": [\n    {\n      \"fromCol\": \"str\",\n      \"toCol\": \"string\"\n    }\n  ],\n  \"fromDictionary\": \"string\",\n  \"id\": \"d35daf9b-7b27-76e2-af28-98cc7bf5d1ef\",\n  \"name\": \"string\",\n  \"toDictionary\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61a291db-51b9-4d23-8425-fe873ce3402e",
+          "name": "put Update Edge",
+          "request": {
+            "name": "put Update Edge",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the edges in the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "edge",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"condition\": [\n    {\n      \"fromCol\": \"<string>\",\n      \"toCol\": \"<string>\"\n    },\n    {\n      \"fromCol\": \"<string>\",\n      \"toCol\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b2b80a25-c2b9-4b8e-8e64-56317bbd3093",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "edge",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"condition\": [\n    {\n      \"fromCol\": \"string\",\n      \"toCol\": \"string\"\n    },\n    {\n      \"fromCol\": \"string\",\n      \"toCol\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56f82337-f330-438e-ae52-152b5513411d",
+          "name": "delete Edge By Id",
+          "request": {
+            "name": "delete Edge By Id",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete an edge definition in the secure data zone, based on id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "edge",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bfdb44b-b54c-4662-a00f-4a5dac466340",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "edge",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8526acc9-7dbb-487c-bd21-7c03cf802e4e",
+          "name": "get Query Edges",
+          "request": {
+            "name": "get Query Edges",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query edges from the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "edge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDictionary",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDictionary",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0fcda132-b535-4c21-a803-e9391ccb4b51",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "edge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromDictionary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDictionary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"condition\": [\n      {\n        \"fromCol\": \"string\",\n        \"toCol\": \"string\"\n      }\n    ],\n    \"fromDictionary\": \"string\",\n    \"id\": \"357249ea-0e2c-ee92-2efe-d39fb10b8b11\",\n    \"name\": \"string\",\n    \"toDictionary\": \"string\"\n  },\n  {\n    \"condition\": [\n      {\n        \"fromCol\": \"string\",\n        \"toCol\": \"string\"\n      }\n    ],\n    \"fromDictionary\": \"string\",\n    \"id\": \"29e00e88-8f7b-8ea3-fc81-db0468a077b1\",\n    \"name\": \"string\",\n    \"toDictionary\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa81a7ef-7f84-4019-aca5-ab2c4d078105",
+          "name": "post Create Edge",
+          "request": {
+            "name": "post Create Edge",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>post (insert) the edges into the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "edge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"condition\": [\n    {\n      \"fromCol\": \"<string>\",\n      \"toCol\": \"<string>\"\n    }\n  ],\n  \"fromDictionary\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"toDictionary\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90fe400d-1c60-47a2-be51-ebf88d526f79",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "edge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"condition\": [\n    {\n      \"fromCol\": \"string\",\n      \"toCol\": \"string\"\n    }\n  ],\n  \"fromDictionary\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"toDictionary\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"condition\": [\n    {\n      \"fromCol\": \"str\",\n      \"toCol\": \"string\"\n    }\n  ],\n  \"fromDictionary\": \"string\",\n  \"id\": \"d35daf9b-7b27-76e2-af28-98cc7bf5d1ef\",\n  \"name\": \"string\",\n  \"toDictionary\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "079e4fe3-05e4-4857-b9cb-e5d14471a3d8",
+          "name": "get History 5",
+          "request": {
+            "name": "get History 5",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of an edge definition",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "edge",
+                ":id",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "764fd9d0-52b1-423d-a842-e7fb8733c9fc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "edge",
+                    ":id",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"condition\": [\n      {\n        \"fromCol\": \"string\",\n        \"toCol\": \"string\"\n      }\n    ],\n    \"fromDictionary\": \"string\",\n    \"id\": \"357249ea-0e2c-ee92-2efe-d39fb10b8b11\",\n    \"name\": \"string\",\n    \"toDictionary\": \"string\"\n  },\n  {\n    \"condition\": [\n      {\n        \"fromCol\": \"string\",\n        \"toCol\": \"string\"\n      }\n    ],\n    \"fromDictionary\": \"string\",\n    \"id\": \"29e00e88-8f7b-8ea3-fc81-db0468a077b1\",\n    \"name\": \"string\",\n    \"toDictionary\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acf6d5ae-3439-40ba-9ff5-72595649da19",
+          "name": "get Edge",
+          "request": {
+            "name": "get Edge",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get an edge. based on from dictionary, to dictionary and label, from the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "edge",
+                ":from",
+                ":to",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "from",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "to",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9af5f90-1a60-4845-a21d-52ffddd5912b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "edge",
+                    ":from",
+                    ":to",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "from",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "to",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"condition\": [\n    {\n      \"fromCol\": \"str\",\n      \"toCol\": \"string\"\n    }\n  ],\n  \"fromDictionary\": \"string\",\n  \"id\": \"d35daf9b-7b27-76e2-af28-98cc7bf5d1ef\",\n  \"name\": \"string\",\n  \"toDictionary\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e2991c7-2950-4c57-8098-9f8d0d2d80dc",
+          "name": "get Search 5",
+          "request": {
+            "name": "get Search 5",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "edge",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cc513b4-3797-44d9-a298-f647c3e50792",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "edge",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"condition\": [\n      {\n        \"fromCol\": \"string\",\n        \"toCol\": \"string\"\n      }\n    ],\n    \"fromDictionary\": \"string\",\n    \"id\": \"c3ad6017-f5d7-a371-c057-378bb34bdfae\",\n    \"name\": \"string\",\n    \"toDictionary\": \"string\"\n  },\n  {\n    \"condition\": [\n      {\n        \"fromCol\": \"string\",\n        \"toCol\": \"string\"\n      }\n    ],\n    \"fromDictionary\": \"string\",\n    \"id\": \"d2f1c8f3-dbfd-9874-d7bc-d99f3dda2f05\",\n    \"name\": \"string\",\n    \"toDictionary\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7228a001-e258-404b-8357-a6fc367736b2",
+    "name": "LifeGraph APIs BlastAI APIs Edge Definition Metadata APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

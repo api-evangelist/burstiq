@@ -1,0 +1,1035 @@
+{
+  "item": [
+    {
+      "id": "ccbe72a5-8211-48f3-9bfd-fbc4bc359b1b",
+      "name": "Glossary Metadata APIs",
+      "description": {
+        "content": "Glossary items hold no actual function in the secure data zone, merely a method for defining the business terms, usage, interactions, etc of the data within the SDZ",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cb0dd7fa-898a-48a1-a42f-cf73d2d5a40e",
+          "name": "get Query Glossaries",
+          "request": {
+            "name": "get Query Glossaries",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query glossaries from the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "term",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "abbreviations",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aliases",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1921b02f-527b-456a-a273-a226111cbd49",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "term",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "abbreviations",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aliases",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"a87b627f-0dc3-47eb-1893-303c9bcf88b4\",\n    \"term\": \"string\",\n    \"type\": \"string\",\n    \"description\": \"string\",\n    \"abbreviations\": [\n      \"string\",\n      \"stri\"\n    ],\n    \"aliases\": [\n      \"string\"\n    ],\n    \"groupName\": \"string\",\n    \"properties\": {}\n  },\n  {\n    \"id\": \"2bf4937c-ca86-3603-70bf-f2bf24ba33a8\",\n    \"term\": \"string\",\n    \"type\": \"string\",\n    \"description\": \"string\",\n    \"abbreviations\": [\n      \"string\"\n    ],\n    \"aliases\": [\n      \"string\"\n    ],\n    \"groupName\": \"string\",\n    \"properties\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1823f23a-8d31-4147-be38-3d8c68f74bf4",
+          "name": "put Glossary",
+          "request": {
+            "name": "put Glossary",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Use /{id} endpoint instead. | Put (update or create) the Glossary in the secure data zone.<b><br/><br/>Deprecated since 02 OCT 2024</b>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"term\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"abbreviations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupName\": \"<string>\",\n  \"properties\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd7e3e46-fc39-4e69-ab3a-5edfab683ab0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"term\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"abbreviations\": [\n    \"<string>\"\n  ],\n  \"aliases\": [\n    \"<string>\"\n  ],\n  \"groupName\": \"<string>\",\n  \"properties\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"9452cf58-a67f-c9c0-0a59-e938f4a49766\",\n  \"term\": \"string\",\n  \"type\": \"string\",\n  \"description\": \"string\",\n  \"abbreviations\": [\n    \"string\"\n  ],\n  \"aliases\": [\n    \"string\"\n  ],\n  \"groupName\": \"string\",\n  \"properties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be78e1aa-2523-4e69-84cb-a3aec13851db",
+          "name": "post Glossary",
+          "request": {
+            "name": "post Glossary",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>create a glossary term into the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"term\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"abbreviations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupName\": \"<string>\",\n  \"properties\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c883b0e3-8416-4439-8975-6eca8a82fc11",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"term\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"abbreviations\": [\n    \"<string>\"\n  ],\n  \"aliases\": [\n    \"<string>\"\n  ],\n  \"groupName\": \"<string>\",\n  \"properties\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"9452cf58-a67f-c9c0-0a59-e938f4a49766\",\n  \"term\": \"string\",\n  \"type\": \"string\",\n  \"description\": \"string\",\n  \"abbreviations\": [\n    \"string\"\n  ],\n  \"aliases\": [\n    \"string\"\n  ],\n  \"groupName\": \"string\",\n  \"properties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1127e695-7f73-4830-bbb2-a7e3a90593d5",
+          "name": "get Glossary",
+          "request": {
+            "name": "get Glossary",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets a glossary by ID from the secure data zone; can be more than 1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fad6ec2e-66dd-4f53-ab70-c30ad10815e5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"9452cf58-a67f-c9c0-0a59-e938f4a49766\",\n  \"term\": \"string\",\n  \"type\": \"string\",\n  \"description\": \"string\",\n  \"abbreviations\": [\n    \"string\"\n  ],\n  \"aliases\": [\n    \"string\"\n  ],\n  \"groupName\": \"string\",\n  \"properties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d397f57-09d1-4c61-bc07-a931c2e50aed",
+          "name": "put Glossary 1",
+          "request": {
+            "name": "put Glossary 1",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the Glossary in the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"term\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"abbreviations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupName\": \"<string>\",\n  \"properties\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63676eba-f0b7-48fc-9f81-3a8312f91b9c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"term\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"abbreviations\": [\n    \"<string>\"\n  ],\n  \"aliases\": [\n    \"<string>\"\n  ],\n  \"groupName\": \"<string>\",\n  \"properties\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"9452cf58-a67f-c9c0-0a59-e938f4a49766\",\n  \"term\": \"string\",\n  \"type\": \"string\",\n  \"description\": \"string\",\n  \"abbreviations\": [\n    \"string\"\n  ],\n  \"aliases\": [\n    \"string\"\n  ],\n  \"groupName\": \"string\",\n  \"properties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cd385fc-3be0-45f4-ba45-0a691cb83cdb",
+          "name": "delete Glossary",
+          "request": {
+            "name": "delete Glossary",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>deletes a glossary by id from the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0971a79-7ea1-4f7c-b2de-95f4eb4bf5a0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aac255bc-d2b0-4749-97ea-345c0d9b8855",
+          "name": "post Glossary File",
+          "request": {
+            "name": "post Glossary File",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a file of glossary items; field names in file must match Glossary structure; any field not standard will be added to the properties sub-document; each record is an no upsert (id field will be the key)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cb84ef36-a1ba-492f-b42b-f8a8047796a7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "993f1bb4-d4a6-4a59-af56-2cccccc66bc0",
+          "name": "get History 4",
+          "request": {
+            "name": "get History 4",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a glossary",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary",
+                ":id",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "456b38a4-e8bb-4cf7-8f5f-6d97a437fd5f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary",
+                    ":id",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"a87b627f-0dc3-47eb-1893-303c9bcf88b4\",\n    \"term\": \"string\",\n    \"type\": \"string\",\n    \"description\": \"string\",\n    \"abbreviations\": [\n      \"string\",\n      \"stri\"\n    ],\n    \"aliases\": [\n      \"string\"\n    ],\n    \"groupName\": \"string\",\n    \"properties\": {}\n  },\n  {\n    \"id\": \"2bf4937c-ca86-3603-70bf-f2bf24ba33a8\",\n    \"term\": \"string\",\n    \"type\": \"string\",\n    \"description\": \"string\",\n    \"abbreviations\": [\n      \"string\"\n    ],\n    \"aliases\": [\n      \"string\"\n    ],\n    \"groupName\": \"string\",\n    \"properties\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45d5c0a8-883b-4c71-b60f-ec092624d48e",
+          "name": "get Search 4",
+          "request": {
+            "name": "get Search 4",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c4fb7c7-04d3-4d3a-a92c-a28a43f1d342",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"30d06d52-0d82-cab7-498c-9a611de82768\",\n    \"term\": \"string\",\n    \"type\": \"string\",\n    \"description\": \"string\",\n    \"abbreviations\": [\n      \"string\"\n    ],\n    \"aliases\": [\n      \"string\"\n    ],\n    \"groupName\": \"string\",\n    \"properties\": {}\n  },\n  {\n    \"id\": \"02bfcee9-328e-7dbc-131c-dbc025f69eb3\",\n    \"term\": \"string\",\n    \"type\": \"string\",\n    \"description\": \"string\",\n    \"abbreviations\": [\n      \"string\"\n    ],\n    \"aliases\": [\n      \"string\",\n      \"str\"\n    ],\n    \"groupName\": \"string\",\n    \"properties\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3efdc51-cc4a-4804-ace1-958de08ea9ad",
+          "name": "export Glossary",
+          "request": {
+            "name": "export Glossary",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Export glossaries as JSON",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "glossary",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53de0b2c-aabc-4bdc-8928-6b14a08efa43",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "glossary",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5eb2ca6a-8de3-49ba-a39a-ca0ab5063c90",
+    "name": "LifeGraph APIs BlastAI APIs Glossary Metadata APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

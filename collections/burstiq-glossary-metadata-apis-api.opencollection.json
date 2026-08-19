@@ -1,0 +1,227 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs Glossary Metadata APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Glossary Metadata APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getQueryGlossaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/glossary",
+            "params": [
+              {
+                "name": "term",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "abbreviations",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aliases",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query glossaries from the secure data zone"
+        },
+        {
+          "info": {
+            "name": "postGlossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/metadata/glossary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>create a glossary term into the secure data zone"
+        },
+        {
+          "info": {
+            "name": "putGlossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/metadata/glossary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Use /{id} endpoint instead. | Put (update or create) the Glossary in the secure data zone.<b><br/><br/>Deprecated since 02 OCT 2024</b>"
+        },
+        {
+          "info": {
+            "name": "getGlossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/glossary/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets a glossary by ID from the secure data zone; can be more than 1"
+        },
+        {
+          "info": {
+            "name": "putGlossary_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/metadata/glossary/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the Glossary in the secure data zone"
+        },
+        {
+          "info": {
+            "name": "deleteGlossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/metadata/glossary/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>deletes a glossary by id from the secure data zone"
+        },
+        {
+          "info": {
+            "name": "postGlossaryFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/metadata/glossary/import",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a file of glossary items; field names in file must match Glossary structure; any field not standard will be added to the properties sub-document; each record is an no upsert (id field will be the key)"
+        },
+        {
+          "info": {
+            "name": "getHistory_4",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/glossary/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a glossary"
+        },
+        {
+          "info": {
+            "name": "getSearch_4",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/glossary/search",
+            "params": [
+              {
+                "name": "terms",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms"
+        },
+        {
+          "info": {
+            "name": "exportGlossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/metadata/glossary/export"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Export glossaries as JSON"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs DbSchema APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DbSchema APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getExportDbSchemaXml",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/dbschema"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>export the SDZ metadata (dictionaries and edge defs) as DbSchema XML file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

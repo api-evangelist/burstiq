@@ -1,0 +1,1064 @@
+{
+  "item": [
+    {
+      "id": "077cc3a6-f93f-4624-a38c-586c40591ccf",
+      "name": "User Wallet APIs",
+      "description": {
+        "content": "For managing and obtaining information about user wallets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a094fa5-1d54-41d2-8fae-e6985e47ee77",
+          "name": "get User Wallet By Id",
+          "request": {
+            "name": "get User Wallet By Id",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user's wallet in the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "977e34cc-aff9-4046-b165-0257345a0a8e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"af7f77aa-87ce-3772-0e9f-f3fc72e3792b\",\n  \"principal\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"termsAgreed\": [\n    {\n      \"agreedAt\": \"1984-01-09T05:50:08.034Z\",\n      \"termsId\": \"e4be2b85-17d4-6a27-824d-f7ab5761b623\",\n      \"metadata\": {}\n    },\n    {\n      \"agreedAt\": \"1965-05-14T23:59:02.179Z\",\n      \"termsId\": \"cbd0d08f-ca5f-5655-0441-f57c8c2ef18f\",\n      \"metadata\": {}\n    }\n  ],\n  \"hash\": \"string\",\n  \"author\": \"9fbb1e35-7ea6-4508-a8f6-8e6dc992301c\",\n  \"timestamp\": \"1976-11-17T09:13:31.343Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a1c832e-5124-4e02-a41d-a21b34fecff9",
+          "name": "put Update User Wallet",
+          "request": {
+            "name": "put Update User Wallet",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>put (update) the user's wallet into the secure data zone.  these values will be overridden/updated with data from the next JWT token",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"fullName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2dd33050-e868-4a14-af9d-40418defd4ff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"fullName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"af7f77aa-87ce-3772-0e9f-f3fc72e3792b\",\n  \"principal\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"termsAgreed\": [\n    {\n      \"agreedAt\": \"1984-01-09T05:50:08.034Z\",\n      \"termsId\": \"e4be2b85-17d4-6a27-824d-f7ab5761b623\",\n      \"metadata\": {}\n    },\n    {\n      \"agreedAt\": \"1965-05-14T23:59:02.179Z\",\n      \"termsId\": \"cbd0d08f-ca5f-5655-0441-f57c8c2ef18f\",\n      \"metadata\": {}\n    }\n  ],\n  \"hash\": \"string\",\n  \"author\": \"9fbb1e35-7ea6-4508-a8f6-8e6dc992301c\",\n  \"timestamp\": \"1976-11-17T09:13:31.343Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3daab2aa-8b61-4f3c-b25a-7a7ee5a92224",
+          "name": "delete User Wallet",
+          "request": {
+            "name": "delete User Wallet",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete the user's wallet in the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea7a7910-363f-45f5-9405-8b88e5b1e2c2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2399e059-982f-42c7-88a5-e83ffe4b752f",
+          "name": "put Update User Terms",
+          "request": {
+            "name": "put Update User Terms",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>put (update) the user's terms into the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet",
+                ":id",
+                "terms",
+                ":termsId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "termsId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0dbaff56-14c7-4e21-b2b3-bf3d0b659b10",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet",
+                    ":id",
+                    "terms",
+                    ":termsId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "termsId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"af7f77aa-87ce-3772-0e9f-f3fc72e3792b\",\n  \"principal\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"termsAgreed\": [\n    {\n      \"agreedAt\": \"1984-01-09T05:50:08.034Z\",\n      \"termsId\": \"e4be2b85-17d4-6a27-824d-f7ab5761b623\",\n      \"metadata\": {}\n    },\n    {\n      \"agreedAt\": \"1965-05-14T23:59:02.179Z\",\n      \"termsId\": \"cbd0d08f-ca5f-5655-0441-f57c8c2ef18f\",\n      \"metadata\": {}\n    }\n  ],\n  \"hash\": \"string\",\n  \"author\": \"9fbb1e35-7ea6-4508-a8f6-8e6dc992301c\",\n  \"timestamp\": \"1976-11-17T09:13:31.343Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b168c78-c51e-4714-9281-a6ff81adca4e",
+          "name": "get Query User Wallets",
+          "request": {
+            "name": "get Query User Wallets",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query user wallets from the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "principal",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fullName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "52a470da-eb19-48e3-8a7f-b72c75227532",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "principal",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fullName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"6c54077c-17bc-f29a-2320-579748393e04\",\n    \"principal\": \"string\",\n    \"email\": \"string\",\n    \"fullName\": \"string\",\n    \"termsAgreed\": [\n      {\n        \"agreedAt\": \"2007-02-23T18:31:27.650Z\",\n        \"termsId\": \"ab5ad5c7-1b6c-8944-d8a2-e87e49ae07d0\",\n        \"metadata\": {}\n      },\n      {\n        \"agreedAt\": \"1961-08-05T13:32:30.339Z\",\n        \"termsId\": \"35bad47c-d0b2-1975-ebff-94c4eb31a01b\",\n        \"metadata\": {}\n      }\n    ],\n    \"hash\": \"string\",\n    \"author\": \"ef134639-eb4b-df68-1c56-712de0d2a92b\",\n    \"timestamp\": \"1958-08-19T06:01:04.628Z\"\n  },\n  {\n    \"id\": \"cdf44d31-6c12-6104-6cb7-e8fbabc6c2a2\",\n    \"principal\": \"string\",\n    \"email\": \"string\",\n    \"fullName\": \"string\",\n    \"termsAgreed\": [\n      {\n        \"agreedAt\": \"1970-07-05T10:50:38.957Z\",\n        \"termsId\": \"5691d97e-07dd-e6ed-4112-b84e4889b9f4\",\n        \"metadata\": {}\n      },\n      {\n        \"agreedAt\": \"2024-08-21T04:39:32.881Z\",\n        \"termsId\": \"3e25ad0d-39b2-6aa1-dfa6-b6a43c74ceb7\",\n        \"metadata\": {}\n      }\n    ],\n    \"hash\": \"string\",\n    \"author\": \"ed349115-90f5-0324-f2a4-b0ad3459437a\",\n    \"timestamp\": \"1961-08-29T13:26:45.798Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b796162-2a0e-4c21-9406-cae4b9679087",
+          "name": "post User Wallet",
+          "request": {
+            "name": "post User Wallet",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Insert user's wallet into the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"fullName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "46ce5ea3-47e3-4cc5-9ed5-c703a3d01b1b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"fullName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"af7f77aa-87ce-3772-0e9f-f3fc72e3792b\",\n  \"principal\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"termsAgreed\": [\n    {\n      \"agreedAt\": \"1984-01-09T05:50:08.034Z\",\n      \"termsId\": \"e4be2b85-17d4-6a27-824d-f7ab5761b623\",\n      \"metadata\": {}\n    },\n    {\n      \"agreedAt\": \"1965-05-14T23:59:02.179Z\",\n      \"termsId\": \"cbd0d08f-ca5f-5655-0441-f57c8c2ef18f\",\n      \"metadata\": {}\n    }\n  ],\n  \"hash\": \"string\",\n  \"author\": \"9fbb1e35-7ea6-4508-a8f6-8e6dc992301c\",\n  \"timestamp\": \"1976-11-17T09:13:31.343Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f3fdf2c-4396-46a4-b768-55b2a53ede67",
+          "name": "get History 1",
+          "request": {
+            "name": "get History 1",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a userWallet",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet",
+                ":id",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dfd3a9c4-97e0-47ca-aa8e-053e071e98da",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet",
+                    ":id",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"6c54077c-17bc-f29a-2320-579748393e04\",\n    \"principal\": \"string\",\n    \"email\": \"string\",\n    \"fullName\": \"string\",\n    \"termsAgreed\": [\n      {\n        \"agreedAt\": \"2007-02-23T18:31:27.650Z\",\n        \"termsId\": \"ab5ad5c7-1b6c-8944-d8a2-e87e49ae07d0\",\n        \"metadata\": {}\n      },\n      {\n        \"agreedAt\": \"1961-08-05T13:32:30.339Z\",\n        \"termsId\": \"35bad47c-d0b2-1975-ebff-94c4eb31a01b\",\n        \"metadata\": {}\n      }\n    ],\n    \"hash\": \"string\",\n    \"author\": \"ef134639-eb4b-df68-1c56-712de0d2a92b\",\n    \"timestamp\": \"1958-08-19T06:01:04.628Z\"\n  },\n  {\n    \"id\": \"cdf44d31-6c12-6104-6cb7-e8fbabc6c2a2\",\n    \"principal\": \"string\",\n    \"email\": \"string\",\n    \"fullName\": \"string\",\n    \"termsAgreed\": [\n      {\n        \"agreedAt\": \"1970-07-05T10:50:38.957Z\",\n        \"termsId\": \"5691d97e-07dd-e6ed-4112-b84e4889b9f4\",\n        \"metadata\": {}\n      },\n      {\n        \"agreedAt\": \"2024-08-21T04:39:32.881Z\",\n        \"termsId\": \"3e25ad0d-39b2-6aa1-dfa6-b6a43c74ceb7\",\n        \"metadata\": {}\n      }\n    ],\n    \"hash\": \"string\",\n    \"author\": \"ed349115-90f5-0324-f2a4-b0ad3459437a\",\n    \"timestamp\": \"1961-08-29T13:26:45.798Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e07045ba-889a-4c7e-bcb0-e45386d1f2bd",
+          "name": "get User Wallet For Logged In User",
+          "request": {
+            "name": "get User Wallet For Logged In User",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the logged in user's wallet in the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet",
+                "self"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8940f636-140b-4965-8cde-e110c3ed0e6d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet",
+                    "self"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"af7f77aa-87ce-3772-0e9f-f3fc72e3792b\",\n  \"principal\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"termsAgreed\": [\n    {\n      \"agreedAt\": \"1984-01-09T05:50:08.034Z\",\n      \"termsId\": \"e4be2b85-17d4-6a27-824d-f7ab5761b623\",\n      \"metadata\": {}\n    },\n    {\n      \"agreedAt\": \"1965-05-14T23:59:02.179Z\",\n      \"termsId\": \"cbd0d08f-ca5f-5655-0441-f57c8c2ef18f\",\n      \"metadata\": {}\n    }\n  ],\n  \"hash\": \"string\",\n  \"author\": \"9fbb1e35-7ea6-4508-a8f6-8e6dc992301c\",\n  \"timestamp\": \"1976-11-17T09:13:31.343Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e55acef3-e14b-4b5c-aedf-24252584a101",
+          "name": "get Search 1",
+          "request": {
+            "name": "get Search 1",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for wallet, search terms applied to email only",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08bc64c7-b8d8-4526-aac7-bb5e158fd5d1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"email\": \"string\",\n    \"fullName\": \"string\",\n    \"id\": \"dae0bee8-05a1-b1bd-6cec-d8e6ea8c1d30\",\n    \"privateKey\": \"string\",\n    \"publicKey\": \"string\",\n    \"principal\": \"string\",\n    \"termsAgreed\": [\n      {\n        \"agreedAt\": \"1946-11-19T00:15:21.757Z\",\n        \"termsId\": \"1683b883-cbfe-2451-b5bb-c1af1836f900\",\n        \"metadata\": {}\n      },\n      {\n        \"agreedAt\": \"1973-09-28T12:09:47.168Z\",\n        \"termsId\": \"39817135-672d-8cbe-a2fb-054fc292bc2f\",\n        \"metadata\": {}\n      }\n    ]\n  },\n  {\n    \"email\": \"string\",\n    \"fullName\": \"string\",\n    \"id\": \"66389617-2bad-3e22-6f9d-fe9ca8792ba5\",\n    \"privateKey\": \"string\",\n    \"publicKey\": \"string\",\n    \"principal\": \"string\",\n    \"termsAgreed\": [\n      {\n        \"agreedAt\": \"1962-12-03T09:13:58.271Z\",\n        \"termsId\": \"6ac10c52-45eb-9c4b-e4d9-5e9a0503de7e\",\n        \"metadata\": {}\n      },\n      {\n        \"agreedAt\": \"1972-06-30T03:47:05.219Z\",\n        \"termsId\": \"03e491e8-8cc2-01f3-3c25-5961887248b4\",\n        \"metadata\": {}\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de696b9e-089b-4647-b34e-0caeee43138b",
+          "name": "get User Wallet By Email",
+          "request": {
+            "name": "get User Wallet By Email",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get user wallet from email",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "user",
+                "wallet",
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8dcf1e49-2a36-40f8-b946-0808fba03ce1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "user",
+                    "wallet",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"af7f77aa-87ce-3772-0e9f-f3fc72e3792b\",\n  \"principal\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"termsAgreed\": [\n    {\n      \"agreedAt\": \"1984-01-09T05:50:08.034Z\",\n      \"termsId\": \"e4be2b85-17d4-6a27-824d-f7ab5761b623\",\n      \"metadata\": {}\n    },\n    {\n      \"agreedAt\": \"1965-05-14T23:59:02.179Z\",\n      \"termsId\": \"cbd0d08f-ca5f-5655-0441-f57c8c2ef18f\",\n      \"metadata\": {}\n    }\n  ],\n  \"hash\": \"string\",\n  \"author\": \"9fbb1e35-7ea6-4508-a8f6-8e6dc992301c\",\n  \"timestamp\": \"1976-11-17T09:13:31.343Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5c3588d8-637a-4b27-9a82-5eb2df00d1f7",
+    "name": "LifeGraph APIs BlastAI APIs User Wallet APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

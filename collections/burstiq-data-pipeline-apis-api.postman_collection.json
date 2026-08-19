@@ -1,0 +1,943 @@
+{
+  "item": [
+    {
+      "id": "e517edbc-54b6-4a30-88c6-e66fe1bd3d21",
+      "name": "Data Pipeline APIs",
+      "description": {
+        "content": "Data Pipelines are managed for use of manipulating data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2694aa0b-d3e4-4df3-9c5b-8ab5e214c02e",
+          "name": "get IP By Id",
+          "request": {
+            "name": "get IP By Id",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get data pipeline in the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4e7e98e-88d9-4954-92ea-07386f4cf683",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"87fb3cc0-a623-7008-77dd-9d2bbade52b3\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"stepIds\": [\n    \"2fac2ef5-456d-14fa-888f-27a0d6665777\",\n    \"c4dd8fdf-ee19-a5ba-432b-eda6f403ff4b\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0b1a0c2-55f8-4ed9-afd6-bf8342b0acbb",
+          "name": "put Pipeline",
+          "request": {
+            "name": "put Pipeline",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a data pipeline in the secure data zone (see POST for description of body)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"stepIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f3db4b26-25b6-4fc3-a8fb-9da05fe2109c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"stepIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"87fb3cc0-a623-7008-77dd-9d2bbade52b3\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"stepIds\": [\n    \"2fac2ef5-456d-14fa-888f-27a0d6665777\",\n    \"c4dd8fdf-ee19-a5ba-432b-eda6f403ff4b\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3b2f8ae-7088-44dd-90b7-f08bcce3631b",
+          "name": "delete By Id",
+          "request": {
+            "name": "delete By Id",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>get data pipeline in the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76f88b28-6e5a-43ce-aff9-d56e5899a9f5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a758836-820c-4c6d-9c22-67eebd0217f5",
+          "name": "get Pipelines",
+          "request": {
+            "name": "get Pipelines",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query data pipelines from the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stepIdsContains",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stepIdsContains",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22ba816f-bb70-4a26-91a8-badef2b8d3dd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stepIdsContains",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "stepIdsContains",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"08b76bf9-0a1c-c94d-19ea-8f5fb67ee31e\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"stepIds\": [\n      \"7c1ebb70-5834-7b0b-ad3b-fe3ac2aa7c05\",\n      \"f184f8d0-4f61-bf3a-67c8-5c036e8b1439\"\n    ]\n  },\n  {\n    \"id\": \"c1167c4f-1ed8-b882-b074-2baacb4c0037\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"stepIds\": [\n      \"41602da8-5ff0-9035-4cf5-94532a7c3fde\",\n      \"26fdacd1-d7c0-4f51-84ca-6fe580541640\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c08bf37f-0177-457a-955b-39c71ea09e5b",
+          "name": "post Pipeline",
+          "request": {
+            "name": "post Pipeline",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a data pipeline in the secure data zone.\n\nFor all the details, see the Dev Docs!\n\nAn data pipeline is a series of steps (at least 1) that GraphChain will process inbound\ndata through. These steps are of 3 types:  Field Mapping, JavaScript Transform, and\nRules.  The input to the first step is the full record of the inbound data. The output\nof that step is then the input into the next step and so forth.\n\nThe structure of an data pipeline is name, stepIds (optional), and description\n(optional).  This is the basic structure:\n\n<pre>\n{\n  \"name\": \"testPipeline\",\n  \"description\": \"a test pipeline\",\n  \"stepIds\": [ ... ]\n}\n</pre>\n\nThe stepIds are an array of stepIds these stepIds refer to objects of these three types.\n\n* FieldMappingStep\n\n* JSTransformStep\n\n* RuleSetStep\n\nThis typically is the order of simplest to most complex of steps.  Each subsequent step\nin the list is capable of performing the functions of the previous steps.  It is up to\nthe admin (or developer) to decide the best tool for the job.\n\n<b>FieldMappingStep</b>\n\nThis step will rename inbound field names into the field (attribute) names expected by\nthe dictionary. Can rename nested attributes too, using a dot path notation.  Not all\nfields must be in the map; if the inbound field name is already correct it can be omitted\nfrom the map.  If a field is in the map but the value is NULL then it will be removed from\nthe inbound data.\n\nThe step has a required map field and type field (FIELD_MAPPING). The name and description\nfields are optional, the exist to help the user with documentation.\n\n\n<b>JSTransformStep</b>\n\nThis step will take the entire inbound data record as the only argument to a function.\nThat function needs to return a JS dictionary (object) as the return value.  The\ntype (JS_TRANSFORM) and jsBase64 fields are required. The JavaScript can contain more\nthan 1 function if that helps the developer, but there must be one function that is the\nentry point of the transform.  If the developer names that function \"xform\" then the\nfuncName field is not required (since it defaults to xform). In this case the JS has a\nfunction called \"convert\" that should be called.  The name and description fields are\noptional for this step just like Field Mapping (omitted here for example).\n\n<b>RuleSetStep</b>\n\nThe final step available is RuleSet, a Ruleset contains an array of ruleIds, each ruleId\nrefers to  a Drools Rule that is to be executed.  This rule set can be used\nfor numerous use-cases: field mapping, transforming data, applying data quality rules,\nrejecting or tagging data as issues.  T\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"stepIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9af2635b-aa82-4728-8537-a676b50c73ea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"stepIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"id\": \"87fb3cc0-a623-7008-77dd-9d2bbade52b3\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"stepIds\": [\n    \"2fac2ef5-456d-14fa-888f-27a0d6665777\",\n    \"c4dd8fdf-ee19-a5ba-432b-eda6f403ff4b\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a52dfce3-1e30-4b8a-9cbe-0e79c35c4b74",
+          "name": "post Data Pipeline Trial Run",
+          "request": {
+            "name": "post Data Pipeline Trial Run",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>using datapipeline id, looks up the steps and executes a each step in sequence against a single data record and returns what the result would be",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                ":id",
+                "trial-run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": \"<object>\",\n  \"metadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57fb8e37-32e9-4549-bfdc-42d23a387892",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    ":id",
+                    "trial-run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": \"<object>\",\n  \"metadata\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b18444d-5d46-4f25-b1a0-170d7a795cef",
+          "name": "get History 7",
+          "request": {
+            "name": "get History 7",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a dataPipeline",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                ":id",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a985eb07-d75f-42d4-bc2d-204835367c3e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    ":id",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"08b76bf9-0a1c-c94d-19ea-8f5fb67ee31e\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"stepIds\": [\n      \"7c1ebb70-5834-7b0b-ad3b-fe3ac2aa7c05\",\n      \"f184f8d0-4f61-bf3a-67c8-5c036e8b1439\"\n    ]\n  },\n  {\n    \"id\": \"c1167c4f-1ed8-b882-b074-2baacb4c0037\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"stepIds\": [\n      \"41602da8-5ff0-9035-4cf5-94532a7c3fde\",\n      \"26fdacd1-d7c0-4f51-84ca-6fe580541640\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18c0c5de-6629-4167-b7e8-c0d2b2700acd",
+          "name": "get Step Summaries",
+          "request": {
+            "name": "get Step Summaries",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get step summary info for all steps in the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22d019b5-519d-49d3-9de6-7a75f90648d0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8e9ff5e-1846-47fb-8438-84c43347d7db",
+          "name": "get Search 7",
+          "request": {
+            "name": "get Search 7",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "datapipeline",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e91bc672-b97e-49e5-bcac-c0c7520b2a05",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "datapipeline",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3c8a1b07-815c-4427-f960-7d57f6dd379c\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"stepIds\": [\n      \"700e174c-e860-5222-e5c4-03c1d9461076\",\n      \"dce7ab78-28e3-f627-bc75-c581482f964e\"\n    ]\n  },\n  {\n    \"id\": \"4c276d0b-0b67-449f-ff40-b5d423e06c1d\",\n    \"name\": \"str\",\n    \"description\": \"string\",\n    \"stepIds\": [\n      \"66133415-1a21-4640-bd00-3e2c1ab2a4c4\",\n      \"8d16bf44-4487-ca23-6d9a-d500853d8dc2\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "44c5a78f-d57d-4d25-a1b6-7af32ba25f3d",
+    "name": "LifeGraph APIs BlastAI APIs Data Pipeline APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1896 @@
+{
+  "item": [
+    {
+      "id": "5b3d9b54-96a3-4cb0-9fe2-121311b12a32",
+      "name": "Job Manager APIs",
+      "description": {
+        "content": "Platform support asynchronous jobs, and these endpoints allow for the creation, status, and management of these jobs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "be76974b-41b2-4ff4-b9c2-d52deef99688",
+          "name": "put Requeue Jobs",
+          "request": {
+            "name": "put Requeue Jobs",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>biqAdmin</li><li>sdzAdmin</li></ul><br/><br/>requeue jobs IF the job queue is empty but there are queued jobs in the SDZ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                "requeue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d973996-d02e-4c6c-9ded-46fe7da17f31",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    "requeue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d010168-dcd4-4239-8cd5-11eccd7aef63",
+          "name": "post Upload File",
+          "request": {
+            "name": "post Upload File",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>adds data from a file as assets into GraphChain as an async job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                ":chain",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "owners",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limitedOwners",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dataPipelineName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sheetNum",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sheetName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operation",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "numThreads",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailResultsTo",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailResultsTo",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fdd4b118-cc8c-46ce-a18f-8172b7ae36c8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    ":chain",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "owners",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limitedOwners",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dataPipelineName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sheetNum",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sheetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "numThreads",
+                      "value": "1"
+                    },
+                    {
+                      "key": "emailResultsTo",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"cc3cedf4-f28b-8b3a-b052-4440627ae14a\",\n  \"jobCreated\": \"1954-12-04T12:38:51.105Z\",\n  \"jobId\": \"4378b1e8-6e4d-f97b-7fb9-2945bc201a01\",\n  \"loggedInId\": \"52b4268f-a564-5a2a-e927-fab272cf3ec1\",\n  \"mdc\": {\n    \"key_0\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"COMPLETED_SUCCESS\",\n  \"timeoutUnit\": \"SECONDS\",\n  \"jobQueued\": \"1950-01-13T22:27:44.127Z\",\n  \"jobStarted\": \"1972-07-03T16:31:08.945Z\",\n  \"jobCompleted\": \"2012-04-26T05:56:47.285Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 4319,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  },\n  \"originalFilename\": \"string\",\n  \"dataSize\": 7394,\n  \"sheetNum\": 5921,\n  \"sheetName\": \"string\",\n  \"numThreads\": 8580,\n  \"key\": \"string\",\n  \"owners\": [\n    \"24cc4d18-cf5d-73ea-bfaf-73849022f1a7\",\n    \"d5e80ac2-5b4c-6527-28f1-1bbc9e99a3aa\"\n  ],\n  \"limitedOwners\": [\n    \"003fa430-fdf1-ba2f-c82d-92debe486079\",\n    \"d551d81a-d3af-87a7-fc06-2bd4e7b776fc\"\n  ],\n  \"metadata\": {},\n  \"dataPipelineName\": \"string\",\n  \"dictName\": \"string\",\n  \"operation\": \"PATCH\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83b4a6e2-4b40-4942-aeeb-8b92fc11c540",
+          "name": "post Truncate Chain",
+          "request": {
+            "name": "post Truncate Chain",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>truncate all data in a graph chain in the secure data zone; preserves chain, dictionary, edge definitions, etc",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                ":chain",
+                "truncate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailResultsTo\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d3b80b34-c603-4429-89fc-31aadc3d63dd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    ":chain",
+                    "truncate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailResultsTo\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"44bcc7c4-efe9-9d41-fab2-702d7b5ce8dc\",\n  \"jobCreated\": \"1961-04-07T16:57:41.602Z\",\n  \"jobId\": \"7fb7fbca-16e0-6571-da0f-276da6236637\",\n  \"loggedInId\": \"319f6a94-e033-34b6-03fa-2bce6c35da16\",\n  \"mdc\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"QUEUED\",\n  \"timeoutUnit\": \"MINUTES\",\n  \"jobQueued\": \"1968-04-08T07:19:06.100Z\",\n  \"jobStarted\": \"2009-01-24T22:16:32.656Z\",\n  \"jobCompleted\": \"2024-02-07T15:52:24.122Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 4401,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  },\n  \"dictName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15d89e0f-cb99-41b6-abac-2981e3d34410",
+          "name": "post Execute Smart Contract",
+          "request": {
+            "name": "post Execute Smart Contract",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>execute a smart contract, by address (sdo id) with arguments as named fields in the form; as an async job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                ":chain",
+                "smartcontracts",
+                ":sdoId",
+                ":func"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "emailResultsTo",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailResultsTo",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "sdoId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "func",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ccecd71a-5076-42eb-b8b4-a7b5b201124e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    ":chain",
+                    "smartcontracts",
+                    ":sdoId",
+                    ":func"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "emailResultsTo",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "sdoId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "func",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"963d5b12-9188-46ab-f813-7f19f1d2683d\",\n  \"jobCreated\": \"1948-09-09T08:24:19.783Z\",\n  \"jobId\": \"3541b586-c5bd-ce41-2430-0efb9d1ffdf5\",\n  \"loggedInId\": \"1133a2fe-97b8-9552-2521-a90cc0342233\",\n  \"mdc\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"QUEUED\",\n  \"timeoutUnit\": \"MICROSECONDS\",\n  \"jobQueued\": \"1953-03-24T04:54:57.776Z\",\n  \"jobStarted\": \"1989-08-27T01:06:03.490Z\",\n  \"jobCompleted\": \"1965-10-19T23:59:56.835Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 5150,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  },\n  \"sdoId\": \"d77602a4-c19c-c727-7b87-fe7d8c1a4ac2\",\n  \"func\": \"string\",\n  \"args\": {},\n  \"receipt\": {\n    \"contractOwnerId\": \"4b2040dc-163a-55fc-4035-1b12e6d18bd2\",\n    \"contractSdoId\": \"e7c345f5-d8d5-5c52-48df-1453d7d10820\",\n    \"effectiveId\": \"e90d4b54-844c-1c1b-0247-947713ab7cec\",\n    \"header\": {\n      \"dictionary\": \"string\",\n      \"hash\": \"string\",\n      \"id\": \"b6320d43-f4e4-18e4-75ba-611663ab900f\",\n      \"limitedOwners\": [\n        \"3706cbf5-9261-da3f-f3db-d9acf8ae0aee\",\n        \"865d308c-ca1a-adc6-8954-f07a5f7d33d4\"\n      ],\n      \"operation\": \"UPDATE\",\n      \"owners\": [\n        \"e2236eed-5ac4-6867-edc1-371d8e86b173\"\n      ],\n      \"signature\": \"string\",\n      \"signer\": \"0e1b63bc-fb84-9c55-0371-99bc2081012d\",\n      \"timestamp\": \"1980-12-02T05:51:56.547Z\",\n      \"type\": \"SMART_CONTRACT_RECEIPT\",\n      \"previousHash\": \"string\"\n    },\n    \"loggedInId\": \"23b3536d-7254-3c5d-e55d-5226ca4d2b43\",\n    \"receiptSmartContract\": {\n      \"function\": \"string\",\n      \"successful\": true,\n      \"arguments\": {},\n      \"response\": \"\",\n      \"consoleBase64\": \"string\",\n      \"errorLogBase64\": \"string\"\n    },\n    \"metadata\": {},\n    \"verifications\": {\n      \"key_0\": {\n        \"hash\": \"string\",\n        \"verifiedOn\": \"1980-09-17T04:21:33.379Z\",\n        \"verifier\": \"6d3b83b0-a31e-9e52-7d38-e61f6363d0d9\",\n        \"notes\": \"string\"\n      }\n    }\n  },\n  \"dictName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b292bda-993a-4282-bc0a-8cfddf7d0d2a",
+          "name": "post Export File",
+          "request": {
+            "name": "post Export File",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Exports data from a single chain and produces a JSON file, caller can request skip/limit of data for pagination of results always ordered by SDO ID; can be SFTP'ed or downloaded as an async job.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                ":chain",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"filePassword\": \"<string>\",\n  \"sftpUrl\": \"<string>\",\n  \"sftpUsername\": \"<string>\",\n  \"sftpPassword\": \"<string>\",\n  \"emailResultsTo\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<integer>\",\n  \"skip\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "97776009-18ae-42f8-b3a7-93cbfb7a63ee",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    ":chain",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"filePassword\": \"<string>\",\n  \"sftpUrl\": \"<string>\",\n  \"sftpUsername\": \"<string>\",\n  \"sftpPassword\": \"<string>\",\n  \"emailResultsTo\": [\n    \"<string>\"\n  ],\n  \"limit\": \"<integer>\",\n  \"skip\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"ef9b6aea-9adf-1c4e-6121-6ac54e0b2916\",\n  \"jobCreated\": \"1965-09-03T14:53:46.128Z\",\n  \"jobId\": \"5560b20b-27ad-fbfc-8ffd-fa036adf9897\",\n  \"loggedInId\": \"988f5d18-17b8-3c2d-b5fd-1ce395efd4f4\",\n  \"mdc\": {\n    \"key_0\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"RUNNING\",\n  \"timeoutUnit\": \"NANOSECONDS\",\n  \"jobQueued\": \"1947-04-18T13:44:07.791Z\",\n  \"jobStarted\": \"1952-11-07T21:19:07.969Z\",\n  \"jobCompleted\": \"1992-03-30T05:30:44.101Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 7135,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  },\n  \"fileType\": \"CSV\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"password\": \"string\",\n  \"sftpUrl\": \"string\",\n  \"sftpUsername\": \"string\",\n  \"sftpPassword\": \"string\",\n  \"key\": \"string\",\n  \"tql\": \"string\",\n  \"dictName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc4aa5f7-3f46-452f-bd96-606e45502fd3",
+          "name": "post Drop Chain",
+          "request": {
+            "name": "post Drop Chain",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>drops chain, all data, and all edges to/from this chain",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                ":chain",
+                "drop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailResultsTo\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4cbb8d35-d1ac-44a3-b41a-3b355728e857",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    ":chain",
+                    "drop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailResultsTo\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"44bcc7c4-efe9-9d41-fab2-702d7b5ce8dc\",\n  \"jobCreated\": \"1961-04-07T16:57:41.602Z\",\n  \"jobId\": \"7fb7fbca-16e0-6571-da0f-276da6236637\",\n  \"loggedInId\": \"319f6a94-e033-34b6-03fa-2bce6c35da16\",\n  \"mdc\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"QUEUED\",\n  \"timeoutUnit\": \"MINUTES\",\n  \"jobQueued\": \"1968-04-08T07:19:06.100Z\",\n  \"jobStarted\": \"2009-01-24T22:16:32.656Z\",\n  \"jobCompleted\": \"2024-02-07T15:52:24.122Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 4401,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  },\n  \"dictName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c73a70a-55fa-4f50-bfc1-9221543da2ee",
+          "name": "post Wipe SDZ",
+          "request": {
+            "name": "post Wipe SDZ",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>wipe all data, job infos, and blobs from the SDZ (NOT metadata)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                "sdz",
+                "wipe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailResultsTo\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "697552c7-2094-49a1-8067-2c2029ec4985",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    "sdz",
+                    "wipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailResultsTo\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"b2bd8a59-3f38-ff1a-9ecf-7f9bff436fbd\",\n  \"jobCreated\": \"2013-12-19T22:02:14.495Z\",\n  \"jobId\": \"af921d89-d561-ea6a-948f-eff9b61e29b4\",\n  \"loggedInId\": \"7b33a2f6-9de8-71ed-c052-740b9ca03463\",\n  \"mdc\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"RUNNING\",\n  \"timeoutUnit\": \"MICROSECONDS\",\n  \"jobQueued\": \"2018-07-20T15:37:10.745Z\",\n  \"jobStarted\": \"2005-04-29T19:13:15.713Z\",\n  \"jobCompleted\": \"1955-09-18T03:23:31.190Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 6042,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73cf5b1c-e9dd-474e-9071-38b84c7efe34",
+          "name": "post Reset SDZ",
+          "request": {
+            "name": "post Reset SDZ",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>reset (wipe) all data and metadata; essentially reset the SDZ to look like its newly created",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                "sdz",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailResultsTo\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50a5631c-92b5-4c85-966f-e7a15544ee18",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    "sdz",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailResultsTo\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"b2bd8a59-3f38-ff1a-9ecf-7f9bff436fbd\",\n  \"jobCreated\": \"2013-12-19T22:02:14.495Z\",\n  \"jobId\": \"af921d89-d561-ea6a-948f-eff9b61e29b4\",\n  \"loggedInId\": \"7b33a2f6-9de8-71ed-c052-740b9ca03463\",\n  \"mdc\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"RUNNING\",\n  \"timeoutUnit\": \"MICROSECONDS\",\n  \"jobQueued\": \"2018-07-20T15:37:10.745Z\",\n  \"jobStarted\": \"2005-04-29T19:13:15.713Z\",\n  \"jobCompleted\": \"1955-09-18T03:23:31.190Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 6042,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9304737-5bf9-4186-9257-37bfe50db23d",
+          "name": "post Download File",
+          "request": {
+            "name": "post Download File",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>queries data and produces a file; can be SFTP'ed or for downloaded as an async job. Supported file formats are CSV, PIPE, TAB, XLSX, and JSON. Warning: Care is needed when using CSV as there can be issues when the data is variable, complex and/or not fixed columns",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tql\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"filePassword\": \"<string>\",\n  \"sftpUrl\": \"<string>\",\n  \"sftpUsername\": \"<string>\",\n  \"sftpPassword\": \"<string>\",\n  \"emailResultsTo\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fileType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "83ce6c79-f351-4387-8dc0-a2e1f221905f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tql\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"filePassword\": \"<string>\",\n  \"sftpUrl\": \"<string>\",\n  \"sftpUsername\": \"<string>\",\n  \"sftpPassword\": \"<string>\",\n  \"emailResultsTo\": [\n    \"<string>\"\n  ],\n  \"fileType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"b13378da-bb8d-eca6-77e5-9560368c8e85\",\n  \"jobCreated\": \"2012-01-17T18:29:06.214Z\",\n  \"jobId\": \"2611cfd3-d84c-6a2c-60a8-02df6817e92c\",\n  \"loggedInId\": \"2ff2ffe3-ba34-af02-a485-9db96daaee9c\",\n  \"mdc\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"NEW\",\n  \"timeoutUnit\": \"DAYS\",\n  \"jobQueued\": \"2025-05-09T05:22:47.937Z\",\n  \"jobStarted\": \"2012-03-18T14:54:54.827Z\",\n  \"jobCompleted\": \"1946-12-08T13:12:20.770Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 4350,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  },\n  \"fileType\": \"XML\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"password\": \"string\",\n  \"sftpUrl\": \"string\",\n  \"sftpUsername\": \"string\",\n  \"sftpPassword\": \"string\",\n  \"key\": \"string\",\n  \"tql\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "766359ba-5835-47bd-b66c-e81f134a63a7",
+          "name": "post Dictionary File",
+          "request": {
+            "name": "post Dictionary File",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>load (upsert) a dictionary into the SDZ using 1) POST with JSON body with dictionary and emailResultsTo (optional); or 2) MULTIPART POST with dictionary file and emailResultsTo (optional) as form fields",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                "dictionary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "emailResultsTo",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailResultsTo",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6fe8560-c2b6-47af-b642-c9274f586542",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "emailResultsTo",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"29f1128c-f633-632a-8c85-86908bc82b64\",\n  \"jobCreated\": \"1970-12-03T20:21:48.057Z\",\n  \"jobId\": \"d911ef33-4da4-ee3d-d81c-d90dbb6adadb\",\n  \"loggedInId\": \"bca6cf60-76fe-f9e2-dec6-b96c70e97fe1\",\n  \"mdc\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"NEW\",\n  \"timeoutUnit\": \"MILLISECONDS\",\n  \"jobQueued\": \"1980-11-06T19:56:15.935Z\",\n  \"jobStarted\": \"1967-10-18T06:40:23.583Z\",\n  \"jobCompleted\": \"1950-10-01T15:42:49.112Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 8102,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  },\n  \"originalFilename\": \"string\",\n  \"key\": \"string\",\n  \"dictName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e32518d-10b6-47d5-b062-3b89de5dc64d",
+          "name": "post Db Schema File",
+          "request": {
+            "name": "post Db Schema File",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a dbschema (.dbs) XML file into the secure data zone; if delete is true any dictionaries in the SDZ not specified in the DbSchema file will be dropped",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                "dbschema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "delete",
+                  "value": "<boolean>",
+                  "description": "(Required) Required. If delete is true any dictionaries in the SDZ not specified in the DbSchema file will be dropped"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailResultsTo",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailResultsTo",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a2df68b4-e7bc-44ad-9a2f-53f73e48da03",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    "dbschema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "delete",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "emailResultsTo",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"b37be831-52a2-82f5-a1aa-7fe426b1d1e3\",\n  \"jobCreated\": \"2022-12-18T16:42:47.567Z\",\n  \"jobId\": \"aad14d15-011a-8202-26b0-96e655be080e\",\n  \"loggedInId\": \"f6fe0bed-0ed0-8b14-c45c-40ff5232cff6\",\n  \"mdc\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"RUNNING\",\n  \"timeoutUnit\": \"MICROSECONDS\",\n  \"jobQueued\": \"1973-08-02T11:22:41.750Z\",\n  \"jobStarted\": \"1958-02-10T18:51:02.181Z\",\n  \"jobCompleted\": \"1994-05-27T20:12:58.170Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 5957,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  },\n  \"originalFilename\": \"string\",\n  \"key\": \"string\",\n  \"delete\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "989f88cb-3d9c-403a-9da4-62ae330a3230",
+          "name": "get Query Job Info",
+          "request": {
+            "name": "get Query Job Info",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Deprecated. Replace with combination of /api/jobs/query/summary for a list of job infos and /api/jobs/{jobId} for the details of a specific job info<b><br/><br/>Deprecated since 08 MAY 2025</b>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "callerId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "daysToReturn",
+                  "value": "5"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f65df18d-e59d-4510-83ca-e85496981ad9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "daysToReturn",
+                      "value": "5"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"customerName\": \"string\",\n    \"effectiveId\": \"7ee6e4c1-6271-c1bb-2d80-bb81951c1e46\",\n    \"jobCreated\": \"1963-09-17T06:42:46.203Z\",\n    \"jobId\": \"e486f39f-899b-4d20-ae8e-6a559f7b83af\",\n    \"loggedInId\": \"17b1aee8-1f7e-2806-680c-b86be3b019c9\",\n    \"mdc\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"name\": \"string\",\n    \"sdzName\": \"string\",\n    \"status\": \"COMPLETED_SUCCESS\",\n    \"timeoutUnit\": \"SECONDS\",\n    \"jobQueued\": \"2008-04-30T16:18:56.380Z\",\n    \"jobStarted\": \"1966-11-14T22:43:36.312Z\",\n    \"jobCompleted\": \"2000-09-27T21:20:05.422Z\",\n    \"emailRecipients\": [\n      \"string\"\n    ],\n    \"timeout\": 2074,\n    \"results\": {\n      \"results\": {},\n      \"error\": {}\n    }\n  },\n  {\n    \"customerName\": \"string\",\n    \"effectiveId\": \"24a18479-2675-5654-d848-dc11f0e3577b\",\n    \"jobCreated\": \"1973-08-09T15:41:29.749Z\",\n    \"jobId\": \"93782078-e8e2-1aca-0da2-925c915be282\",\n    \"loggedInId\": \"cd654fc9-acf1-e8b6-b1e3-8c35928869de\",\n    \"mdc\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"name\": \"string\",\n    \"sdzName\": \"string\",\n    \"status\": \"CANCELLED\",\n    \"timeoutUnit\": \"MICROSECONDS\",\n    \"jobQueued\": \"2016-12-23T05:46:46.966Z\",\n    \"jobStarted\": \"1997-12-02T02:20:37.368Z\",\n    \"jobCompleted\": \"1994-12-03T16:59:15.323Z\",\n    \"emailRecipients\": [\n      \"string\"\n    ],\n    \"timeout\": 5362,\n    \"results\": {\n      \"results\": {},\n      \"error\": {}\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "528a5815-0478-458d-8108-8e9dd4d7753d",
+          "name": "get Job Info",
+          "request": {
+            "name": "get Job Info",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get job info for a specific job id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6bd9380f-6742-41de-8809-28e9fd9e9cfc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"customerName\": \"string\",\n  \"effectiveId\": \"b2bd8a59-3f38-ff1a-9ecf-7f9bff436fbd\",\n  \"jobCreated\": \"2013-12-19T22:02:14.495Z\",\n  \"jobId\": \"af921d89-d561-ea6a-948f-eff9b61e29b4\",\n  \"loggedInId\": \"7b33a2f6-9de8-71ed-c052-740b9ca03463\",\n  \"mdc\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"name\": \"string\",\n  \"sdzName\": \"string\",\n  \"status\": \"RUNNING\",\n  \"timeoutUnit\": \"MICROSECONDS\",\n  \"jobQueued\": \"2018-07-20T15:37:10.745Z\",\n  \"jobStarted\": \"2005-04-29T19:13:15.713Z\",\n  \"jobCompleted\": \"1955-09-18T03:23:31.190Z\",\n  \"emailRecipients\": [\n    \"string\"\n  ],\n  \"timeout\": 6042,\n  \"results\": {\n    \"results\": {},\n    \"error\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78e0a567-cc3c-45c0-a36e-87f60c20b5c2",
+          "name": "delete Cancel Job",
+          "request": {
+            "name": "delete Cancel Job",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>cancel a pending job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51700937-12f5-4d4f-b244-907720d88012",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f76ccb8f-b725-4a94-ba6b-80aef612cd14",
+          "name": "get Query Job Info Summaries",
+          "request": {
+            "name": "get Query Job Info Summaries",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Query for a summary of job infos (See JobInfoSummary schema for fields).  Use /api/jobs/{jobId} to load complete job info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                "query",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of job. Can be an exact match or wildcard"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Status of job. Exact match only"
+                },
+                {
+                  "disabled": false,
+                  "key": "loggedInId",
+                  "value": "<uuid>",
+                  "description": "User wallet id of the logged in user that started the job. Only for sdzAdmins. Exact match only"
+                },
+                {
+                  "disabled": false,
+                  "key": "daysToReturn",
+                  "value": "<integer>",
+                  "description": "Limit results to jobs create in the last number of days"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Order by field(s) with optional ACS or DESC keyword after each field"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Order by field(s) with optional ACS or DESC keyword after each field"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum amount of job infos to return.  Use orderBy to ensure consistent ordering job infos"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0",
+                  "description": "Skip the X number of job infos then return the remaining job infos within the limit.  Use orderBy to ensure consistent ordering of job infos"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "724635a4-a0c9-4397-b212-58ea6e0d2c5b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    "query",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "name=FileUploadJob"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "loggedInId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "daysToReturn",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"total\": 923,\n  \"limit\": 5759,\n  \"skip\": 3169,\n  \"jobs\": [\n    {\n      \"name\": \"string\",\n      \"jobId\": \"896ca95b-1f33-8999-f2a5-0d1597ca3d4d\",\n      \"status\": \"COMPLETED_SUCCESS\",\n      \"jobCreated\": \"1995-04-14T13:36:41.213Z\",\n      \"jobCompleted\": \"2020-04-05T10:03:20.600Z\",\n      \"dictName\": \"string\",\n      \"loggedInId\": \"c4210cc3-a0c5-3ef7-d20e-ad9630546ee0\",\n      \"downloadedDate\": \"1966-02-15T13:39:16.601Z\",\n      \"downloadedWalletId\": \"b110b2e6-4470-9a84-707a-ecdf25a2a234\"\n    },\n    {\n      \"name\": \"string\",\n      \"jobId\": \"9f70a714-83aa-7f6f-86f2-935f5ed642ff\",\n      \"status\": \"INCOMPLETE_ERROR\",\n      \"jobCreated\": \"2023-01-01T03:13:16.339Z\",\n      \"jobCompleted\": \"2018-06-03T07:35:22.914Z\",\n      \"dictName\": \"string\",\n      \"loggedInId\": \"e97e75c2-485a-a7a3-1b6c-d689e9c0c414\",\n      \"downloadedDate\": \"2003-07-13T08:11:07.464Z\",\n      \"downloadedWalletId\": \"dbc031ee-a2dd-545d-45ea-e02352ee2f33\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad747398-7e5b-4ecc-985d-15cec6055ec2",
+          "name": "get Download File",
+          "request": {
+            "name": "get Download File",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>after the download job is completed, get the file (if not SFTP'ed). WARNING: files are deleted after being downloaded",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jobs",
+                "download",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14dad7b2-e6ff-4b74-9c7a-5142bd64d17a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jobs",
+                    "download",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "785d7f68-1d62-4c44-aff1-08a2f95f7d34",
+    "name": "LifeGraph APIs BlastAI APIs Job Manager APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

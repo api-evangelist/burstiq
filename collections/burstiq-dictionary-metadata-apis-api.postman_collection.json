@@ -1,0 +1,1028 @@
+{
+  "item": [
+    {
+      "id": "d166b589-769e-4b02-8198-6e155fd30ba5",
+      "name": "Dictionary Metadata APIs",
+      "description": {
+        "content": "Dictionaries are schemas essentially, they describe the data allowed within a Node of a LifeGraph (can be thought of as a record too); a Node in the LG is akin to a Smart Data Object",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "27add756-4022-4b66-8b34-441b69e05590",
+          "name": "get Query Dicts",
+          "request": {
+            "name": "get Query Dicts",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query dictionaries from the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "dictionary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab205115-2b56-4e7f-8381-90bade34af8d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": [\n      {\n        \"datatype\": \"INTEGER_REFERENCE_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"strin\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 1930,\n        \"defaultValue\": \"string\",\n        \"min\": 3467.2412685471863,\n        \"max\": 2244.217381472625,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      },\n      {\n        \"datatype\": \"FINGERPRINT\",\n        \"enumValues\": [\n          \"string\",\n          \"str\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 8185,\n        \"defaultValue\": \"string\",\n        \"min\": 3475.9056831511325,\n        \"max\": 4877.0080250110705,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"undefinedAttributesAction\": \"ERROR\",\n    \"description\": \"string\",\n    \"displayName\": \"string\",\n    \"groupName\": \"string\",\n    \"layoutMetadata\": {},\n    \"indexes\": [\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2785,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4042,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 243,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5083,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7792,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1445,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2963,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1815,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2893,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7010,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6852,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4730,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 863,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7860,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1454,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5317,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2486,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5558,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7817,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7733,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      }\n    ],\n    \"properties\": {}\n  },\n  {\n    \"attributes\": [\n      {\n        \"datatype\": \"LONG_ARRAY\",\n        \"enumValues\": [\n          \"string\",\n          \"stri\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": true,\n        \"precision\": 1893,\n        \"defaultValue\": \"string\",\n        \"min\": 3234.99811061144,\n        \"max\": 3592.584218971332,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      },\n      {\n        \"datatype\": \"LONG_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"strin\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": true,\n        \"precision\": 3283,\n        \"defaultValue\": \"string\",\n        \"min\": 7110.564536603883,\n        \"max\": 6646.928055107649,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"undefinedAttributesAction\": \"REMOVE\",\n    \"description\": \"string\",\n    \"displayName\": \"string\",\n    \"groupName\": \"string\",\n    \"layoutMetadata\": {},\n    \"indexes\": [\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7541,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1196,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5960,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 330,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7991,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"str\",\n        \"numDimensions\": 1287,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"strin\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 3329,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1544,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6736,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5821,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5152,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7664,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2739,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6140,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7979,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 8103,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2364,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 782,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"stri\",\n        \"numDimensions\": 7967,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 704,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      }\n    ],\n    \"properties\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9a04e54-ece2-4902-a2e5-ea0659244d40",
+          "name": "put Dict",
+          "request": {
+            "name": "put Dict",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Update with job instead. | Put (update) the dictionary in the secure data zone.<b><br/><br/>Deprecated since 16 JUL 24</b>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "dictionary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributes\": [\n    {\n      \"datatype\": \"<string>\",\n      \"enumValues\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fingerprintAttributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"vectorAttributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"description\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"precision\": \"<integer>\",\n      \"defaultValue\": \"<string>\",\n      \"min\": \"<number>\",\n      \"max\": \"<number>\",\n      \"regex\": \"<string>\",\n      \"referenceDictionaryName\": \"<string>\"\n    },\n    {\n      \"datatype\": \"<string>\",\n      \"enumValues\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fingerprintAttributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"vectorAttributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"description\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"precision\": \"<integer>\",\n      \"defaultValue\": \"<string>\",\n      \"min\": \"<number>\",\n      \"max\": \"<number>\",\n      \"regex\": \"<string>\",\n      \"referenceDictionaryName\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"undefinedAttributesAction\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"groupName\": \"<string>\",\n  \"layoutMetadata\": \"<object>\",\n  \"indexes\": [\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    }\n  ],\n  \"properties\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4894fc87-9ee9-4fe6-b0dd-6b517f6ae000",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": [\n    {\n      \"datatype\": \"LONG_REFERENCE_ARRAY\",\n      \"enumValues\": [\n        \"string\",\n        \"st\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": true,\n      \"precision\": 3085,\n      \"defaultValue\": \"string\",\n      \"min\": 8437.034803730427,\n      \"max\": 1230.7021857013679,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    },\n    {\n      \"datatype\": \"LONG_REFERENCE\",\n      \"enumValues\": [\n        \"string\",\n        \"strin\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": true,\n      \"precision\": 7443,\n      \"defaultValue\": \"string\",\n      \"min\": 572.1625114417538,\n      \"max\": 8444.677344746304,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"undefinedAttributesAction\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"groupName\": \"<string>\",\n  \"layoutMetadata\": \"<object>\",\n  \"indexes\": [\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3601,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5865,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"s\",\n      \"numDimensions\": 7966,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 7777,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4504,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5725,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5757,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4876,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2250,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 95,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 7417,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"stri\",\n      \"numDimensions\": 755,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2151,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5493,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 733,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4863,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 471,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 263,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2018,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6798,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    }\n  ],\n  \"properties\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"attributes\": [\n    {\n      \"datatype\": \"DATETIME\",\n      \"enumValues\": [\n        \"string\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": false,\n      \"precision\": 1981,\n      \"defaultValue\": \"string\",\n      \"min\": 9129.369150706752,\n      \"max\": 7619.45830229202,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    },\n    {\n      \"datatype\": \"DATE\",\n      \"enumValues\": [\n        \"string\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": false,\n      \"precision\": 1647,\n      \"defaultValue\": \"string\",\n      \"min\": 3880.1116261180755,\n      \"max\": 9521.233181141988,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"undefinedAttributesAction\": \"ERROR\",\n  \"description\": \"string\",\n  \"displayName\": \"string\",\n  \"groupName\": \"string\",\n  \"layoutMetadata\": {},\n  \"indexes\": [\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3274,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 97,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 373,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 839,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6185,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3427,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"stri\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 1122,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5228,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6511,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 8093,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"strin\",\n      \"numDimensions\": 7448,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 1524,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4509,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6327,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4255,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5077,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2587,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 7446,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2826,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3552,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    }\n  ],\n  \"properties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "586c9513-aae5-442d-a4a4-8e3d1df8f052",
+          "name": "post Dict",
+          "request": {
+            "name": "post Dict",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Create with job instead. | Create a dictionary into the secure data zone.<b><br/><br/>Deprecated since 16 JUL 24</b>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "dictionary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributes\": [\n    {\n      \"datatype\": \"<string>\",\n      \"enumValues\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fingerprintAttributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"vectorAttributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"description\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"precision\": \"<integer>\",\n      \"defaultValue\": \"<string>\",\n      \"min\": \"<number>\",\n      \"max\": \"<number>\",\n      \"regex\": \"<string>\",\n      \"referenceDictionaryName\": \"<string>\"\n    },\n    {\n      \"datatype\": \"<string>\",\n      \"enumValues\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fingerprintAttributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"vectorAttributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"description\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"precision\": \"<integer>\",\n      \"defaultValue\": \"<string>\",\n      \"min\": \"<number>\",\n      \"max\": \"<number>\",\n      \"regex\": \"<string>\",\n      \"referenceDictionaryName\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"undefinedAttributesAction\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"groupName\": \"<string>\",\n  \"layoutMetadata\": \"<object>\",\n  \"indexes\": [\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    },\n    {\n      \"attributes\": [\n        \"<string>\"\n      ],\n      \"name\": \"<string>\",\n      \"numDimensions\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"partialFilterTql\": \"<string>\"\n    }\n  ],\n  \"properties\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d66a9249-d4e4-4434-a654-88df1545d19a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": [\n    {\n      \"datatype\": \"LONG_REFERENCE_ARRAY\",\n      \"enumValues\": [\n        \"string\",\n        \"st\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": true,\n      \"precision\": 3085,\n      \"defaultValue\": \"string\",\n      \"min\": 8437.034803730427,\n      \"max\": 1230.7021857013679,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    },\n    {\n      \"datatype\": \"LONG_REFERENCE\",\n      \"enumValues\": [\n        \"string\",\n        \"strin\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": true,\n      \"precision\": 7443,\n      \"defaultValue\": \"string\",\n      \"min\": 572.1625114417538,\n      \"max\": 8444.677344746304,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"undefinedAttributesAction\": \"<string>\",\n  \"description\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"groupName\": \"<string>\",\n  \"layoutMetadata\": \"<object>\",\n  \"indexes\": [\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3601,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5865,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"s\",\n      \"numDimensions\": 7966,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 7777,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4504,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5725,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5757,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4876,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2250,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 95,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 7417,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"stri\",\n      \"numDimensions\": 755,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2151,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5493,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 733,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4863,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 471,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 263,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2018,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6798,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    }\n  ],\n  \"properties\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"attributes\": [\n    {\n      \"datatype\": \"DATETIME\",\n      \"enumValues\": [\n        \"string\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": false,\n      \"precision\": 1981,\n      \"defaultValue\": \"string\",\n      \"min\": 9129.369150706752,\n      \"max\": 7619.45830229202,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    },\n    {\n      \"datatype\": \"DATE\",\n      \"enumValues\": [\n        \"string\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": false,\n      \"precision\": 1647,\n      \"defaultValue\": \"string\",\n      \"min\": 3880.1116261180755,\n      \"max\": 9521.233181141988,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"undefinedAttributesAction\": \"ERROR\",\n  \"description\": \"string\",\n  \"displayName\": \"string\",\n  \"groupName\": \"string\",\n  \"layoutMetadata\": {},\n  \"indexes\": [\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3274,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 97,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 373,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 839,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6185,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3427,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"stri\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 1122,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5228,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6511,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 8093,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"strin\",\n      \"numDimensions\": 7448,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 1524,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4509,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6327,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4255,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5077,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2587,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 7446,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2826,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3552,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    }\n  ],\n  \"properties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60c0e2b4-3e01-4f3c-b49c-03f5a053bbfd",
+          "name": "post Predict Dict",
+          "request": {
+            "name": "post Predict Dict",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>uses a data file to predict a dictionary definition (uses Nostradamus",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "dictionary",
+                "predict"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sheetNum",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sheetName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "standardizeNames",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "key": "primaryIndexCols",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "primaryIndexCols",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxRowsToUse",
+                  "value": "10000"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"file\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a37461b8-5586-43ff-8776-8632b1fba5bb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "dictionary",
+                    "predict"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sheetNum",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sheetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "standardizeNames",
+                      "value": "true"
+                    },
+                    {
+                      "key": "primaryIndexCols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "primaryIndexCols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxRowsToUse",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": \"<binary>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"dictionary\": {\n    \"attributes\": [\n      {\n        \"datatype\": \"LONG_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 1935,\n        \"defaultValue\": \"string\",\n        \"min\": 407.8491082098401,\n        \"max\": 2796.2781212709474,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      },\n      {\n        \"datatype\": \"ENUM_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 5641,\n        \"defaultValue\": \"string\",\n        \"min\": 5363.0536256647665,\n        \"max\": 8815.519585404276,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"undefinedAttributesAction\": \"ERROR\",\n    \"description\": \"string\",\n    \"displayName\": \"string\",\n    \"groupName\": \"string\",\n    \"layoutMetadata\": {},\n    \"indexes\": [\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 3647,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4213,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2338,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7094,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"str\",\n        \"numDimensions\": 3153,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 3436,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2824,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4703,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6952,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7742,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1479,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"st\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7485,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7635,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"str\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4647,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2054,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5731,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"str\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5283,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1947,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2480,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5839,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      }\n    ],\n    \"properties\": {}\n  },\n  \"mapping\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac390b28-1cf0-4510-a449-1cc73afe4bc4",
+          "name": "get Dict",
+          "request": {
+            "name": "get Dict",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets a dictionary by name from the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "dictionary",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a627ea0-efb2-4aee-b82b-e7959b3b7e5a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "dictionary",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"attributes\": [\n    {\n      \"datatype\": \"DATETIME\",\n      \"enumValues\": [\n        \"string\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": false,\n      \"precision\": 1981,\n      \"defaultValue\": \"string\",\n      \"min\": 9129.369150706752,\n      \"max\": 7619.45830229202,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    },\n    {\n      \"datatype\": \"DATE\",\n      \"enumValues\": [\n        \"string\"\n      ],\n      \"fingerprintAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"vectorAttributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"displayName\": \"string\",\n      \"required\": false,\n      \"precision\": 1647,\n      \"defaultValue\": \"string\",\n      \"min\": 3880.1116261180755,\n      \"max\": 9521.233181141988,\n      \"regex\": \"string\",\n      \"referenceDictionaryName\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"undefinedAttributesAction\": \"ERROR\",\n  \"description\": \"string\",\n  \"displayName\": \"string\",\n  \"groupName\": \"string\",\n  \"layoutMetadata\": {},\n  \"indexes\": [\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3274,\n      \"type\": \"KEYWORD\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 97,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 373,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 839,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6185,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3427,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"stri\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 1122,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5228,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6511,\n      \"type\": \"PRIMARY\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 8093,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"strin\",\n      \"numDimensions\": 7448,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 1524,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4509,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 6327,\n      \"type\": \"FULL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 4255,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 5077,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2587,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 7446,\n      \"type\": \"VECTOR\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 2826,\n      \"type\": \"NORMAL\",\n      \"partialFilterTql\": \"string\"\n    },\n    {\n      \"attributes\": [\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"numDimensions\": 3552,\n      \"type\": \"UNIQUE\",\n      \"partialFilterTql\": \"string\"\n    }\n  ],\n  \"properties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9d6f346-839f-4800-8a9f-d84016763b2a",
+          "name": "delete Dict",
+          "request": {
+            "name": "delete Dict",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Use drop job instead. | BEWARE: Deletes a dictionary by name from the secure data zone AND it data.<b><br/><br/>Deprecated since 16 JUL 24</b>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "dictionary",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8c551d9-05f1-4917-ada5-8af7a36a09d5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "dictionary",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62f12fef-ce1b-4fe7-a33c-9bbd5785eec1",
+          "name": "get History 6",
+          "request": {
+            "name": "get History 6",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a dictionary",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "dictionary",
+                ":name",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b64c5e06-0c23-4db0-97b3-93cc0120bcec",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "dictionary",
+                    ":name",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": [\n      {\n        \"datatype\": \"INTEGER_REFERENCE_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"strin\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 1930,\n        \"defaultValue\": \"string\",\n        \"min\": 3467.2412685471863,\n        \"max\": 2244.217381472625,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      },\n      {\n        \"datatype\": \"FINGERPRINT\",\n        \"enumValues\": [\n          \"string\",\n          \"str\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 8185,\n        \"defaultValue\": \"string\",\n        \"min\": 3475.9056831511325,\n        \"max\": 4877.0080250110705,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"undefinedAttributesAction\": \"ERROR\",\n    \"description\": \"string\",\n    \"displayName\": \"string\",\n    \"groupName\": \"string\",\n    \"layoutMetadata\": {},\n    \"indexes\": [\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2785,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4042,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 243,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5083,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7792,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1445,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2963,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1815,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2893,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7010,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6852,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4730,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 863,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7860,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1454,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5317,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2486,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5558,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7817,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7733,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      }\n    ],\n    \"properties\": {}\n  },\n  {\n    \"attributes\": [\n      {\n        \"datatype\": \"LONG_ARRAY\",\n        \"enumValues\": [\n          \"string\",\n          \"stri\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": true,\n        \"precision\": 1893,\n        \"defaultValue\": \"string\",\n        \"min\": 3234.99811061144,\n        \"max\": 3592.584218971332,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      },\n      {\n        \"datatype\": \"LONG_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"strin\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": true,\n        \"precision\": 3283,\n        \"defaultValue\": \"string\",\n        \"min\": 7110.564536603883,\n        \"max\": 6646.928055107649,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"undefinedAttributesAction\": \"REMOVE\",\n    \"description\": \"string\",\n    \"displayName\": \"string\",\n    \"groupName\": \"string\",\n    \"layoutMetadata\": {},\n    \"indexes\": [\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7541,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1196,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5960,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 330,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7991,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"str\",\n        \"numDimensions\": 1287,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"strin\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 3329,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1544,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6736,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5821,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5152,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7664,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2739,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6140,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7979,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 8103,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2364,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 782,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"stri\",\n        \"numDimensions\": 7967,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 704,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      }\n    ],\n    \"properties\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3305a229-ca3d-4297-847c-524e6845daf2",
+          "name": "get Search 6",
+          "request": {
+            "name": "get Search 6",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "dictionary",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "terms",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "419110c9-32c2-4185-9545-d1b83a8db9a0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "dictionary",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "terms",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": [\n      {\n        \"datatype\": \"DECIMAL\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 8131,\n        \"defaultValue\": \"string\",\n        \"min\": 2701.111071154131,\n        \"max\": 1360.662807204679,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      },\n      {\n        \"datatype\": \"DATE_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"strin\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"st\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 7488,\n        \"defaultValue\": \"string\",\n        \"min\": 7585.849480378974,\n        \"max\": 2975.592744814578,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"undefinedAttributesAction\": \"REMOVE\",\n    \"description\": \"string\",\n    \"displayName\": \"string\",\n    \"groupName\": \"string\",\n    \"layoutMetadata\": {},\n    \"indexes\": [\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2139,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2156,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4068,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 521,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 3259,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5457,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4464,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4358,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7297,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2109,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4224,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 3260,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6813,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1676,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4223,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1434,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4234,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4818,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1601,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1598,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      }\n    ],\n    \"properties\": {}\n  },\n  {\n    \"attributes\": [\n      {\n        \"datatype\": \"DATETIME_ARRAY\",\n        \"enumValues\": [\n          \"string\",\n          \"stri\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"s\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 7257,\n        \"defaultValue\": \"string\",\n        \"min\": 6036.688311381197,\n        \"max\": 6977.380779903315,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      },\n      {\n        \"datatype\": \"LONG_REFERENCE_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 4297,\n        \"defaultValue\": \"string\",\n        \"min\": 6562.290825347848,\n        \"max\": 4348.5715492518675,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"undefinedAttributesAction\": \"ERROR\",\n    \"description\": \"string\",\n    \"displayName\": \"string\",\n    \"groupName\": \"string\",\n    \"layoutMetadata\": {},\n    \"indexes\": [\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6267,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 139,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4435,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7749,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"stri\",\n        \"numDimensions\": 1527,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5134,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 8134,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6867,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 962,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1352,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4369,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6465,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6515,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 3722,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5056,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5070,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7008,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5422,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1384,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2304,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      }\n    ],\n    \"properties\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e767a7ef-f672-488c-a99d-366ea08345fa",
+          "name": "get Query Dicts Referencable",
+          "request": {
+            "name": "get Query Dicts Referencable",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query dictionaries from the secure data zone that can be used in a reference datatype",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "dictionary",
+                "referenceable",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6dfb4ffc-5bdc-4f66-8e47-95e57cd2e34a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "dictionary",
+                    "referenceable",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": [\n      {\n        \"datatype\": \"INTEGER_REFERENCE_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"strin\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 1930,\n        \"defaultValue\": \"string\",\n        \"min\": 3467.2412685471863,\n        \"max\": 2244.217381472625,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      },\n      {\n        \"datatype\": \"FINGERPRINT\",\n        \"enumValues\": [\n          \"string\",\n          \"str\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": false,\n        \"precision\": 8185,\n        \"defaultValue\": \"string\",\n        \"min\": 3475.9056831511325,\n        \"max\": 4877.0080250110705,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"undefinedAttributesAction\": \"ERROR\",\n    \"description\": \"string\",\n    \"displayName\": \"string\",\n    \"groupName\": \"string\",\n    \"layoutMetadata\": {},\n    \"indexes\": [\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2785,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4042,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 243,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5083,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7792,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1445,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2963,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1815,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2893,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7010,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6852,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 4730,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 863,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7860,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1454,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5317,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2486,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5558,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7817,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7733,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      }\n    ],\n    \"properties\": {}\n  },\n  {\n    \"attributes\": [\n      {\n        \"datatype\": \"LONG_ARRAY\",\n        \"enumValues\": [\n          \"string\",\n          \"stri\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": true,\n        \"precision\": 1893,\n        \"defaultValue\": \"string\",\n        \"min\": 3234.99811061144,\n        \"max\": 3592.584218971332,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      },\n      {\n        \"datatype\": \"LONG_ARRAY\",\n        \"enumValues\": [\n          \"string\"\n        ],\n        \"fingerprintAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"strin\",\n        \"vectorAttributes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"displayName\": \"string\",\n        \"required\": true,\n        \"precision\": 3283,\n        \"defaultValue\": \"string\",\n        \"min\": 7110.564536603883,\n        \"max\": 6646.928055107649,\n        \"regex\": \"string\",\n        \"referenceDictionaryName\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"undefinedAttributesAction\": \"REMOVE\",\n    \"description\": \"string\",\n    \"displayName\": \"string\",\n    \"groupName\": \"string\",\n    \"layoutMetadata\": {},\n    \"indexes\": [\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7541,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1196,\n        \"type\": \"UNIQUE\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5960,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 330,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7991,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"str\",\n        \"numDimensions\": 1287,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"strin\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 3329,\n        \"type\": \"NORMAL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 1544,\n        \"type\": \"VECTOR\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6736,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5821,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 5152,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7664,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2739,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 6140,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 7979,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 8103,\n        \"type\": \"KEYWORD\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 2364,\n        \"type\": \"FULL\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 782,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"stri\",\n        \"numDimensions\": 7967,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      },\n      {\n        \"attributes\": [\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"numDimensions\": 704,\n        \"type\": \"PRIMARY\",\n        \"partialFilterTql\": \"string\"\n      }\n    ],\n    \"properties\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "db3568db-846c-4e88-af02-c4944b000b7c",
+    "name": "LifeGraph APIs BlastAI APIs Dictionary Metadata APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

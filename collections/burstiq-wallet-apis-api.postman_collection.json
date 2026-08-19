@@ -1,0 +1,189 @@
+{
+  "item": [
+    {
+      "id": "d0c77274-d2e2-4647-913f-3c1fe8a650e2",
+      "name": "Wallet APIs",
+      "description": {
+        "content": "For interacting with wallets when the type of wallet (user or system) is unknown",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3e872b7-c252-4076-955a-c65a0e5163e8",
+          "name": "get Query Wallets",
+          "request": {
+            "name": "get Query Wallets",
+            "description": {
+              "content": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query user OR system wallets from the secure data zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metadata",
+                "wallet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fullName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "247140f2-5622-455e-8a22-9e99d55482d7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metadata",
+                    "wallet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fullName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"userWallets\": [\n    {\n      \"id\": \"4764f8e9-a47a-7f86-a223-fa166341c54d\",\n      \"principal\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\",\n      \"termsAgreed\": [\n        {\n          \"agreedAt\": \"1980-05-05T09:41:37.217Z\",\n          \"termsId\": \"cc0d22ee-da5b-94d5-85da-07c7bc78b0f5\",\n          \"metadata\": {}\n        },\n        {\n          \"agreedAt\": \"1985-01-08T00:04:11.400Z\",\n          \"termsId\": \"dd864707-fbe1-7e49-66d1-b1d4b1663f54\",\n          \"metadata\": {}\n        }\n      ],\n      \"hash\": \"string\",\n      \"author\": \"402a194e-488b-7a69-9077-29bbedb05689\",\n      \"timestamp\": \"1960-01-03T03:35:16.159Z\"\n    },\n    {\n      \"id\": \"9162668b-bbc8-d3bf-82cd-b898e1a8fc4d\",\n      \"principal\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\",\n      \"termsAgreed\": [\n        {\n          \"agreedAt\": \"1946-09-06T15:01:39.237Z\",\n          \"termsId\": \"93bd0c23-700e-3de1-534c-e16ffa9d3e3e\",\n          \"metadata\": {}\n        },\n        {\n          \"agreedAt\": \"1994-08-18T02:55:00.323Z\",\n          \"termsId\": \"755ef921-26ec-2a03-22a4-a17fb8985a40\",\n          \"metadata\": {}\n        }\n      ],\n      \"hash\": \"string\",\n      \"author\": \"61672377-3d65-5c1d-b5f0-185396184aea\",\n      \"timestamp\": \"2013-09-27T05:00:33.173Z\"\n    }\n  ],\n  \"systemWallets\": [\n    {\n      \"accessControlUserGroup\": \"f2f032a7-456f-0915-ae84-b89dc01718d4\",\n      \"description\": \"string\",\n      \"id\": \"2d8f87b8-5bc4-5b69-8b07-b4bf4e1817ce\",\n      \"type\": \"CUSTODIAN_OWNER\",\n      \"writeUserGroup\": \"029aa92d-af79-e0ab-7a7d-4dbef5cde90c\",\n      \"hash\": \"string\",\n      \"author\": \"37e8c7e9-12b6-7e88-b99e-0668434f92e2\",\n      \"timestamp\": \"1979-03-04T17:42:10.461Z\"\n    },\n    {\n      \"accessControlUserGroup\": \"be2aafef-d7f0-54ae-8b94-bb50a65dd385\",\n      \"description\": \"string\",\n      \"id\": \"5017ebd7-278a-a3c9-9dd0-6ae71215909e\",\n      \"type\": \"CUSTODIAN_LIMITED_OWNER\",\n      \"writeUserGroup\": \"962b25fe-aecf-715b-c3a2-fb918a2b7228\",\n      \"hash\": \"string\",\n      \"author\": \"87a5ac3b-597a-76ab-04ef-0d39eb333b6c\",\n      \"timestamp\": \"2007-02-27T03:30:12.763Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.burstiq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9af495cd-c69f-46a6-a1f0-ae2df2e49f93",
+    "name": "LifeGraph APIs BlastAI APIs Wallet APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LifeGraph API descriptions",
+      "type": "text/plain"
+    }
+  }
+}

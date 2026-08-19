@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs Customer Directory APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customer Directory APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getCustomer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/directory/:customerShortName",
+            "params": [
+              {
+                "name": "customerShortName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>biqAdmin</li><li>customerOwner</li><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the customer based on customer short name"
+        },
+        {
+          "info": {
+            "name": "getCustomerSDZNames",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/directory/:customerShortName/securedatazones",
+            "params": [
+              {
+                "name": "customerShortName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>DEPRECATED: Use /{customerShortName}/available_sdzs instead. | Get secure data zones by based on customer short name.<b><br/><br/>Deprecated since 04 FEB 2025</b>"
+        },
+        {
+          "info": {
+            "name": "getCustomerSDZsWithRealm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/directory/:customerShortName/available_sdzs",
+            "params": [
+              {
+                "name": "customerShortName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>get secure data zones by based on customer short name"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

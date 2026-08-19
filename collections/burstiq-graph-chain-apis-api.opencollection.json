@@ -1,0 +1,1253 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs Graph Chain APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Graph Chain APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "putUpdateEdgeById",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:fromDict/edges/:edgeId",
+            "params": [
+              {
+                "name": "fromDict",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "edgeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>updates an edge with a from chain and edge ID; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "postCreateAsset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/graphchain/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create an asset in a chain"
+        },
+        {
+          "info": {
+            "name": "putUpsertAsset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>upsert asset by primary key"
+        },
+        {
+          "info": {
+            "name": "patchAsset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.burstiq.com/api/graphchain/:chain",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>patch specific elements of the asset by primary key (inline with other data)"
+        },
+        {
+          "info": {
+            "name": "getSDO",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get smart data object by sdo id; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "putUpdateAsset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>update elements of the asset by SDO id"
+        },
+        {
+          "info": {
+            "name": "deleteSDO",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>get smart data object by sdo id; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "postBlob",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/:attribute/blobs",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "attribute",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "metadata",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>adds a blob to an SDO by ID and its attribute"
+        },
+        {
+          "info": {
+            "name": "putUpsertBlob",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/:attribute/blobs",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "attribute",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "metadata",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Upsert a blob, only works with scalar"
+        },
+        {
+          "info": {
+            "name": "deleteBlob",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/:attribute/blobs",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "attribute",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes a blob(s) from an SDO by attribute name"
+        },
+        {
+          "info": {
+            "name": "getBlob",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/:attribute/blobs/:blobHash",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "attribute",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "blobHash",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get blob data for an SDO specifically for an attribute and its hash"
+        },
+        {
+          "info": {
+            "name": "putBlob",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/:attribute/blobs/:blobHash",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "attribute",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "blobHash",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "metadata",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Replace a specific blob on an SDO by its ID, attribute, and hash of the blob to replace"
+        },
+        {
+          "info": {
+            "name": "deleteBlobByHash",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/:attribute/blobs/:blobHash",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "attribute",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "blobHash",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes a blob(s) from an SDO by attribute name and blob hash"
+        },
+        {
+          "info": {
+            "name": "putVerificationInSDO",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/verification",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>add verification data into the SDO; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "putTransferSDO",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/transfer",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>transfer a smart data object by sdo id; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "putRevertSDO",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/revert",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Revert an SDO by sdo id to the previous SDO.  To revert an sdo, the following must be true:\n  1. The current sdo must be the result of an UPDATE or a TRANSFER,\n  2. You must be the signer of the current sdo.\n  3. You must be an owner of the previous sdo.\n  4. The revert must happen within 30 seconds of the update/transfer of the current sdo.\n\nThe revert will remove the previous version of the sdo in history and make it the current"
+        },
+        {
+          "info": {
+            "name": "putUpdateSmartContract",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/smartcontracts/:sdoId",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>update a smart contract"
+        },
+        {
+          "info": {
+            "name": "putUpdateConsentContract",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/consentcontracts/:sdoId",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>update a consent contract"
+        },
+        {
+          "info": {
+            "name": "putUpsertBulkAssets",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/bulk",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>bulk upsert assets by primary key (order may not be followed); takes an array of [{data:{}, metadata:{}}...] objects"
+        },
+        {
+          "info": {
+            "name": "putUpsertEdge",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/graphchain/edge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>upsert an edge between 2 SDOs; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "postCreateEdge_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/edges",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create an edge between 2 SDOs; must be owner or limited owner; could return 200 empty response if edge already exists"
+        },
+        {
+          "info": {
+            "name": "postCreateSmartContract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/smartcontracts",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create a smart contract; request body must be "
+        },
+        {
+          "info": {
+            "name": "postCreateConsentContract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/consentcontracts",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>create a consent contract"
+        },
+        {
+          "info": {
+            "name": "postQuery",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/graphchain/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED Content-Type=application/json (09 MAY 24): Use ContentType=text/plain instead. | Query assets by TQL."
+        },
+        {
+          "info": {
+            "name": "postValidate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/graphchain/query/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED Content-Type=application/json (09 MAY 24): Use ContentType=text/plain. | Validate a given query for syntax; optional enforcement options."
+        },
+        {
+          "info": {
+            "name": "postValidateGraph",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/graphchain/query/validate/graph"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED (use /query/validate): validate a given query for syntax, must have GRAPH command; optional enforcement options<b><br/><br/>Deprecated since 23 JUN 2025</b>"
+        },
+        {
+          "info": {
+            "name": "patchAssetWithPkFields",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/bypk",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>patch specific elements of the asset by primary key (using pkFields and pkPatchFields.  NOTE: this DOES allow for updating the primary key as well"
+        },
+        {
+          "info": {
+            "name": "getEdgeById_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:from/edges/:edgeId",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "edgeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets an edge with a from chain and edge ID"
+        },
+        {
+          "info": {
+            "name": "getEdges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:fromDict/:fromSdoId/edges",
+            "params": [
+              {
+                "name": "fromDict",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromSdoId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets all outbound edges with a from SDO; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "getVerifySignature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/verify/signature",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>verify signature of smart data object by sdo id or hash"
+        },
+        {
+          "info": {
+            "name": "getVerifyHash",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/verify/hash",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>verify hash of smart data object by sdo id or hash"
+        },
+        {
+          "info": {
+            "name": "getSDOHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/history",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get smart data object history by sdo id; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "getBlobInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/:sdoId/blobs",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "attribute",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get blob(s) info for an SDO; optionally can specify a blob attribute for filtering"
+        },
+        {
+          "info": {
+            "name": "getQuerySmartContractReceipts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/smartcontracts/receipts",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>gets smart contract receipts, by where clause, orderBy clause, and limit/skip.  these are optional but must include a where clause or a limit.  the orderBy format is a comma separated list of: name [ACS | DESC]"
+        },
+        {
+          "info": {
+            "name": "getQuerySmartContractReceiptsSelf",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/smartcontracts/receipts/self",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets smart contract receipts, by where clause, orderBy clause, and limit/skip.  these are optional but must include a where clause or a limit.  the orderBy format is a comma separated list of: name [ACS | DESC]"
+        },
+        {
+          "info": {
+            "name": "getQuerySmartContracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/query/smartcontracts",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query smart contracts by tql"
+        },
+        {
+          "info": {
+            "name": "getQueryConsentContracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/query/consentcontracts",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query consent contracts by simple tql"
+        },
+        {
+          "info": {
+            "name": "getQueryConsentContractReceipts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/consentcontracts/receipts",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>gets consent contract receipts, by where clause, orderBy clause, and limit/skip.  these are optional but must include a where clause or a limit.  the orderBy format is a comma separated list of: name [ACS | DESC]"
+        },
+        {
+          "info": {
+            "name": "getQueryConsentContractReceiptsSelf",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/consentcontracts/receipts/self",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets consent contract receipts, by where clause, orderBy clause, and limit/skip.  these are optional but must include a where clause or a limit.  the orderBy format is a comma separated list of: name [ACS | DESC]"
+        },
+        {
+          "info": {
+            "name": "getShortestPath",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/shortestpath",
+            "params": [
+              {
+                "name": "v1Chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "v1SdoId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "v2Chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "v2SdoId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "minDepth",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxDepth",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "whileStmt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "optimizedShortestPath",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Finds the shortest path (0..1) or shortest paths (0..*) between SDO IDs (v1 chain/id\nand v2 chain/id).\n\nUser must specify a case-insensitive direction (IN, OUT, INOUT, OMNI).\n\nDepth parameters are also required.\n\nThe optimizedShortestPath must be a minDepth of 0.  Also, for optimizedShortestPath\nthe ALL direction is not supported.  When optimizedShortestPath is specified than (0..1)\npaths are r"
+        },
+        {
+          "info": {
+            "name": "getCheckSDZHealth",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/health"
+          },
+          "docs": "<b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>TBD"
+        },
+        {
+          "info": {
+            "name": "getEdge_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/graphchain/edge/:fromDict/:fromSdoId/:label/:toDict/:toSdoId",
+            "params": [
+              {
+                "name": "fromDict",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromSdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "label",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "toDict",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "toSdoId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets an edge between 2 SDOs; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "deleteEdge",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/graphchain/edge/:fromDict/:fromSdoId/:label/:toDict/:toSdoId",
+            "params": [
+              {
+                "name": "fromDict",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromSdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "label",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "toDict",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "toSdoId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes an edge with all 5 identifiers; must be owner or limited owner"
+        },
+        {
+          "info": {
+            "name": "deleteEdgeById_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/graphchain/:chain/edges/:edgeId",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "edgeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes an edge based on from chain and provided edge ID. Must be owner or limited owner "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

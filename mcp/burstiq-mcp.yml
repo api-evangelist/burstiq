@@ -2,8 +2,8 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: openapi/burstiq-lifegraph-openapi-original.json
-note: Candidate MCP tool surface derived one-tool-per-operation from the LifeGraph OpenAPI. BurstIQ publishes no official
-  hosted MCP server as of this writing.
+note: Candidate MCP tool surface derived one-tool-per-operation from the LifeGraph OpenAPI. BurstIQ publishes
+  no official hosted MCP server as of this writing.
 server:
   name: burstiq-lifegraph
   transport: http
@@ -13,110 +13,112 @@ tools:
     the user group in the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getUserGroupById
 - name: putUpdateUserGroup
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>put (update) a User
-    group into the secure data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>put
+    (update) a User group into the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpdateUserGroup
 - name: deleteUserGroup
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>delete the user group
-    in the secure data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>delete
+    the user group in the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteUserGroup
 - name: getUserWalletById
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get
     the user's wallet in the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getUserWalletById
 - name: putUpdateUserWallet
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>put (update) the user''s
-    wallet into the secure data zone.  these values will '
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>put
+    (update) the user''s wallet into the secure data zone.  these values will '
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpdateUserWallet
 - name: deleteUserWallet
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete the user's wallet in the secure data
-    zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete the user's wallet
+    in the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteUserWallet
 - name: putUpdateUserTerms
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>put (update) the user's terms into the secure
-    data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>put (update) the user's
+    terms into the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpdateUserTerms
 - name: getTermById
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get
     a SDZ specific term (by Id)
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getTermById
 - name: putTerms
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a terms record for a specific SDZ
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a terms record
+    for a specific SDZ
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putTerms
 - name: putTermsActiveFlag
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>set a terms record to active (true) or inactive
-    (false)
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>set a terms record to
+    active (true) or inactive (false)
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putTermsActiveFlag
 - name: getSystemWalletById
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get
     the system's wallet in the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getSystemWalletById
 - name: putUpdateSystemWallet
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>put (update) the system's
-    wallet into the secure data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>put
+    (update) the system's wallet into the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpdateSystemWallet
 - name: deleteSystemWallet
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>delete the system's
-    wallet in the secure data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>delete
+    the system's wallet in the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteSystemWallet
 - name: getQueryGlossaries
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
     glossaries from the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQueryGlossaries
 - name: putGlossary
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Use /{id} endpoint instead.
-    | Put (update or create) the Glossary in the secure d'
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Use /{id}
+    endpoint instead. | Put (update or create) the Glossary in the secure d'
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putGlossary
 - name: postGlossary
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>create a glossary term into the secure data
-    zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>create a glossary term
+    into the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postGlossary
 - name: getGlossary
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets
     a glossary by ID from the secure data zone; can be m
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getGlossary
 - name: putGlossary_1
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the Glossary in the secure
-    data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the Glossary
+    in the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putGlossary_1
 - name: deleteGlossary
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>deletes a glossary by id from the secure
-    data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>deletes a glossary by
+    id from the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteGlossary
 - name: getEdgeById
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get
     an edge. based on id
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getEdgeById
 - name: putUpdateEdge
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the edges in the secure data
-    zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the edges
+    in the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpdateEdge
 - name: deleteEdgeById
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete an edge definition in the secure
-    data zone, based on id
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete an edge definition
+    in the secure data zone, based on id
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteEdgeById
 - name: getQueryDicts
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
     dictionaries from the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQueryDicts
 - name: putDict
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Update with job instead. |
-    Put (update) the dictionary in the secure data zone.<b'
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Update
+    with job instead. | Put (update) the dictionary in the secure data zone.<b'
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putDict
 - name: postDict
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Create with job instead. |
-    Create a dictionary into the secure data zone.<b><br/>'
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Create
+    with job instead. | Create a dictionary into the secure data zone.<b><br/>'
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postDict
 - name: getIPById
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get
     data pipeline in the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getIPById
 - name: putPipeline
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a data pipeline in the secure data
-    zone (see POST for description of body)
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a data pipeline
+    in the secure data zone (see POST for description of body)
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putPipeline
 - name: deleteById
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>get data pipeline in the secure data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>get data pipeline in
+    the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteById
 - name: getJSTransformStepById
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get
@@ -126,7 +128,8 @@ tools:
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a JsTransformStep
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putJSTransformStep
 - name: deleteJSTransformStepById
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete JSTransformStep by id
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete JSTransformStep
+    by id
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteJSTransformStepById
 - name: getRuleSetStepId
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get
@@ -136,7 +139,8 @@ tools:
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a RuleSetStep
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putRuleSetStep
 - name: deleteRuleSetStepById
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete RuleSetStep by id
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete RuleSetStep by
+    id
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteRuleSetStepById
 - name: getFieldMappingStepById
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get
@@ -146,7 +150,8 @@ tools:
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a new FieldMappingStep
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putFieldMappingStep
 - name: deleteFieldMappingStepById
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete FieldMappingSteps by id
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete FieldMappingSteps
+    by id
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteFieldMappingStepById
 - name: getRuleById
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get
@@ -159,136 +164,143 @@ tools:
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete Rule by id
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteRuleById
 - name: putRequeueJobs
-  description: <b>Allowed user roles:</b><br/><ul><li>biqAdmin</li><li>sdzAdmin</li></ul><br/><br/>requeue jobs IF the job
-    queue is empty but there are queued jobs in the SDZ
+  description: <b>Allowed user roles:</b><br/><ul><li>biqAdmin</li><li>sdzAdmin</li></ul><br/><br/>requeue
+    jobs IF the job queue is empty but there are queued jobs in the SDZ
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putRequeueJobs
 - name: putUpdateEdgeById
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>updates an edge with a from chain and edge
-    ID; must be owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>updates an edge with
+    a from chain and edge ID; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpdateEdgeById
 - name: putUpsertAsset
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>upsert asset by primary key
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>upsert asset by primary
+    key
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpsertAsset
 - name: postCreateAsset
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create an asset in a chain
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create an asset in a
+    chain
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postCreateAsset
 - name: patchAsset
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>patch specific elements of the asset by primary
-    key (inline with other data)
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>patch specific elements
+    of the asset by primary key (inline with other data)
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#patchAsset
 - name: getSDO
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get smart data object
-    by sdo id; must be owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get
+    smart data object by sdo id; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getSDO
 - name: putUpdateAsset
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>update elements of the asset by SDO id
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>update elements of the
+    asset by SDO id
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpdateAsset
 - name: deleteSDO
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>get smart data object by sdo id; must be
-    owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>get smart data object
+    by sdo id; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteSDO
 - name: putUpsertBlob
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Upsert a blob, only works with scalar
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Upsert a blob, only works
+    with scalar
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpsertBlob
 - name: postBlob
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>adds a blob to an SDO by ID and its attribute
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>adds a blob to an SDO
+    by ID and its attribute
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postBlob
 - name: deleteBlob
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes a blob(s) from an SDO by attribute
-    name
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes a blob(s) from
+    an SDO by attribute name
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteBlob
 - name: getBlob
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get blob data for an
-    SDO specifically for an attribute and its hash
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get
+    blob data for an SDO specifically for an attribute and its hash
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getBlob
 - name: putBlob
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Replace a specific blob on an SDO by its
-    ID, attribute, and hash of the blob to replace
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Replace a specific blob
+    on an SDO by its ID, attribute, and hash of the blob to replace
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putBlob
 - name: deleteBlobByHash
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes a blob(s) from an SDO by attribute
-    name and blob hash
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes a blob(s) from
+    an SDO by attribute name and blob hash
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteBlobByHash
 - name: putVerificationInSDO
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>add verification data into the SDO; must
-    be owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>add verification data
+    into the SDO; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putVerificationInSDO
 - name: putTransferSDO
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>transfer a smart data object by sdo id; must
-    be owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>transfer a smart data
+    object by sdo id; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putTransferSDO
 - name: putRevertSDO
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Revert an SDO by sdo id to the previous
-    SDO.  To revert an sdo, the following must be true:'
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Revert an SDO by sdo
+    id to the previous SDO.  To revert an sdo, the following must be true:'
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putRevertSDO
 - name: putUpdateSmartContract
   description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>update a smart contract
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpdateSmartContract
 - name: putUpdateConsentContract
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>update a consent contract
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>update
+    a consent contract
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpdateConsentContract
 - name: putUpsertBulkAssets
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>bulk upsert assets by primary key (order
-    may not be followed); takes an array of [{data:{}, me
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>bulk upsert assets by
+    primary key (order may not be followed); takes an array of [{data:{}, me
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpsertBulkAssets
 - name: putUpsertEdge
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>upsert an edge between 2 SDOs; must be owner
-    or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>upsert an edge between
+    2 SDOs; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#putUpsertEdge
 - name: getQueryUserGroups
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
     user groups from the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQueryUserGroups
 - name: postCreateUserGroup
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>create a User group
-    into the secure data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>create
+    a User group into the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postCreateUserGroup
 - name: getQueryUserWallets
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
     user wallets from the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQueryUserWallets
 - name: postUserWallet
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Insert user's wallet into the secure data
-    zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Insert user's wallet
+    into the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postUserWallet
 - name: getTerms
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
     terms from a SDZ
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getTerms
 - name: postTerms
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a sdz specific terms record
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a sdz specific
+    terms record
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postTerms
 - name: getQuerySystemWallets
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
     system wallets from the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQuerySystemWallets
 - name: postCreateSystemWallet
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>create a system's
-    wallet into the secure data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>create
+    a system's wallet into the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postCreateSystemWallet
 - name: postGlossaryFile
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a file of glossary items; field names
-    in file must match Glossary structure; any field '
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a file of glossary
+    items; field names in file must match Glossary structure; any field '
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postGlossaryFile
 - name: getQueryEdges
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
     edges from the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQueryEdges
 - name: postCreateEdge
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>post (insert) the edges into the secure
-    data zone
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>post (insert) the edges
+    into the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postCreateEdge
 - name: postPredictDict
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>uses a data file to predict a dictionary
-    definition (uses Nostradamus
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>uses a data file to
+    predict a dictionary definition (uses Nostradamus
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postPredictDict
 - name: getPipelines
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
     data pipelines from the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getPipelines
 - name: postPipeline
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a data pipeline in the secure data
-    zone.
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a data pipeline
+    in the secure data zone.
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postPipeline
 - name: postDataPipelineTrialRun
   description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>using
@@ -335,67 +347,68 @@ tools:
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a new Rule
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postRule
 - name: postUploadFile
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>adds data from a file as assets into GraphChain
-    as an async job
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>adds data from a file
+    as assets into GraphChain as an async job
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postUploadFile
 - name: postTruncateChain
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>truncate all data in a graph chain in the
-    secure data zone; preserves chain, dictionary, edge
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>truncate all data in
+    a graph chain in the secure data zone; preserves chain, dictionary, edge
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postTruncateChain
 - name: postExecuteSmartContract
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>execute a smart contract, by address (sdo
-    id) with arguments as named fields in the form; as a
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>execute a smart contract,
+    by address (sdo id) with arguments as named fields in the form; as a
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postExecuteSmartContract
 - name: postExportFile
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Exports data from a single
-    chain and produces a JSON file, caller can requ
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Exports
+    data from a single chain and produces a JSON file, caller can requ
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postExportFile
 - name: postDropChain
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>drops chain, all data, and all edges to/from
-    this chain
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>drops chain, all data,
+    and all edges to/from this chain
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postDropChain
 - name: postWipeSDZ
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>wipe all data, job infos, and blobs from
-    the SDZ (NOT metadata)
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>wipe all data, job infos,
+    and blobs from the SDZ (NOT metadata)
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postWipeSDZ
 - name: postResetSDZ
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>reset (wipe) all data and metadata; essentially
-    reset the SDZ to look like its newly created
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>reset (wipe) all data
+    and metadata; essentially reset the SDZ to look like its newly created
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postResetSDZ
 - name: postDownloadFile
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>queries data and produces
-    a file; can be SFTP'ed or for downloaded as an a
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>queries
+    data and produces a file; can be SFTP'ed or for downloaded as an a
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postDownloadFile
 - name: postDictionaryFile
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>load (upsert) a dictionary into the SDZ
-    using 1) POST with JSON body with dictionary and emai
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>load (upsert) a dictionary
+    into the SDZ using 1) POST with JSON body with dictionary and emai
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postDictionaryFile
 - name: postDbSchemaFile
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a dbschema (.dbs) XML file into the
-    secure data zone; if delete is true any dictionarie
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a dbschema (.dbs)
+    XML file into the secure data zone; if delete is true any dictionarie
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postDbSchemaFile
 - name: postCreateEdge_1
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create an edge between 2 SDOs; must be owner
-    or limited owner; could return 200 empty response
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create an edge between
+    2 SDOs; must be owner or limited owner; could return 200 empty response
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postCreateEdge_1
 - name: postCreateSmartContract
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create a smart contract; request body must
-    be
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create a smart contract;
+    request body must be
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postCreateSmartContract
 - name: postCreateConsentContract
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>create a consent contract
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>create
+    a consent contract
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postCreateConsentContract
 - name: postQuery
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED Content-Type=application/json
-    (09 MAY 24): Use ContentType=text'
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED
+    Content-Type=application/json (09 MAY 24): Use ContentType=text'
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postQuery
 - name: postValidate
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED Content-Type=application/json
-    (09 MAY 24): Use ContentType=text'
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED
+    Content-Type=application/json (09 MAY 24): Use ContentType=text'
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postValidate
 - name: postValidateGraph
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED (use /query/validate):
-    validate a given query for syntax, must '
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED
+    (use /query/validate): validate a given query for syntax, must '
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postValidateGraph
 - name: postDevConversation
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>request
@@ -406,22 +419,24 @@ tools:
     conversational response to user's prompt; where t
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#postCorpConversation
 - name: patchAssetWithPkFields
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>patch specific elements of the asset by
-    primary key (using pkFields and pkPatchFields.  NOTE: '
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>patch specific elements
+    of the asset by primary key (using pkFields and pkPatchFields.  NOTE: '
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#patchAssetWithPkFields
 - name: getProcess
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData
+    v4 API
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getProcess
 - name: getProcess_1
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData
+    v4 API
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getProcess_1
 - name: getProcessBasic
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex
-    data
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData
+    v4 API for non-complex data
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getProcessBasic
 - name: getProcessBasic_1
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex
-    data
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData
+    v4 API for non-complex data
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getProcessBasic_1
 - name: getSDZMetrics
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>full
@@ -516,8 +531,8 @@ tools:
     a dictionary by name from the secure data zone
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getDict
 - name: deleteDict
-  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Use drop job instead. | BEWARE:
-    Deletes a dictionary by name from the secure data'
+  description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Use drop
+    job instead. | BEWARE: Deletes a dictionary by name from the secure data'
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteDict
 - name: getHistory_6
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets
@@ -568,7 +583,8 @@ tools:
     job info for a specific job id
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getJobInfo
 - name: deleteCancelJob
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>cancel a pending job
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>cancel
+    a pending job
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteCancelJob
 - name: getQueryJobInfoSummaries
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Query
@@ -579,52 +595,52 @@ tools:
     the download job is completed, get the file (if not
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getDownloadFile
 - name: getEdgeById_1
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets an edge with a from
-    chain and edge ID
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets
+    an edge with a from chain and edge ID
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getEdgeById_1
 - name: getEdges
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets all outbound edges
-    with a from SDO; must be owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets
+    all outbound edges with a from SDO; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getEdges
 - name: getVerifySignature
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>verify signature of smart
-    data object by sdo id or hash
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>verify
+    signature of smart data object by sdo id or hash
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getVerifySignature
 - name: getVerifyHash
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>verify hash of smart
-    data object by sdo id or hash
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>verify
+    hash of smart data object by sdo id or hash
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getVerifyHash
 - name: getSDOHistory
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get smart data object
-    history by sdo id; must be owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get
+    smart data object history by sdo id; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getSDOHistory
 - name: getBlobInfo
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get blob(s) info for
-    an SDO; optionally can specify a blob attribute for f
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get
+    blob(s) info for an SDO; optionally can specify a blob attribute for f
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getBlobInfo
 - name: getQuerySmartContractReceipts
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>gets smart contract receipts, by where clause,
-    orderBy clause, and limit/skip.  these are opt
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>gets smart contract
+    receipts, by where clause, orderBy clause, and limit/skip.  these are opt
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQuerySmartContractReceipts
 - name: getQuerySmartContractReceiptsSelf
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets smart contract receipts,
-    by where clause, orderBy clause, and limit/s
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets
+    smart contract receipts, by where clause, orderBy clause, and limit/s
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQuerySmartContractReceiptsSelf
 - name: getQuerySmartContracts
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query smart contracts
-    by tql
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
+    smart contracts by tql
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQuerySmartContracts
 - name: getQueryConsentContracts
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query
     consent contracts by simple tql
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQueryConsentContracts
 - name: getQueryConsentContractReceipts
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>gets consent contract receipts, by where
-    clause, orderBy clause, and limit/skip.  these are o
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>gets consent contract
+    receipts, by where clause, orderBy clause, and limit/skip.  these are o
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQueryConsentContractReceipts
 - name: getQueryConsentContractReceiptsSelf
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets consent contract
-    receipts, by where clause, orderBy clause, and limit
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets
+    consent contract receipts, by where clause, orderBy clause, and limit
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getQueryConsentContractReceiptsSelf
 - name: getShortestPath
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Finds
@@ -634,24 +650,24 @@ tools:
   description: <b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>TBD
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getCheckSDZHealth
 - name: getEdge_1
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets an edge between
-    2 SDOs; must be owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets
+    an edge between 2 SDOs; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getEdge_1
 - name: deleteEdge
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes an edge with all 5 identifiers; must
-    be owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes an edge with
+    all 5 identifiers; must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteEdge
 - name: getCustomer
   description: <b>Allowed user roles:</b><br/><ul><li>biqAdmin</li><li>customerOwner</li><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get
     the customer b
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getCustomer
 - name: getCustomerSDZNames
-  description: '<b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>DEPRECATED: Use /{customerShortName}/available_sdzs
-    instead. | Get secure data zones by '
+  description: '<b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>DEPRECATED: Use
+    /{customerShortName}/available_sdzs instead. | Get secure data zones by '
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getCustomerSDZNames
 - name: getCustomerSDZsWithRealm
-  description: <b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>get secure data zones by based on customer
-    short name
+  description: <b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>get secure data
+    zones by based on customer short name
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getCustomerSDZsWithRealm
 - name: getExportDbSchemaXml
   description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>export
@@ -662,6 +678,12 @@ tools:
     conversation history
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#getConversationHistory
 - name: deleteEdgeById_1
-  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes an edge based on from chain and provided
-    edge ID. Must be owner or limited owner
+  description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes an edge based
+    on from chain and provided edge ID. Must be owner or limited owner
   source_operation: openapi/burstiq-lifegraph-openapi-original.json#deleteEdgeById_1
+deployment:
+  mode: none
+  verified: derived
+  tools: 171
+  checked: '2026-08-12'
+  source: catalog MCP census

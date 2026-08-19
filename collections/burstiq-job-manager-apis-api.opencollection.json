@@ -1,0 +1,464 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LifeGraph APIs BlastAI APIs Job Manager APIs API",
+    "version": "2.42.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Job Manager APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "putRequeueJobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.burstiq.com/api/jobs/requeue"
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>biqAdmin</li><li>sdzAdmin</li></ul><br/><br/>requeue jobs IF the job queue is empty but there are queued jobs in the SDZ"
+        },
+        {
+          "info": {
+            "name": "postUploadFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/:chain/upload",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "owners",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limitedOwners",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metadata",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataPipelineName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sheetNum",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sheetName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "numThreads",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "emailResultsTo",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>adds data from a file as assets into GraphChain as an async job"
+        },
+        {
+          "info": {
+            "name": "postTruncateChain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/:chain/truncate",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>truncate all data in a graph chain in the secure data zone; preserves chain, dictionary, edge definitions, etc"
+        },
+        {
+          "info": {
+            "name": "postExecuteSmartContract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/:chain/smartcontracts/:sdoId/:func",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sdoId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "func",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "emailResultsTo",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>execute a smart contract, by address (sdo id) with arguments as named fields in the form; as an async job"
+        },
+        {
+          "info": {
+            "name": "postExportFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/:chain/export",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Exports data from a single chain and produces a JSON file, caller can request skip/limit of data for pagination of results always ordered by SDO ID; can be SFTP'ed or downloaded as an async job."
+        },
+        {
+          "info": {
+            "name": "postDropChain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/:chain/drop",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>drops chain, all data, and all edges to/from this chain"
+        },
+        {
+          "info": {
+            "name": "postWipeSDZ",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/sdz/wipe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>wipe all data, job infos, and blobs from the SDZ (NOT metadata)"
+        },
+        {
+          "info": {
+            "name": "postResetSDZ",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/sdz/reset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>reset (wipe) all data and metadata; essentially reset the SDZ to look like its newly created"
+        },
+        {
+          "info": {
+            "name": "postDownloadFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/download",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>queries data and produces a file; can be SFTP'ed or for downloaded as an async job. Supported file formats are CSV, PIPE, TAB, XLSX, and JSON. Warning: Care is needed when using CSV as there can be issues when the data is variable, complex and/or not fixed columns"
+        },
+        {
+          "info": {
+            "name": "postDictionaryFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/dictionary",
+            "params": [
+              {
+                "name": "emailResultsTo",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>load (upsert) a dictionary into the SDZ using 1) POST with JSON body with dictionary and emailResultsTo (optional); or 2) MULTIPART POST with dictionary file and emailResultsTo (optional) as form fields"
+        },
+        {
+          "info": {
+            "name": "postDbSchemaFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.burstiq.com/api/jobs/dbschema",
+            "params": [
+              {
+                "name": "delete",
+                "value": "",
+                "type": "query",
+                "description": "Required. If delete is true any dictionaries in the SDZ not specified in the DbSchema file will be dropped"
+              },
+              {
+                "name": "emailResultsTo",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a dbschema (.dbs) XML file into the secure data zone; if delete is true any dictionaries in the SDZ not specified in the DbSchema file will be dropped"
+        },
+        {
+          "info": {
+            "name": "getQueryJobInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/jobs",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "callerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "daysToReturn",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Deprecated. Replace with combination of /api/jobs/query/summary for a list of job infos and /api/jobs/{jobId} for the details of a specific job info<b><br/><br/>Deprecated since 08 MAY 2025</b>"
+        },
+        {
+          "info": {
+            "name": "getJobInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get job info for a specific job id"
+        },
+        {
+          "info": {
+            "name": "deleteCancelJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.burstiq.com/api/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>cancel a pending job"
+        },
+        {
+          "info": {
+            "name": "getQueryJobInfoSummaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/jobs/query/summary",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of job. Can be an exact match or wildcard"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Status of job. Exact match only"
+              },
+              {
+                "name": "loggedInId",
+                "value": "",
+                "type": "query",
+                "description": "User wallet id of the logged in user that started the job. Only for sdzAdmins. Exact match only"
+              },
+              {
+                "name": "daysToReturn",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to jobs create in the last number of days"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Order by field(s) with optional ACS or DESC keyword after each field"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum amount of job infos to return.  Use orderBy to ensure consistent ordering job infos"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Skip the X number of job infos then return the remaining job infos within the limit.  Use orderBy to ensure consistent ordering of job infos"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Query for a summary of job infos (See JobInfoSummary schema for fields).  Use /api/jobs/{jobId} to load complete job info"
+        },
+        {
+          "info": {
+            "name": "getDownloadFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.burstiq.com/api/jobs/download/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>after the download job is completed, get the file (if not SFTP'ed). WARNING: files are deleted after being downloaded"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

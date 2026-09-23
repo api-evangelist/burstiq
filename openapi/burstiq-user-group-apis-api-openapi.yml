@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs User Group APIs API
+  title: LifeGraph User Group APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,7 +17,19 @@ paths:
     get:
       tags:
       - User Group APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user group in the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get the user group in the secure data zone'
       operationId: getUserGroupById
       parameters:
       - name: id
@@ -33,10 +45,21 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserGroup'
+      summary: Get user group by id
+      x-summary-source: derived
     put:
       tags:
       - User Group APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>put (update) a User group into the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzGovernance
+
+
+        put (update) a User group into the secure data zone'
       operationId: putUpdateUserGroup
       parameters:
       - name: id
@@ -58,10 +81,21 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserGroup'
+      summary: Put update user group
+      x-summary-source: derived
     delete:
       tags:
       - User Group APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>delete the user group in the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzGovernance
+
+
+        delete the user group in the secure data zone'
       operationId: deleteUserGroup
       parameters:
       - name: id
@@ -73,11 +107,25 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete user group
+      x-summary-source: derived
   /api/metadata/usergroup:
     get:
       tags:
       - User Group APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query user groups from the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        query user groups from the secure data zone'
       operationId: getQueryUserGroups
       parameters:
       - name: name
@@ -126,10 +174,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserGroup'
+      summary: Get query user groups
+      x-summary-source: derived
     post:
       tags:
       - User Group APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>create a User group into the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzGovernance
+
+
+        create a User group into the secure data zone'
       operationId: postCreateUserGroup
       requestBody:
         content:
@@ -144,11 +203,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserGroup'
+      summary: Post create user group
+      x-summary-source: derived
   /api/metadata/usergroup/{id}/history:
     get:
       tags:
       - User Group APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a userGroup
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets the history of a userGroup'
       operationId: getHistory
       parameters:
       - name: id
@@ -166,11 +239,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserGroup'
+      summary: Get history
+      x-summary-source: derived
   /api/metadata/usergroup/search:
     get:
       tags:
       - User Group APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        search for terms'
       operationId: getSearch
       parameters:
       - name: terms
@@ -190,11 +277,25 @@ paths:
                 items:
                   $ref: '#/components/schemas/UserGroup'
                 uniqueItems: true
+      summary: Get search
+      x-summary-source: derived
   /api/metadata/usergroup/lookup:
     get:
       tags:
       - User Group APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user group in the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get the user group in the secure data zone'
       operationId: getUserGroupByName
       parameters:
       - name: name
@@ -210,8 +311,23 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserGroup'
+      summary: Get user group by name
+      x-summary-source: derived
 components:
   schemas:
+    UserGroupReq:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        group:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
     UserGroup:
       type: object
       properties:
@@ -233,16 +349,3 @@ components:
       - group
       - id
       - name
-    UserGroupReq:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        group:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true

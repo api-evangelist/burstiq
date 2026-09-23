@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs Graph Chain APIs API
+  title: LifeGraph Graph Chain APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,7 +17,13 @@ paths:
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>updates an edge with a from chain and edge ID; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        updates an edge with a from chain and edge ID; must be owner or limited owner'
       operationId: putUpdateEdgeById
       parameters:
       - name: fromDict
@@ -44,11 +50,19 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Edge'
+      summary: Put update edge by id
+      x-summary-source: derived
   /api/graphchain/{chain}:
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>upsert asset by primary key
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        upsert asset by primary key'
       operationId: putUpsertAsset
       parameters:
       - name: chain
@@ -69,10 +83,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDOAsset_Public'
+      summary: Put upsert asset
+      x-summary-source: derived
     post:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create an asset in a chain
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        create an asset in a chain'
       operationId: postCreateAsset
       parameters:
       - name: chain
@@ -93,10 +115,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDOAsset_Public'
+      summary: Post create asset
+      x-summary-source: derived
     patch:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>patch specific elements of the asset by primary key (inline with other data)
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        patch specific elements of the asset by primary key (inline with other data)'
       operationId: patchAsset
       parameters:
       - name: chain
@@ -117,11 +147,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDOAsset'
+      summary: Patch asset
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get smart data object by sdo id; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get smart data object by sdo id; must be owner or limited owner'
       operationId: getSDO
       parameters:
       - name: chain
@@ -142,10 +183,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDO_Public'
+      summary: Get SDO
+      x-summary-source: derived
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>update elements of the asset by SDO id
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        update elements of the asset by SDO id'
       operationId: putUpdateAsset
       parameters:
       - name: chain
@@ -172,10 +221,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDOAsset_Public'
+      summary: Put update asset
+      x-summary-source: derived
     delete:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>get smart data object by sdo id; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        get smart data object by sdo id; must be owner or limited owner'
       operationId: deleteSDO
       parameters:
       - name: chain
@@ -192,11 +249,19 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete SDO
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/{attribute}/blobs:
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Upsert a blob, only works with scalar
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        Upsert a blob, only works with scalar'
       operationId: putUpsertBlob
       parameters:
       - name: chain
@@ -238,10 +303,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SDOBlob_Public'
+      summary: Put upsert blob
+      x-summary-source: derived
     post:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>adds a blob to an SDO by ID and its attribute
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        adds a blob to an SDO by ID and its attribute'
       operationId: postBlob
       parameters:
       - name: chain
@@ -283,10 +356,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SDOBlob_Public'
+      summary: Post blob
+      x-summary-source: derived
     delete:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes a blob(s) from an SDO by attribute name
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        deletes a blob(s) from an SDO by attribute name'
       operationId: deleteBlob
       parameters:
       - name: chain
@@ -312,11 +393,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountResponse'
+      summary: Delete blob
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/{attribute}/blobs/{blobHash}:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get blob data for an SDO specifically for an attribute and its hash
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get blob data for an SDO specifically for an attribute and its hash'
       operationId: getBlob
       parameters:
       - name: chain
@@ -352,10 +444,18 @@ paths:
               schema:
                 type: string
                 format: binary
+      summary: Get blob
+      x-summary-source: derived
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Replace a specific blob on an SDO by its ID, attribute, and hash of the blob to replace
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        Replace a specific blob on an SDO by its ID, attribute, and hash of the blob to replace'
       operationId: putBlob
       parameters:
       - name: chain
@@ -402,10 +502,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SDOBlob_Public'
+      summary: Put blob
+      x-summary-source: derived
     delete:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes a blob(s) from an SDO by attribute name and blob hash
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        deletes a blob(s) from an SDO by attribute name and blob hash'
       operationId: deleteBlobByHash
       parameters:
       - name: chain
@@ -432,11 +540,19 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete blob by hash
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/verification:
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>add verification data into the SDO; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        add verification data into the SDO; must be owner or limited owner'
       operationId: putVerificationInSDO
       parameters:
       - name: chain
@@ -463,11 +579,19 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDO_Public'
+      summary: Put verification in SDO
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/transfer:
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>transfer a smart data object by sdo id; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        transfer a smart data object by sdo id; must be owner or limited owner'
       operationId: putTransferSDO
       parameters:
       - name: chain
@@ -494,11 +618,34 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDO_Public'
+      summary: Put transfer SDO
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/revert:
     put:
       tags:
       - Graph Chain APIs
-      description: "<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>Revert an SDO by sdo id to the previous SDO.  To revert an sdo, the following must be true:\n  1. The current sdo must be the result of an UPDATE or a TRANSFER,\n  2. You must be the signer of the current sdo.\n  3. You must be an owner of the previous sdo.\n  4. The revert must happen within 30 seconds of the update/transfer of the current sdo.\n\nThe revert will remove the previous version of the sdo in history and make it the current sdo.  The sdo\nreverted is not put into history.  All manual edge and blob changes made between the pervious and current sdo\nwill need to be handled manually.  Auto edges will update automatically.\n"
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        Revert an SDO by sdo id to the previous SDO. To revert an sdo, the following must be true:
+
+        1. The current sdo must be the result of an UPDATE or a TRANSFER,
+
+        2. You must be the signer of the current sdo.
+
+        3. You must be an owner of the previous sdo.
+
+        4. The revert must happen within 30 seconds of the update/transfer of the current sdo.
+
+
+        The revert will remove the previous version of the sdo in history and make it the current sdo. The sdo
+
+        reverted is not put into history. All manual edge and blob changes made between the pervious and current sdo
+
+        will need to be handled manually. Auto edges will update automatically.'
       operationId: putRevertSDO
       parameters:
       - name: chain
@@ -519,11 +666,19 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDOAsset_Public'
+      summary: Put revert SDO
+      x-summary-source: derived
   /api/graphchain/{chain}/smartcontracts/{sdoId}:
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>update a smart contract
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        update a smart contract'
       operationId: putUpdateSmartContract
       parameters:
       - name: chain
@@ -550,11 +705,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDOSmartContract_Public'
+      summary: Put update smart contract
+      x-summary-source: derived
   /api/graphchain/{chain}/consentcontracts/{sdoId}:
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>update a consent contract
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzUser
+
+
+        update a consent contract'
       operationId: putUpdateConsentContract
       parameters:
       - name: chain
@@ -581,11 +747,19 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDO_Public'
+      summary: Put update consent contract
+      x-summary-source: derived
   /api/graphchain/{chain}/bulk:
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>bulk upsert assets by primary key (order may not be followed); takes an array of [{data:{}, metadata:{}}...] objects
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        bulk upsert assets by primary key (order may not be followed); takes an array of [{data:{}, metadata:{}}...] objects'
       operationId: putUpsertBulkAssets
       parameters:
       - name: chain
@@ -606,11 +780,19 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UpsertBulkAssetResponse_Public'
+      summary: Put upsert bulk assets
+      x-summary-source: derived
   /api/graphchain/edge:
     put:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>upsert an edge between 2 SDOs; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        upsert an edge between 2 SDOs; must be owner or limited owner'
       operationId: putUpsertEdge
       requestBody:
         content:
@@ -625,11 +807,19 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Edge'
+      summary: Put upsert edge
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/edges:
     post:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create an edge between 2 SDOs; must be owner or limited owner; could return 200 empty response if edge already exists
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        create an edge between 2 SDOs; must be owner or limited owner; could return 200 empty response if edge already exists'
       operationId: postCreateEdge_1
       parameters:
       - name: chain
@@ -656,11 +846,19 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Edge'
+      summary: Post create edge 1
+      x-summary-source: derived
   /api/graphchain/{chain}/smartcontracts:
     post:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>create a smart contract; request body must be '
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        create a smart contract; request body must be'
       operationId: postCreateSmartContract
       parameters:
       - name: chain
@@ -681,11 +879,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDO_Public'
+      summary: Post create smart contract
+      x-summary-source: derived
   /api/graphchain/{chain}/consentcontracts:
     post:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>create a consent contract
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzUser
+
+
+        create a consent contract'
       operationId: postCreateConsentContract
       parameters:
       - name: chain
@@ -706,11 +915,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDOConsentContract_Public'
+      summary: Post create consent contract
+      x-summary-source: derived
   /api/graphchain/query:
     post:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED Content-Type=application/json (09 MAY 24): Use ContentType=text/plain instead. | Query assets by TQL.'
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        DEPRECATED Content-Type=application/json (09 MAY 24): Use ContentType=text/plain instead. | Query assets by TQL.'
       operationId: postQuery
       requestBody:
         content:
@@ -730,11 +950,22 @@ paths:
                 type: array
                 items:
                   type: object
+      summary: Post query
+      x-summary-source: derived
   /api/graphchain/query/validate:
     post:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED Content-Type=application/json (09 MAY 24): Use ContentType=text/plain. | Validate a given query for syntax; optional enforcement options.'
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        DEPRECATED Content-Type=application/json (09 MAY 24): Use ContentType=text/plain. | Validate a given query for syntax; optional enforcement options.'
       operationId: postValidate
       requestBody:
         content:
@@ -748,11 +979,25 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Post validate
+      x-summary-source: derived
   /api/graphchain/query/validate/graph:
     post:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>DEPRECATED (use /query/validate): validate a given query for syntax, must have GRAPH command; optional enforcement options<b><br/><br/>Deprecated since 23 JUN 2025</b>'
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        DEPRECATED (use /query/validate): validate a given query for syntax, must have GRAPH command; optional enforcement options
+
+
+        Deprecated since 23 JUN 2025'
       operationId: postValidateGraph
       requestBody:
         content:
@@ -764,11 +1009,19 @@ paths:
         '200':
           description: OK
       deprecated: true
+      summary: Post validate graph
+      x-summary-source: derived
   /api/graphchain/{chain}/bypk:
     patch:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>patch specific elements of the asset by primary key (using pkFields and pkPatchFields.  NOTE: this DOES allow for updating the primary key as well'
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        patch specific elements of the asset by primary key (using pkFields and pkPatchFields. NOTE: this DOES allow for updating the primary key as well'
       operationId: patchAssetWithPkFields
       parameters:
       - name: chain
@@ -789,11 +1042,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SDOAsset_Public'
+      summary: Patch asset with pk fields
+      x-summary-source: derived
   /api/graphchain/{from}/edges/{edgeId}:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets an edge with a from chain and edge ID
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets an edge with a from chain and edge ID'
       operationId: getEdgeById_1
       parameters:
       - name: from
@@ -814,11 +1078,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Edge'
+      summary: Get edge by id 1
+      x-summary-source: derived
   /api/graphchain/{fromDict}/{fromSdoId}/edges:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets all outbound edges with a from SDO; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets all outbound edges with a from SDO; must be owner or limited owner'
       operationId: getEdges
       parameters:
       - name: fromDict
@@ -841,11 +1116,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FullEdge_Public'
+      summary: Get edges
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/verify/signature:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>verify signature of smart data object by sdo id or hash
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        verify signature of smart data object by sdo id or hash'
       operationId: getVerifySignature
       parameters:
       - name: chain
@@ -866,11 +1152,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/BooleanResponse'
+      summary: Get verify signature
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/verify/hash:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>verify hash of smart data object by sdo id or hash
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        verify hash of smart data object by sdo id or hash'
       operationId: getVerifyHash
       parameters:
       - name: chain
@@ -891,11 +1188,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/BooleanResponse'
+      summary: Get verify hash
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/history:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get smart data object history by sdo id; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get smart data object history by sdo id; must be owner or limited owner'
       operationId: getSDOHistory
       parameters:
       - name: chain
@@ -918,11 +1226,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SDO_Public'
+      summary: Get SDO history
+      x-summary-source: derived
   /api/graphchain/{chain}/{sdoId}/blobs:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get blob(s) info for an SDO; optionally can specify a blob attribute for filtering
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get blob(s) info for an SDO; optionally can specify a blob attribute for filtering'
       operationId: getBlobInfo
       parameters:
       - name: chain
@@ -950,11 +1269,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SDOBlob_Public'
+      summary: Get blob info
+      x-summary-source: derived
   /api/graphchain/{chain}/smartcontracts/receipts:
     get:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>gets smart contract receipts, by where clause, orderBy clause, and limit/skip.  these are optional but must include a where clause or a limit.  the orderBy format is a comma separated list of: name [ACS | DESC]'
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        gets smart contract receipts, by where clause, orderBy clause, and limit/skip. these are optional but must include a where clause or a limit. the orderBy format is a comma separated list of: name [ACS | DESC]'
       operationId: getQuerySmartContractReceipts
       parameters:
       - name: chain
@@ -995,11 +1322,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SDOReceiptSmartContract_Public'
+      summary: Get query smart contract receipts
+      x-summary-source: derived
   /api/graphchain/{chain}/smartcontracts/receipts/self:
     get:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets smart contract receipts, by where clause, orderBy clause, and limit/skip.  these are optional but must include a where clause or a limit.  the orderBy format is a comma separated list of: name [ACS | DESC]'
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets smart contract receipts, by where clause, orderBy clause, and limit/skip. these are optional but must include a where clause or a limit. the orderBy format is a comma separated list of: name [ACS | DESC]'
       operationId: getQuerySmartContractReceiptsSelf
       parameters:
       - name: chain
@@ -1040,11 +1378,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SDOReceiptSmartContract_Public'
+      summary: Get query smart contract receipts self
+      x-summary-source: derived
   /api/graphchain/{chain}/query/smartcontracts:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query smart contracts by tql
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        query smart contracts by tql'
       operationId: getQuerySmartContracts
       parameters:
       - name: chain
@@ -1085,11 +1434,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SDOSmartContract_Public'
+      summary: Get query smart contracts
+      x-summary-source: derived
   /api/graphchain/{chain}/query/consentcontracts:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query consent contracts by simple tql
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        query consent contracts by simple tql'
       operationId: getQueryConsentContracts
       parameters:
       - name: chain
@@ -1130,11 +1493,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SDOConsentContract_Public'
+      summary: Get query consent contracts
+      x-summary-source: derived
   /api/graphchain/{chain}/consentcontracts/receipts:
     get:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>gets consent contract receipts, by where clause, orderBy clause, and limit/skip.  these are optional but must include a where clause or a limit.  the orderBy format is a comma separated list of: name [ACS | DESC]'
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        gets consent contract receipts, by where clause, orderBy clause, and limit/skip. these are optional but must include a where clause or a limit. the orderBy format is a comma separated list of: name [ACS | DESC]'
       operationId: getQueryConsentContractReceipts
       parameters:
       - name: chain
@@ -1176,11 +1547,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SDOReceiptConsentContract_Public'
+      summary: Get query consent contract receipts
+      x-summary-source: derived
   /api/graphchain/{chain}/consentcontracts/receipts/self:
     get:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets consent contract receipts, by where clause, orderBy clause, and limit/skip.  these are optional but must include a where clause or a limit.  the orderBy format is a comma separated list of: name [ACS | DESC]'
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets consent contract receipts, by where clause, orderBy clause, and limit/skip. these are optional but must include a where clause or a limit. the orderBy format is a comma separated list of: name [ACS | DESC]'
       operationId: getQueryConsentContractReceiptsSelf
       parameters:
       - name: chain
@@ -1222,11 +1604,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SDOReceiptConsentContract_Public'
+      summary: Get query consent contract receipts self
+      x-summary-source: derived
   /api/graphchain/shortestpath:
     get:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Finds the shortest path (0..1) or shortest paths (0..*) between SDO IDs (v1 chain/id
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        Finds the shortest path (0..1) or shortest paths (0..*) between SDO IDs (v1 chain/id
 
         and v2 chain/id).
 
@@ -1237,16 +1633,14 @@ paths:
         Depth parameters are also required.
 
 
-        The optimizedShortestPath must be a minDepth of 0.  Also, for optimizedShortestPath
+        The optimizedShortestPath must be a minDepth of 0. Also, for optimizedShortestPath
 
-        the ALL direction is not supported.  When optimizedShortestPath is specified than (0..1)
+        the ALL direction is not supported. When optimizedShortestPath is specified than (0..1)
 
         paths are returned; when not requested, then (0..*) paths are returned.
 
 
-        An optional graph traversal WHILE statement is available.
-
-        '
+        An optional graph traversal WHILE statement is available.'
       operationId: getShortestPath
       parameters:
       - name: v1Chain
@@ -1306,11 +1700,19 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ShortestPathResults'
+      summary: Get shortest path
+      x-summary-source: derived
   /api/graphchain/health:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Requires:</b><br/><ul><li>Authenticated Token/JWT</li></ul><br/><br/>TBD
+      description: 'Requires:
+
+
+        Authenticated Token/JWT
+
+
+        TBD'
       operationId: getCheckSDZHealth
       responses:
         '200':
@@ -1319,11 +1721,22 @@ paths:
             '*/*':
               schema:
                 type: object
+      summary: Get check SDZ health
+      x-summary-source: derived
   /api/graphchain/edge/{fromDict}/{fromSdoId}/{label}/{toDict}/{toSdoId}:
     get:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets an edge between 2 SDOs; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets an edge between 2 SDOs; must be owner or limited owner'
       operationId: getEdge_1
       parameters:
       - name: fromDict
@@ -1360,10 +1773,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Edge'
+      summary: Get edge 1
+      x-summary-source: derived
     delete:
       tags:
       - Graph Chain APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes an edge with all 5 identifiers; must be owner or limited owner
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        deletes an edge with all 5 identifiers; must be owner or limited owner'
       operationId: deleteEdge
       parameters:
       - name: fromDict
@@ -1396,11 +1817,19 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete edge
+      x-summary-source: derived
   /api/graphchain/{chain}/edges/{edgeId}:
     delete:
       tags:
       - Graph Chain APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>deletes an edge based on from chain and provided edge ID. Must be owner or limited owner '
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        deletes an edge based on from chain and provided edge ID. Must be owner or limited owner'
       operationId: deleteEdgeById_1
       parameters:
       - name: chain
@@ -1417,192 +1846,10 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete edge by id 1
+      x-summary-source: derived
 components:
   schemas:
-    BooleanResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-    AssetError_Public:
-      type: object
-      properties:
-        data:
-          type: object
-        metadata:
-          type: object
-        error:
-          type: string
-          minLength: 1
-      required:
-      - data
-      - error
-    ObjectId:
-      type: object
-      properties:
-        timestamp:
-          type: integer
-          format: int32
-        date:
-          type: string
-          format: date-time
-    SDOSmartContract_Public:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/Header_Public'
-        metadata:
-          type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification_Public'
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        codeBase64:
-          type: string
-          minLength: 1
-      required:
-      - codeBase64
-      - header
-      - name
-    JsonNode_Public: {}
-    PatchAssetRequest_Public:
-      type: object
-      properties:
-        pkFields:
-          type: object
-        patchFields:
-          type: object
-        metadata:
-          type: object
-      required:
-      - patchFields
-      - pkFields
-    CreateOrUpdateConsentContractRequest_Public:
-      type: object
-      properties:
-        consentContract:
-          $ref: '#/components/schemas/ConsentContract_Public'
-        metadata:
-          type: object
-      required:
-      - consentContract
-    NewEdgeRequest:
-      type: object
-      properties:
-        label:
-          type: string
-          minLength: 1
-        toDict:
-          type: string
-          minLength: 1
-        toSdoId:
-          type: string
-          format: uuid
-        properties:
-          type: object
-      required:
-      - label
-      - toDict
-      - toSdoId
-    NewFullEdgeRequest:
-      type: object
-      properties:
-        label:
-          type: string
-          minLength: 1
-        toDict:
-          type: string
-          minLength: 1
-        toSdoId:
-          type: string
-          format: uuid
-        properties:
-          type: object
-        fromDict:
-          type: string
-          minLength: 1
-        fromSdoId:
-          type: string
-          format: uuid
-      required:
-      - fromDict
-      - fromSdoId
-      - label
-      - toDict
-      - toSdoId
-    ShortestPathResults:
-      type: object
-      properties:
-        paths:
-          type: array
-          items:
-            type: array
-            items:
-              $ref: '#/components/schemas/Edge'
-        vertices:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/SDOAsset'
-    UpsertBulkAssetRequest_Public:
-      type: object
-      properties:
-        assets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Asset_Public'
-        owners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        limitedOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        dataPipelineName:
-          type: string
-    SDOAsset:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/Header'
-        metadata:
-          type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification'
-        data:
-          type: object
-        _id:
-          $ref: '#/components/schemas/ObjectId'
-      required:
-      - data
-      - header
-    SDOBlob_Public:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/Header_Public'
-        metadata:
-          type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification_Public'
-        blob:
-          $ref: '#/components/schemas/Blob_Public'
-      required:
-      - blob
-      - header
     Edge_Public:
       type: object
       properties:
@@ -1647,42 +1894,7 @@ components:
       - timestamp
       - toChain
       - toSDOId
-    UpdateAssetRequest_Public:
-      type: object
-      properties:
-        data:
-          type: object
-        metadata:
-          type: object
-        dataPipelineName:
-          type: string
-    QueryValidateRequest:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-        mustHaveGraph:
-          type: boolean
-      required:
-      - query
-    VerificationRequest_Public:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        verifiedOn:
-          type: string
-          format: date-time
-        notes:
-          type: string
-          minLength: 1
-      required:
-      - name
-      - notes
-      - verifiedOn
-    SDO_Public:
+    SDOSmartContract_Public:
       type: object
       properties:
         header:
@@ -1693,8 +1905,112 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/Verification_Public'
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        codeBase64:
+          type: string
+          minLength: 1
       required:
+      - codeBase64
       - header
+      - name
+    UpsertBulkAssetResponse_Public:
+      type: object
+      properties:
+        success:
+          type: array
+          items:
+            $ref: '#/components/schemas/SDOAsset_Public'
+        error:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetError_Public'
+    SDOBlob_Public:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header_Public'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification_Public'
+        blob:
+          $ref: '#/components/schemas/Blob_Public'
+      required:
+      - blob
+      - header
+    ShortestPathResults:
+      type: object
+      properties:
+        paths:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/Edge'
+        vertices:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SDOAsset'
+    ReceiptConsentContract_Public:
+      type: object
+      properties:
+        tqlBase64:
+          type: string
+          minLength: 1
+      required:
+      - tqlBase64
+    CreateAssetRequest_Public:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+        owners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        limitedOwners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        dataPipelineName:
+          type: string
+      required:
+      - data
+    UpdateEdgeRequest:
+      type: object
+      properties:
+        properties:
+          type: object
+    NewEdgeRequest:
+      type: object
+      properties:
+        label:
+          type: string
+          minLength: 1
+        toDict:
+          type: string
+          minLength: 1
+        toSdoId:
+          type: string
+          format: uuid
+        properties:
+          type: object
+      required:
+      - label
+      - toDict
+      - toSdoId
     Header:
       type: object
       properties:
@@ -1758,6 +2074,232 @@ components:
       - signer
       - timestamp
       - type
+    CountResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+    QueryRequest:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+      required:
+      - query
+    UpdateAssetRequest:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+        dataPipelineName:
+          type: string
+    BooleanResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+    SDOAsset_Public:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header_Public'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification_Public'
+        data:
+          type: object
+      required:
+      - data
+      - header
+    Verification:
+      type: object
+      properties:
+        verifier:
+          type: string
+          format: uuid
+        verifiedOn:
+          type: string
+          format: date-time
+        notes:
+          type: string
+        hash:
+          type: string
+          minLength: 1
+      required:
+      - hash
+      - verifiedOn
+      - verifier
+    UpsertAssetRequest_Public:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+        owners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        limitedOwners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        dataPipelineName:
+          type: string
+      required:
+      - data
+    SDO_Public:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header_Public'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification_Public'
+      required:
+      - header
+    AssetError_Public:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+        error:
+          type: string
+          minLength: 1
+      required:
+      - data
+      - error
+    QueryValidateRequest:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+        mustHaveGraph:
+          type: boolean
+      required:
+      - query
+    SDOConsentContract_Public:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header_Public'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification_Public'
+        consentContract:
+          $ref: '#/components/schemas/ConsentContract_Public'
+      required:
+      - consentContract
+      - header
+    ObjectId:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date-time
+    VerificationRequest_Public:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        verifiedOn:
+          type: string
+          format: date-time
+        notes:
+          type: string
+          minLength: 1
+      required:
+      - name
+      - notes
+      - verifiedOn
+    SDOAsset:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification'
+        data:
+          type: object
+        _id:
+          $ref: '#/components/schemas/ObjectId'
+      required:
+      - data
+      - header
+    PatchAssetRequest_Public:
+      type: object
+      properties:
+        pkFields:
+          type: object
+        patchFields:
+          type: object
+        metadata:
+          type: object
+      required:
+      - patchFields
+      - pkFields
+    ReceiptSmartContract_Public:
+      type: object
+      properties:
+        function:
+          type: string
+          minLength: 1
+        arguments:
+          type: object
+        response: {}
+        successful:
+          type: boolean
+        consoleBase64:
+          type: string
+        errorLogBase64:
+          type: string
+      required:
+      - function
+      - successful
+    SmartContractRequest_Public:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        javaScript:
+          type: string
+          minLength: 1
+        metadata:
+          type: object
+      required:
+      - javaScript
+      - name
     Blob_Public:
       type: object
       properties:
@@ -1782,13 +2324,13 @@ components:
       - key
       - name
       - size
-    UpsertAssetRequest_Public:
+    UpsertBulkAssetRequest_Public:
       type: object
       properties:
-        data:
-          type: object
-        metadata:
-          type: object
+        assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset_Public'
         owners:
           type: array
           items:
@@ -1803,68 +2345,58 @@ components:
           uniqueItems: true
         dataPipelineName:
           type: string
-      required:
-      - data
-    TransferRequest_Public:
+    Edge:
       type: object
       properties:
-        newOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        newLimitedOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-    FullEdge_Public:
-      type: object
-      properties:
-        from:
-          $ref: '#/components/schemas/SDOAsset_Public'
-        edge:
-          $ref: '#/components/schemas/Edge_Public'
-        to:
-          $ref: '#/components/schemas/SDOAsset_Public'
-      required:
-      - edge
-      - from
-      - to
-    SDOReceiptSmartContract_Public:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/Header_Public'
-        metadata:
+        id:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+        fromChain:
+          type: string
+          minLength: 1
+        fromInternalId:
+          $ref: '#/components/schemas/ObjectId'
+        fromSDOId:
+          type: string
+          format: uuid
+        toChain:
+          type: string
+          minLength: 1
+        toInternalId:
+          $ref: '#/components/schemas/ObjectId'
+        toSDOId:
+          type: string
+          format: uuid
+        label:
+          type: string
+          minLength: 1
+        edgeType:
+          type: string
+          enum:
+          - AUTO
+          - MANUAL
+          - BLOB
+        properties:
           type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification_Public'
-        contractSdoId:
-          type: string
-          format: uuid
-        contractOwnerId:
-          type: string
-          format: uuid
-        effectiveId:
-          type: string
-          format: uuid
-        loggedInId:
-          type: string
-          format: uuid
-        receiptSmartContract:
-          $ref: '#/components/schemas/ReceiptSmartContract_Public'
+        depth:
+          type: integer
+          format: int32
+        _id:
+          $ref: '#/components/schemas/ObjectId'
       required:
-      - contractOwnerId
-      - contractSdoId
-      - effectiveId
-      - header
-      - loggedInId
-      - receiptSmartContract
+      - edgeType
+      - fromChain
+      - fromInternalId
+      - fromSDOId
+      - id
+      - label
+      - timestamp
+      - toChain
+      - toInternalId
+      - toSDOId
     Verification_Public:
       type: object
       properties:
@@ -1883,22 +2415,19 @@ components:
       - hash
       - verifiedOn
       - verifier
-    SDOConsentContract_Public:
+    FullEdge_Public:
       type: object
       properties:
-        header:
-          $ref: '#/components/schemas/Header_Public'
-        metadata:
-          type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification_Public'
-        consentContract:
-          $ref: '#/components/schemas/ConsentContract_Public'
+        from:
+          $ref: '#/components/schemas/SDOAsset_Public'
+        edge:
+          $ref: '#/components/schemas/Edge_Public'
+        to:
+          $ref: '#/components/schemas/SDOAsset_Public'
       required:
-      - consentContract
-      - header
+      - edge
+      - from
+      - to
     Header_Public:
       type: object
       properties:
@@ -1962,79 +2491,69 @@ components:
       - signer
       - timestamp
       - type
-    UpdateEdgeRequest:
-      type: object
-      properties:
-        properties:
-          type: object
-    ReceiptSmartContract_Public:
-      type: object
-      properties:
-        function:
-          type: string
-          minLength: 1
-        arguments:
-          type: object
-        response: {}
-        successful:
-          type: boolean
-        consoleBase64:
-          type: string
-        errorLogBase64:
-          type: string
-      required:
-      - function
-      - successful
-    CreateAssetRequest_Public:
+    UpdateAssetRequest_Public:
       type: object
       properties:
         data:
           type: object
         metadata:
           type: object
-        owners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        limitedOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
         dataPipelineName:
           type: string
-      required:
-      - data
-    Verification:
+    JsonNode_Public: {}
+    ConsentContract_Public:
       type: object
       properties:
-        verifier:
-          type: string
-          format: uuid
-        verifiedOn:
+        to:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        jwtProperties:
+          $ref: '#/components/schemas/JsonNode_Public'
+        start:
           type: string
           format: date-time
-        notes:
+        until:
           type: string
-        hash:
+          format: date-time
+        when:
           type: string
-          minLength: 1
-      required:
-      - hash
-      - verifiedOn
-      - verifier
-    UpdateAssetRequest:
+        only:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        description:
+          type: string
+        jpath:
+          type: string
+    NewFullEdgeRequest:
       type: object
       properties:
-        data:
-          type: object
-        metadata:
-          type: object
-        dataPipelineName:
+        label:
           type: string
+          minLength: 1
+        toDict:
+          type: string
+          minLength: 1
+        toSdoId:
+          type: string
+          format: uuid
+        properties:
+          type: object
+        fromDict:
+          type: string
+          minLength: 1
+        fromSdoId:
+          type: string
+          format: uuid
+      required:
+      - fromDict
+      - fromSdoId
+      - label
+      - toDict
+      - toSdoId
     SDOReceiptConsentContract_Public:
       type: object
       properties:
@@ -2067,34 +2586,16 @@ components:
       - header
       - loggedInId
       - receiptConsentContract
-    ConsentContract_Public:
+    CreateOrUpdateConsentContractRequest_Public:
       type: object
       properties:
-        to:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-        jwtProperties:
-          $ref: '#/components/schemas/JsonNode_Public'
-        start:
-          type: string
-          format: date-time
-        until:
-          type: string
-          format: date-time
-        when:
-          type: string
-        only:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-        description:
-          type: string
-        jpath:
-          type: string
-    SDOAsset_Public:
+        consentContract:
+          $ref: '#/components/schemas/ConsentContract_Public'
+        metadata:
+          type: object
+      required:
+      - consentContract
+    SDOReceiptSmartContract_Public:
       type: object
       properties:
         header:
@@ -2105,79 +2606,27 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/Verification_Public'
-        data:
-          type: object
+        contractSdoId:
+          type: string
+          format: uuid
+        contractOwnerId:
+          type: string
+          format: uuid
+        effectiveId:
+          type: string
+          format: uuid
+        loggedInId:
+          type: string
+          format: uuid
+        receiptSmartContract:
+          $ref: '#/components/schemas/ReceiptSmartContract_Public'
       required:
-      - data
+      - contractOwnerId
+      - contractSdoId
+      - effectiveId
       - header
-    ReceiptConsentContract_Public:
-      type: object
-      properties:
-        tqlBase64:
-          type: string
-          minLength: 1
-      required:
-      - tqlBase64
-    Edge:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        timestamp:
-          type: string
-          format: date-time
-        fromChain:
-          type: string
-          minLength: 1
-        fromInternalId:
-          $ref: '#/components/schemas/ObjectId'
-        fromSDOId:
-          type: string
-          format: uuid
-        toChain:
-          type: string
-          minLength: 1
-        toInternalId:
-          $ref: '#/components/schemas/ObjectId'
-        toSDOId:
-          type: string
-          format: uuid
-        label:
-          type: string
-          minLength: 1
-        edgeType:
-          type: string
-          enum:
-          - AUTO
-          - MANUAL
-          - BLOB
-        properties:
-          type: object
-        depth:
-          type: integer
-          format: int32
-        _id:
-          $ref: '#/components/schemas/ObjectId'
-      required:
-      - edgeType
-      - fromChain
-      - fromInternalId
-      - fromSDOId
-      - id
-      - label
-      - timestamp
-      - toChain
-      - toInternalId
-      - toSDOId
-    QueryRequest:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-      required:
-      - query
+      - loggedInId
+      - receiptSmartContract
     Asset_Public:
       type: object
       properties:
@@ -2187,36 +2636,18 @@ components:
           type: object
       required:
       - data
-    CountResponse:
+    TransferRequest_Public:
       type: object
       properties:
-        count:
-          type: integer
-          format: int64
-    SmartContractRequest_Public:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        javaScript:
-          type: string
-          minLength: 1
-        metadata:
-          type: object
-      required:
-      - javaScript
-      - name
-    UpsertBulkAssetResponse_Public:
-      type: object
-      properties:
-        success:
+        newOwners:
           type: array
           items:
-            $ref: '#/components/schemas/SDOAsset_Public'
-        error:
+            type: string
+            format: uuid
+          uniqueItems: true
+        newLimitedOwners:
           type: array
           items:
-            $ref: '#/components/schemas/AssetError_Public'
+            type: string
+            format: uuid
+          uniqueItems: true

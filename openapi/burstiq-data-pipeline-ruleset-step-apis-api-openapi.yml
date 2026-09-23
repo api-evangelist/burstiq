@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs Data Pipeline RuleSet Step APIs API
+  title: LifeGraph Data Pipeline RuleSet Step APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,7 +17,19 @@ paths:
     get:
       tags:
       - Data Pipeline RuleSet Step APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get RuleSetStep by id
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        Get RuleSetStep by id'
       operationId: getRuleSetStepId
       parameters:
       - name: id
@@ -33,10 +45,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RuleSetStep'
+      summary: Get rule set step id
+      x-summary-source: derived
     put:
       tags:
       - Data Pipeline RuleSet Step APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a RuleSetStep
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        Update a RuleSetStep'
       operationId: putRuleSetStep
       parameters:
       - name: id
@@ -58,10 +78,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RuleSetStep'
+      summary: Put rule set step
+      x-summary-source: derived
     delete:
       tags:
       - Data Pipeline RuleSet Step APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete RuleSetStep by id
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        Delete RuleSetStep by id'
       operationId: deleteRuleSetStepById
       parameters:
       - name: id
@@ -73,11 +101,25 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete rule set step by id
+      x-summary-source: derived
   /api/metadata/datapipeline/steps/ruleset:
     get:
       tags:
       - Data Pipeline RuleSet Step APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get RuleSetStep by query
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        Get RuleSetStep by query'
       operationId: getQueryRuleSetSteps
       parameters:
       - name: description
@@ -118,10 +160,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RuleSetStep'
+      summary: Get query rule set steps
+      x-summary-source: derived
     post:
       tags:
       - Data Pipeline RuleSet Step APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a new RuleSetStep
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        Create a new RuleSetStep'
       operationId: postStep
       requestBody:
         content:
@@ -136,11 +186,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RuleSetStep'
+      summary: Post step
+      x-summary-source: derived
   /api/metadata/datapipeline/steps/ruleset/{id}/trial-run:
     post:
       tags:
       - Data Pipeline RuleSet Step APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>using step id, looks up the step and executes a single step against a single data record and returns what the result would be
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        using step id, looks up the step and executes a single step against a single data record and returns what the result would be'
       operationId: postRuleSetStepTrialRun
       parameters:
       - name: id
@@ -162,11 +226,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/DataPipelineInput'
+      summary: Post rule set step trial run
+      x-summary-source: derived
   /api/metadata/datapipeline/steps/ruleset/{id}/history:
     get:
       tags:
       - Data Pipeline RuleSet Step APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a ruleSetStep
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets the history of a ruleSetStep'
       operationId: getHistory_9
       parameters:
       - name: id
@@ -184,8 +262,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RuleSetStep'
+      summary: Get history 9
+      x-summary-source: derived
 components:
   schemas:
+    DataPipelineInput:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+      required:
+      - data
     RuleSetStep:
       type: object
       properties:
@@ -207,12 +296,3 @@ components:
       required:
       - name
       - ruleIds
-    DataPipelineInput:
-      type: object
-      properties:
-        data:
-          type: object
-        metadata:
-          type: object
-      required:
-      - data

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs Metadata Util APIs API
+  title: LifeGraph Metadata Util APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,7 +17,19 @@ paths:
     get:
       tags:
       - Metadata Util APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms across all the metadata; any of the terms
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        search for terms across all the metadata; any of the terms'
       operationId: getSearchMetadata
       parameters:
       - name: terms
@@ -34,11 +46,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SearchResults'
+      summary: Get search metadata
+      x-summary-source: derived
   /api/metadata/export:
     get:
       tags:
       - Metadata Util APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>exports metadata as XLSX file
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        exports metadata as XLSX file'
       operationId: getExport
       responses:
         '200':
@@ -48,110 +74,10 @@ paths:
               schema:
                 type: string
                 format: binary
+      summary: Get export
+      x-summary-source: derived
 components:
   schemas:
-    Terms:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        documentBase64:
-          type: string
-          minLength: 1
-        version:
-          type: string
-        type:
-          type: string
-        active:
-          type: boolean
-      required:
-      - active
-      - documentBase64
-      - id
-      - name
-    Dictionary:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        displayName:
-          type: string
-        groupName:
-          type: string
-        layoutMetadata:
-          type: object
-        undefinedAttributesAction:
-          type: string
-          enum:
-          - KEEP
-          - REMOVE
-          - ERROR
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttributeDef'
-        indexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/IndexDef'
-          maxItems: 50
-          minItems: 0
-        properties:
-          type: object
-      required:
-      - attributes
-      - name
-      - undefinedAttributesAction
-    SearchResults:
-      type: object
-      properties:
-        dictionaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Dictionary'
-          uniqueItems: true
-        edgeDefs:
-          type: array
-          items:
-            $ref: '#/components/schemas/EdgeDef'
-          uniqueItems: true
-        userGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserGroup'
-          uniqueItems: true
-        userWallets:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserWallet'
-          uniqueItems: true
-        systemWallets:
-          type: array
-          items:
-            $ref: '#/components/schemas/SystemWallet'
-          uniqueItems: true
-        terms:
-          type: array
-          items:
-            $ref: '#/components/schemas/Terms'
-          uniqueItems: true
-        dataPipelines:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataPipeline'
-          uniqueItems: true
-        glossaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Glossary'
-          uniqueItems: true
     EdgeColumn:
       type: object
       properties:
@@ -243,7 +169,7 @@ components:
       - fingerprintAttributes
       - name
       - vectorAttributes
-    UserGroup:
+    Terms:
       type: object
       properties:
         id:
@@ -252,18 +178,56 @@ components:
         name:
           type: string
           minLength: 1
-        description:
+        documentBase64:
           type: string
-        group:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
+          minLength: 1
+        version:
+          type: string
+        type:
+          type: string
+        active:
+          type: boolean
       required:
-      - group
+      - active
+      - documentBase64
       - id
       - name
+    Dictionary:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        displayName:
+          type: string
+        groupName:
+          type: string
+        layoutMetadata:
+          type: object
+        undefinedAttributesAction:
+          type: string
+          enum:
+          - KEEP
+          - REMOVE
+          - ERROR
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeDef'
+        indexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndexDef'
+          maxItems: 50
+          minItems: 0
+        properties:
+          type: object
+      required:
+      - attributes
+      - name
+      - undefinedAttributesAction
     UserWallet:
       type: object
       properties:
@@ -294,6 +258,32 @@ components:
       - id
       - privateKey
       - publicKey
+    EdgeDef:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        fromDictionary:
+          type: string
+          minLength: 1
+        toDictionary:
+          type: string
+          minLength: 1
+        condition:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeColumn'
+          minItems: 1
+      required:
+      - condition
+      - fromDictionary
+      - id
+      - name
+      - toDictionary
     Glossary:
       type: object
       properties:
@@ -326,25 +316,49 @@ components:
       required:
       - id
       - term
-    DataPipeline:
+    SearchResults:
       type: object
       properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        stepIds:
+        dictionaries:
           type: array
           items:
-            type: string
-            format: uuid
-      required:
-      - id
-      - name
+            $ref: '#/components/schemas/Dictionary'
+          uniqueItems: true
+        edgeDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeDef'
+          uniqueItems: true
+        userGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserGroup'
+          uniqueItems: true
+        userWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserWallet'
+          uniqueItems: true
+        systemWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemWallet'
+          uniqueItems: true
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Terms'
+          uniqueItems: true
+        dataPipelines:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipeline'
+          uniqueItems: true
+        glossaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Glossary'
+          uniqueItems: true
     IndexDef:
       type: object
       properties:
@@ -378,7 +392,21 @@ components:
       - name
       - numDimensions
       - type
-    EdgeDef:
+    TermsAgreed:
+      type: object
+      properties:
+        termsId:
+          type: string
+          format: uuid
+        metadata:
+          type: object
+        agreedAt:
+          type: string
+          format: date-time
+      required:
+      - agreedAt
+      - termsId
+    UserGroup:
       type: object
       properties:
         id:
@@ -387,23 +415,18 @@ components:
         name:
           type: string
           minLength: 1
-        fromDictionary:
+        description:
           type: string
-          minLength: 1
-        toDictionary:
-          type: string
-          minLength: 1
-        condition:
+        group:
           type: array
           items:
-            $ref: '#/components/schemas/EdgeColumn'
-          minItems: 1
+            type: string
+            format: uuid
+          uniqueItems: true
       required:
-      - condition
-      - fromDictionary
+      - group
       - id
       - name
-      - toDictionary
     SystemWallet:
       type: object
       properties:
@@ -439,17 +462,22 @@ components:
       - privateKey
       - publicKey
       - type
-    TermsAgreed:
+    DataPipeline:
       type: object
       properties:
-        termsId:
+        id:
           type: string
           format: uuid
-        metadata:
-          type: object
-        agreedAt:
+        name:
           type: string
-          format: date-time
+          minLength: 1
+        description:
+          type: string
+        stepIds:
+          type: array
+          items:
+            type: string
+            format: uuid
       required:
-      - agreedAt
-      - termsId
+      - id
+      - name

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs Data Pipeline Rule APIs API
+  title: LifeGraph Data Pipeline Rule APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,7 +17,19 @@ paths:
     get:
       tags:
       - Data Pipeline Rule APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get Rule by id
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        Get Rule by id'
       operationId: getRuleById
       parameters:
       - name: id
@@ -33,10 +45,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Rule'
+      summary: Get rule by id
+      x-summary-source: derived
     put:
       tags:
       - Data Pipeline Rule APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Update a Rule
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        Update a Rule'
       operationId: putRule
       parameters:
       - name: id
@@ -58,10 +78,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Rule'
+      summary: Put rule
+      x-summary-source: derived
     delete:
       tags:
       - Data Pipeline Rule APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Delete Rule by id
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        Delete Rule by id'
       operationId: deleteRuleById
       parameters:
       - name: id
@@ -73,11 +101,25 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete rule by id
+      x-summary-source: derived
   /api/metadata/datapipeline/rule:
     get:
       tags:
       - Data Pipeline Rule APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Get Rules by query
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        Get Rules by query'
       operationId: getQueryRules
       parameters:
       - name: description
@@ -118,10 +160,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Rule'
+      summary: Get query rules
+      x-summary-source: derived
     post:
       tags:
       - Data Pipeline Rule APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Create a new Rule
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        Create a new Rule'
       operationId: postRule
       requestBody:
         content:
@@ -136,11 +186,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Rule'
+      summary: Post rule
+      x-summary-source: derived
   /api/metadata/datapipeline/rule/{id}/history:
     get:
       tags:
       - Data Pipeline Rule APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a rule
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets the history of a rule'
       operationId: getHistory_11
       parameters:
       - name: id
@@ -158,6 +222,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Rule'
+      summary: Get history 11
+      x-summary-source: derived
 components:
   schemas:
     Rule:

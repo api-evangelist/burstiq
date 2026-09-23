@@ -1,27 +1,7 @@
 {
   "provider": "burstiq",
   "sources": [
-    "burstiq-blastai-apis-api-openapi.yml",
-    "burstiq-customer-directory-apis-api-openapi.yml",
-    "burstiq-data-pipeline-apis-api-openapi.yml",
-    "burstiq-data-pipeline-field-mapping-step-apis-api-openapi.yml",
-    "burstiq-data-pipeline-js-transform-step-apis-api-openapi.yml",
-    "burstiq-data-pipeline-rule-apis-api-openapi.yml",
-    "burstiq-data-pipeline-ruleset-step-apis-api-openapi.yml",
-    "burstiq-dbschema-apis-api-openapi.yml",
-    "burstiq-dictionary-metadata-apis-api-openapi.yml",
-    "burstiq-edge-definition-metadata-apis-api-openapi.yml",
-    "burstiq-glossary-metadata-apis-api-openapi.yml",
-    "burstiq-graph-chain-apis-api-openapi.yml",
-    "burstiq-job-manager-apis-api-openapi.yml",
-    "burstiq-metadata-util-apis-api-openapi.yml",
-    "burstiq-metrics-apis-api-openapi.yml",
-    "burstiq-odata-v4-apis-api-openapi.yml",
-    "burstiq-sdz-specific-term-apis-api-openapi.yml",
-    "burstiq-system-wallet-apis-api-openapi.yml",
-    "burstiq-user-group-apis-api-openapi.yml",
-    "burstiq-user-wallet-apis-api-openapi.yml",
-    "burstiq-wallet-apis-api-openapi.yml"
+    "_original/burstiq-lifegraph-openapi-original.json"
   ],
   "outputs": [
     "burstiq-blastai-apis-api-openapi.yml",
@@ -49,6 +29,32 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "burstiq-lifegraph-openapi-original.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "burstiq-blastai-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-customer-directory-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-data-pipeline-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-data-pipeline-field-mapping-step-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-data-pipeline-js-transform-step-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-data-pipeline-rule-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-data-pipeline-ruleset-step-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-dbschema-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-dictionary-metadata-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-edge-definition-metadata-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-glossary-metadata-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-graph-chain-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-job-manager-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-metadata-util-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-metrics-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-odata-v4-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-sdz-specific-term-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-system-wallet-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-user-group-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-user-wallet-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "burstiq-wallet-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

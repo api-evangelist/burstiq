@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs System Wallet APIs API
+  title: LifeGraph System Wallet APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,7 +17,19 @@ paths:
     get:
       tags:
       - System Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the system's wallet in the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get the system''s wallet in the secure data zone'
       operationId: getSystemWalletById
       parameters:
       - name: id
@@ -33,10 +45,21 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SystemWalletResponse'
+      summary: Get system wallet by id
+      x-summary-source: derived
     put:
       tags:
       - System Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>put (update) the system's wallet into the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzGovernance
+
+
+        put (update) the system''s wallet into the secure data zone'
       operationId: putUpdateSystemWallet
       parameters:
       - name: id
@@ -58,10 +81,21 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SystemWalletResponse'
+      summary: Put update system wallet
+      x-summary-source: derived
     delete:
       tags:
       - System Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>delete the system's wallet in the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzGovernance
+
+
+        delete the system''s wallet in the secure data zone'
       operationId: deleteSystemWallet
       parameters:
       - name: id
@@ -73,11 +107,25 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete system wallet
+      x-summary-source: derived
   /api/metadata/system/wallet:
     get:
       tags:
       - System Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query system wallets from the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        query system wallets from the secure data zone'
       operationId: getQuerySystemWallets
       parameters:
       - name: description
@@ -123,10 +171,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SystemWalletResponse'
+      summary: Get query system wallets
+      x-summary-source: derived
     post:
       tags:
       - System Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzGovernance</li></ul><br/><br/>create a system's wallet into the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzGovernance
+
+
+        create a system''s wallet into the secure data zone'
       operationId: postCreateSystemWallet
       requestBody:
         content:
@@ -141,11 +200,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SystemWalletResponse'
+      summary: Post create system wallet
+      x-summary-source: derived
   /api/metadata/system/wallet/{id}/history:
     get:
       tags:
       - System Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a systemWallet
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets the history of a systemWallet'
       operationId: getHistory_3
       parameters:
       - name: id
@@ -163,11 +236,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SystemWalletResponse'
+      summary: Get history 3
+      x-summary-source: derived
   /api/metadata/system/wallet/self:
     get:
       tags:
       - System Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query system wallets from the secure data zone the the user is a member of
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        query system wallets from the secure data zone the the user is a member of'
       operationId: getUserMemberSystemWallets
       responses:
         '200':
@@ -178,11 +265,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SystemWalletResponse'
+      summary: Get user member system wallets
+      x-summary-source: derived
   /api/metadata/system/wallet/search:
     get:
       tags:
       - System Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        search for terms'
       operationId: getSearch_3
       parameters:
       - name: terms
@@ -202,31 +303,10 @@ paths:
                 items:
                   $ref: '#/components/schemas/SystemWallet'
                 uniqueItems: true
+      summary: Get search 3
+      x-summary-source: derived
 components:
   schemas:
-    SystemWalletCreateRequest:
-      type: object
-      properties:
-        description:
-          type: string
-          minLength: 1
-        type:
-          type: string
-          enum:
-          - CUSTODIAN_OWNER
-          - CUSTODIAN_LIMITED_OWNER
-          - TENANT_OWNER
-          - TENANT_LIMITED_OWNER
-        writeUserGroup:
-          type: string
-          format: uuid
-        accessControlUserGroup:
-          type: string
-          format: uuid
-      required:
-      - accessControlUserGroup
-      - description
-      - type
     SystemWalletResponse:
       type: object
       properties:
@@ -262,6 +342,49 @@ components:
       - description
       - id
       - type
+    SystemWalletCreateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          enum:
+          - CUSTODIAN_OWNER
+          - CUSTODIAN_LIMITED_OWNER
+          - TENANT_OWNER
+          - TENANT_LIMITED_OWNER
+        writeUserGroup:
+          type: string
+          format: uuid
+        accessControlUserGroup:
+          type: string
+          format: uuid
+      required:
+      - accessControlUserGroup
+      - description
+      - type
+    SystemWalletUpdateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+          - CUSTODIAN_OWNER
+          - CUSTODIAN_LIMITED_OWNER
+          - TENANT_OWNER
+          - TENANT_LIMITED_OWNER
+        writeUserGroup:
+          type: string
+          format: uuid
+        accessControlUserGroup:
+          type: string
+          format: uuid
+      required:
+      - type
     SystemWallet:
       type: object
       properties:
@@ -296,24 +419,4 @@ components:
       - id
       - privateKey
       - publicKey
-      - type
-    SystemWalletUpdateRequest:
-      type: object
-      properties:
-        description:
-          type: string
-        type:
-          type: string
-          enum:
-          - CUSTODIAN_OWNER
-          - CUSTODIAN_LIMITED_OWNER
-          - TENANT_OWNER
-          - TENANT_LIMITED_OWNER
-        writeUserGroup:
-          type: string
-          format: uuid
-        accessControlUserGroup:
-          type: string
-          format: uuid
-      required:
       - type

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs Glossary Metadata APIs API
+  title: LifeGraph Glossary Metadata APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,7 +17,19 @@ paths:
     get:
       tags:
       - Glossary Metadata APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query glossaries from the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        query glossaries from the secure data zone'
       operationId: getQueryGlossaries
       parameters:
       - name: term
@@ -73,10 +85,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Glossary'
+      summary: Get query glossaries
+      x-summary-source: derived
     put:
       tags:
       - Glossary Metadata APIs
-      description: '<b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>DEPRECATED: Use /{id} endpoint instead. | Put (update or create) the Glossary in the secure data zone.<b><br/><br/>Deprecated since 02 OCT 2024</b>'
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        DEPRECATED: Use /{id} endpoint instead. | Put (update or create) the Glossary in the secure data zone.
+
+
+        Deprecated since 02 OCT 2024'
       operationId: putGlossary
       requestBody:
         content:
@@ -92,10 +115,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/Glossary'
       deprecated: true
+      summary: Put glossary
+      x-summary-source: derived
     post:
       tags:
       - Glossary Metadata APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>create a glossary term into the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        create a glossary term into the secure data zone'
       operationId: postGlossary
       requestBody:
         content:
@@ -110,11 +141,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Glossary'
+      summary: Post glossary
+      x-summary-source: derived
   /api/metadata/glossary/{id}:
     get:
       tags:
       - Glossary Metadata APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets a glossary by ID from the secure data zone; can be more than 1
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets a glossary by ID from the secure data zone; can be more than 1'
       operationId: getGlossary
       parameters:
       - name: id
@@ -130,10 +175,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Glossary'
+      summary: Get glossary
+      x-summary-source: derived
     put:
       tags:
       - Glossary Metadata APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>put (update) the Glossary in the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        put (update) the Glossary in the secure data zone'
       operationId: putGlossary_1
       parameters:
       - name: id
@@ -155,10 +208,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Glossary'
+      summary: Put glossary 1
+      x-summary-source: derived
     delete:
       tags:
       - Glossary Metadata APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>deletes a glossary by id from the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        deletes a glossary by id from the secure data zone'
       operationId: deleteGlossary
       parameters:
       - name: id
@@ -170,11 +231,19 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete glossary
+      x-summary-source: derived
   /api/metadata/glossary/import:
     post:
       tags:
       - Glossary Metadata APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>loads a file of glossary items; field names in file must match Glossary structure; any field not standard will be added to the properties sub-document; each record is an no upsert (id field will be the key)
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        loads a file of glossary items; field names in file must match Glossary structure; any field not standard will be added to the properties sub-document; each record is an no upsert (id field will be the key)'
       operationId: postGlossaryFile
       requestBody:
         content:
@@ -194,11 +263,25 @@ paths:
             application/json:
               schema:
                 type: object
+      summary: Post glossary file
+      x-summary-source: derived
   /api/metadata/glossary/{id}/history:
     get:
       tags:
       - Glossary Metadata APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a glossary
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets the history of a glossary'
       operationId: getHistory_4
       parameters:
       - name: id
@@ -216,11 +299,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Glossary'
+      summary: Get history 4
+      x-summary-source: derived
   /api/metadata/glossary/search:
     get:
       tags:
       - Glossary Metadata APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for terms
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        search for terms'
       operationId: getSearch_4
       parameters:
       - name: terms
@@ -240,11 +337,25 @@ paths:
                 items:
                   $ref: '#/components/schemas/Glossary'
                 uniqueItems: true
+      summary: Get search 4
+      x-summary-source: derived
   /api/metadata/glossary/export:
     get:
       tags:
       - Glossary Metadata APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>Export glossaries as JSON
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        Export glossaries as JSON'
       operationId: exportGlossary
       responses:
         '200':
@@ -254,6 +365,8 @@ paths:
               schema:
                 type: string
                 format: binary
+      summary: Export glossary
+      x-summary-source: derived
 components:
   schemas:
     Glossary:

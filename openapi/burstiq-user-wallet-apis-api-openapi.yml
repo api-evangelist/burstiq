@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs User Wallet APIs API
+  title: LifeGraph User Wallet APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,7 +17,19 @@ paths:
     get:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the user's wallet in the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get the user''s wallet in the secure data zone'
       operationId: getUserWalletById
       parameters:
       - name: id
@@ -33,10 +45,21 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserWalletResponse'
+      summary: Get user wallet by id
+      x-summary-source: derived
     put:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzUser</li></ul><br/><br/>put (update) the user's wallet into the secure data zone.  these values will be overridden/updated with data from the next JWT token
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzUser
+
+
+        put (update) the user''s wallet into the secure data zone. these values will be overridden/updated with data from the next JWT token'
       operationId: putUpdateUserWallet
       parameters:
       - name: id
@@ -58,10 +81,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserWalletResponse'
+      summary: Put update user wallet
+      x-summary-source: derived
     delete:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>delete the user's wallet in the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        delete the user''s wallet in the secure data zone'
       operationId: deleteUserWallet
       parameters:
       - name: id
@@ -73,11 +104,19 @@ paths:
       responses:
         '200':
           description: OK
+      summary: Delete user wallet
+      x-summary-source: derived
   /api/metadata/user/wallet/{id}/terms/{termsId}:
     put:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzUser</li></ul><br/><br/>put (update) the user's terms into the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzUser
+
+
+        put (update) the user''s terms into the secure data zone'
       operationId: putUpdateUserTerms
       parameters:
       - name: id
@@ -99,11 +138,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserWalletResponse'
+      summary: Put update user terms
+      x-summary-source: derived
   /api/metadata/user/wallet:
     get:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>query user wallets from the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        query user wallets from the secure data zone'
       operationId: getQueryUserWallets
       parameters:
       - name: principal
@@ -163,10 +216,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserWalletResponse'
+      summary: Get query user wallets
+      x-summary-source: derived
     post:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li></ul><br/><br/>Insert user's wallet into the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        Insert user''s wallet into the secure data zone'
       operationId: postUserWallet
       requestBody:
         content:
@@ -181,11 +242,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserWalletResponse'
+      summary: Post user wallet
+      x-summary-source: derived
   /api/metadata/user/wallet/{id}/history:
     get:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>gets the history of a userWallet
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        gets the history of a userWallet'
       operationId: getHistory_1
       parameters:
       - name: id
@@ -203,11 +278,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserWalletResponse'
+      summary: Get history 1
+      x-summary-source: derived
   /api/metadata/user/wallet/self:
     get:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get the logged in user's wallet in the secure data zone
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get the logged in user''s wallet in the secure data zone'
       operationId: getUserWalletForLoggedInUser
       responses:
         '200':
@@ -216,11 +305,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserWalletResponse'
+      summary: Get user wallet for logged in user
+      x-summary-source: derived
   /api/metadata/user/wallet/search:
     get:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>search for wallet, search terms applied to email only
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        search for wallet, search terms applied to email only'
       operationId: getSearch_1
       parameters:
       - name: terms
@@ -240,11 +343,25 @@ paths:
                 items:
                   $ref: '#/components/schemas/UserWallet'
                 uniqueItems: true
+      summary: Get search 1
+      x-summary-source: derived
   /api/metadata/user/wallet/lookup:
     get:
       tags:
       - User Wallet APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>get user wallet from email
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        get user wallet from email'
       operationId: getUserWalletByEmail
       parameters:
       - name: email
@@ -259,6 +376,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserWalletResponse'
+      summary: Get user wallet by email
+      x-summary-source: derived
 components:
   schemas:
     UserWalletResponse:

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs DbSchema APIs API
+  title: LifeGraph DbSchema APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,7 +17,19 @@ paths:
     get:
       tags:
       - DbSchema APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzAdmin</li><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>export the SDZ metadata (dictionaries and edge defs) as DbSchema XML file
+      description: 'Allowed user roles:
+
+
+        sdzAdmin
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        export the SDZ metadata (dictionaries and edge defs) as DbSchema XML file'
       operationId: getExportDbSchemaXml
       responses:
         '200':
@@ -30,8 +42,58 @@ paths:
               schema:
                 type: string
                 format: byte
+      summary: Get export db schema xml
+      x-summary-source: derived
 components:
   schemas:
+    DBSLayout:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        id:
+          type: string
+          minLength: 1
+        showColumnType:
+          type: string
+          minLength: 1
+        showRelation:
+          type: string
+          minLength: 1
+        joinedRouting:
+          type: string
+          minLength: 1
+        entity:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSLayoutEntity'
+          minItems: 1
+        group:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSLayoutGroup'
+          minItems: 1
+      required:
+      - entity
+      - group
+      - id
+      - joinedRouting
+      - name
+      - showColumnType
+      - showRelation
+    DBSFkColumn:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        pk:
+          type: string
+          minLength: 1
+      required:
+      - name
+      - pk
     DBSIndex:
       type: object
       properties:
@@ -99,144 +161,18 @@ components:
       - name
       - toSchema
       - toTable
-    DBSTable:
+    DBSCommentTag:
       type: object
       properties:
         name:
           type: string
           minLength: 1
-        comment:
-          type: string
-        comment_tag:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSCommentTag'
-        column:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSColumn'
-          minItems: 1
-        index:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSIndex'
-          minItems: 1
-        fk:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSFk'
-          minItems: 1
-      required:
-      - column
-      - fk
-      - index
-      - name
-    DBSLayout:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        id:
-          type: string
-          minLength: 1
-        showColumnType:
-          type: string
-          minLength: 1
-        showRelation:
-          type: string
-          minLength: 1
-        joinedRouting:
-          type: string
-          minLength: 1
-        entity:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSLayoutEntity'
-          minItems: 1
-        group:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSLayoutGroup'
-          minItems: 1
-      required:
-      - entity
-      - group
-      - id
-      - joinedRouting
-      - name
-      - showColumnType
-      - showRelation
-    DBSSchema:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        table:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSTable'
-          minItems: 1
-      required:
-      - name
-      - table
-    DBSLayoutGroup:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        schema:
-          type: string
-        color:
-          type: string
-        entity:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSLayoutEntity'
-          minItems: 1
-      required:
-      - entity
-      - name
-    DBSColumn:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        type:
-          type: string
-          minLength: 1
-        mandatory:
-          type: string
-        length:
-          type: string
-        decimal:
-          type: string
-        enumeration:
-          type: string
-        comment:
-          type: string
-        defo:
-          type: string
-        type_options:
-          type: string
-      required:
-      - name
-      - type
-    DBSFkColumn:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        pk:
+        value:
           type: string
           minLength: 1
       required:
       - name
-      - pk
+      - value
     DBSProject:
       type: object
       properties:
@@ -269,15 +205,93 @@ components:
           minLength: 1
       required:
       - name
-    DBSCommentTag:
+    DBSLayoutGroup:
       type: object
       properties:
         name:
           type: string
           minLength: 1
-        value:
+        schema:
+          type: string
+        color:
+          type: string
+        entity:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSLayoutEntity'
+          minItems: 1
+      required:
+      - entity
+      - name
+    DBSSchema:
+      type: object
+      properties:
+        name:
           type: string
           minLength: 1
+        table:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSTable'
+          minItems: 1
       required:
       - name
-      - value
+      - table
+    DBSTable:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        comment:
+          type: string
+        comment_tag:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSCommentTag'
+        column:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSColumn'
+          minItems: 1
+        index:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSIndex'
+          minItems: 1
+        fk:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSFk'
+          minItems: 1
+      required:
+      - column
+      - fk
+      - index
+      - name
+    DBSColumn:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          minLength: 1
+        mandatory:
+          type: string
+        length:
+          type: string
+        decimal:
+          type: string
+        enumeration:
+          type: string
+        comment:
+          type: string
+        defo:
+          type: string
+        type_options:
+          type: string
+      required:
+      - name
+      - type

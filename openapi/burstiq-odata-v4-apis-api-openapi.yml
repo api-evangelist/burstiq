@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: LifeGraph APIs BlastAI APIs OData v4 APIs API
+  title: LifeGraph OData v4 APIs API
   description: LifeGraph API descriptions
   license:
     name: BurstIQ, Inc.
@@ -17,35 +17,79 @@ paths:
     get:
       tags:
       - OData v4 APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        OData v4 API'
       operationId: getProcess
       responses:
         '200':
           description: OK
+      summary: Get process
+      x-summary-source: derived
   /api/odata/v4/full/*:
     get:
       tags:
       - OData v4 APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        OData v4 API'
       operationId: getProcess_1
       responses:
         '200':
           description: OK
+      summary: Get process 1
+      x-summary-source: derived
   /api/odata/v4/basic/*:
     get:
       tags:
       - OData v4 APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex data
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        OData v4 API for non-complex data'
       operationId: getProcessBasic
       responses:
         '200':
           description: OK
+      summary: Get process basic
+      x-summary-source: derived
   /api/odata/v4/basic:
     get:
       tags:
       - OData v4 APIs
-      description: <b>Allowed user roles:</b><br/><ul><li>sdzReadOnly</li><li>sdzUser</li></ul><br/><br/>OData v4 API for non-complex data
+      description: 'Allowed user roles:
+
+
+        sdzReadOnly
+
+
+        sdzUser
+
+
+        OData v4 API for non-complex data'
       operationId: getProcessBasic_1
       responses:
         '200':
           description: OK
+      summary: Get process basic 1
+      x-summary-source: derived

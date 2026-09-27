@@ -46,6 +46,66 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    DBSColumn:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          minLength: 1
+        mandatory:
+          type: string
+        length:
+          type: string
+        decimal:
+          type: string
+        enumeration:
+          type: string
+        comment:
+          type: string
+        defo:
+          type: string
+        type_options:
+          type: string
+      required:
+      - name
+      - type
+    DBSCommentTag:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        value:
+          type: string
+          minLength: 1
+      required:
+      - name
+      - value
+    DBSFk:
+      type: object
+      properties:
+        toSchema:
+          type: string
+          minLength: 1
+        name:
+          type: string
+          minLength: 1
+        toTable:
+          type: string
+          minLength: 1
+        fk_column:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSFkColumn'
+          minItems: 1
+      required:
+      - fk_column
+      - name
+      - toSchema
+      - toTable
     DBSLayout:
       type: object
       properties:
@@ -82,18 +142,14 @@ components:
       - name
       - showColumnType
       - showRelation
-    DBSFkColumn:
+    DBSIndexColumn:
       type: object
       properties:
         name:
           type: string
           minLength: 1
-        pk:
-          type: string
-          minLength: 1
       required:
       - name
-      - pk
     DBSIndex:
       type: object
       properties:
@@ -121,6 +177,50 @@ components:
       - column
       - name
       - unique
+    DBSFkColumn:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        pk:
+          type: string
+          minLength: 1
+      required:
+      - name
+      - pk
+    DBSTable:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        comment:
+          type: string
+        comment_tag:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSCommentTag'
+        column:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSColumn'
+          minItems: 1
+        index:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSIndex'
+          minItems: 1
+        fk:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSFk'
+          minItems: 1
+      required:
+      - column
+      - fk
+      - index
+      - name
     DBSLayoutEntity:
       type: object
       properties:
@@ -137,72 +237,6 @@ components:
           type: string
         y:
           type: string
-      required:
-      - name
-    DBSFk:
-      type: object
-      properties:
-        toSchema:
-          type: string
-          minLength: 1
-        name:
-          type: string
-          minLength: 1
-        toTable:
-          type: string
-          minLength: 1
-        fk_column:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSFkColumn'
-          minItems: 1
-      required:
-      - fk_column
-      - name
-      - toSchema
-      - toTable
-    DBSCommentTag:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        value:
-          type: string
-          minLength: 1
-      required:
-      - name
-      - value
-    DBSProject:
-      type: object
-      properties:
-        database:
-          type: string
-          minLength: 1
-        name:
-          type: string
-          minLength: 1
-        id:
-          type: string
-          minLength: 1
-        comment:
-          type: string
-        schema:
-          $ref: '#/components/schemas/DBSSchema'
-        layout:
-          $ref: '#/components/schemas/DBSLayout'
-      required:
-      - database
-      - id
-      - layout
-      - name
-      - schema
-    DBSIndexColumn:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
       required:
       - name
     DBSLayoutGroup:
@@ -237,61 +271,27 @@ components:
       required:
       - name
       - table
-    DBSTable:
+    DBSProject:
       type: object
       properties:
+        database:
+          type: string
+          minLength: 1
         name:
+          type: string
+          minLength: 1
+        id:
           type: string
           minLength: 1
         comment:
           type: string
-        comment_tag:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSCommentTag'
-        column:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSColumn'
-          minItems: 1
-        index:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSIndex'
-          minItems: 1
-        fk:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSFk'
-          minItems: 1
+        schema:
+          $ref: '#/components/schemas/DBSSchema'
+        layout:
+          $ref: '#/components/schemas/DBSLayout'
       required:
-      - column
-      - fk
-      - index
+      - database
+      - id
+      - layout
       - name
-    DBSColumn:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        type:
-          type: string
-          minLength: 1
-        mandatory:
-          type: string
-        length:
-          type: string
-        decimal:
-          type: string
-        enumeration:
-          type: string
-        comment:
-          type: string
-        defo:
-          type: string
-        type_options:
-          type: string
-      required:
-      - name
-      - type
+      - schema

@@ -51,6 +51,14 @@ tags:
 - Blockchain
 - Knowledge Graph
 - Consent
+- AI Agents
+tags_raw:
+- Company
+- Health
+- Data
+- Blockchain
+- Knowledge Graph
+- Consent
 - Agentic AI
 apis:
 - aid: burstiq:burstiq-blastai-apis-api

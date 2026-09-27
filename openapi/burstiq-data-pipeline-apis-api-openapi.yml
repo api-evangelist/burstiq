@@ -439,6 +439,15 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    DataPipelineInput:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+      required:
+      - data
     DataPipeline:
       type: object
       properties:
@@ -458,12 +467,3 @@ components:
       required:
       - id
       - name
-    DataPipelineInput:
-      type: object
-      properties:
-        data:
-          type: object
-        metadata:
-          type: object
-      required:
-      - data

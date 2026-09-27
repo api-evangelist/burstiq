@@ -307,6 +307,29 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    SystemWalletCreateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          enum:
+          - CUSTODIAN_OWNER
+          - CUSTODIAN_LIMITED_OWNER
+          - TENANT_OWNER
+          - TENANT_LIMITED_OWNER
+        writeUserGroup:
+          type: string
+          format: uuid
+        accessControlUserGroup:
+          type: string
+          format: uuid
+      required:
+      - accessControlUserGroup
+      - description
+      - type
     SystemWalletResponse:
       type: object
       properties:
@@ -342,49 +365,6 @@ components:
       - description
       - id
       - type
-    SystemWalletCreateRequest:
-      type: object
-      properties:
-        description:
-          type: string
-          minLength: 1
-        type:
-          type: string
-          enum:
-          - CUSTODIAN_OWNER
-          - CUSTODIAN_LIMITED_OWNER
-          - TENANT_OWNER
-          - TENANT_LIMITED_OWNER
-        writeUserGroup:
-          type: string
-          format: uuid
-        accessControlUserGroup:
-          type: string
-          format: uuid
-      required:
-      - accessControlUserGroup
-      - description
-      - type
-    SystemWalletUpdateRequest:
-      type: object
-      properties:
-        description:
-          type: string
-        type:
-          type: string
-          enum:
-          - CUSTODIAN_OWNER
-          - CUSTODIAN_LIMITED_OWNER
-          - TENANT_OWNER
-          - TENANT_LIMITED_OWNER
-        writeUserGroup:
-          type: string
-          format: uuid
-        accessControlUserGroup:
-          type: string
-          format: uuid
-      required:
-      - type
     SystemWallet:
       type: object
       properties:
@@ -419,4 +399,24 @@ components:
       - id
       - privateKey
       - publicKey
+      - type
+    SystemWalletUpdateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+          - CUSTODIAN_OWNER
+          - CUSTODIAN_LIMITED_OWNER
+          - TENANT_OWNER
+          - TENANT_LIMITED_OWNER
+        writeUserGroup:
+          type: string
+          format: uuid
+        accessControlUserGroup:
+          type: string
+          format: uuid
+      required:
       - type

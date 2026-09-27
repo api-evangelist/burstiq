@@ -115,14 +115,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ConversationResponse:
-      type: object
-      properties:
-        conversationId:
-          type: string
-          format: uuid
-        answer:
-          type: string
     ConversationHistory:
       type: object
       properties:
@@ -151,5 +143,13 @@ components:
           format: date-time
         prompt:
           type: string
+        answer:
+          type: string
+    ConversationResponse:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          format: uuid
         answer:
           type: string

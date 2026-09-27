@@ -404,13 +404,6 @@ components:
         timestamp:
           type: string
           format: date-time
-    UserWalletUpdateRequest:
-      type: object
-      properties:
-        email:
-          type: string
-        fullName:
-          type: string
     UserWallet:
       type: object
       properties:
@@ -441,6 +434,13 @@ components:
       - id
       - privateKey
       - publicKey
+    UserWalletUpdateRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        fullName:
+          type: string
     TermsAgreed:
       type: object
       properties:

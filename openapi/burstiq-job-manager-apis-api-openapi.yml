@@ -737,19 +737,128 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DictionaryUploadJobRequest_Public:
+    Header_Public:
       type: object
       properties:
+        id:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+        hash:
+          type: string
+          minLength: 1
+        previousHash:
+          type: string
+        type:
+          type: string
+          enum:
+          - ASSET
+          - CONSENT_CONTRACT
+          - SMART_CONTRACT
+          - CONSENT_CONTRACT_RECEIPT
+          - SMART_CONTRACT_RECEIPT
+          - BLOB
+        operation:
+          type: string
+          enum:
+          - CREATE
+          - UPDATE
+          - TRANSFER
+          - DELETE
+        owners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          minItems: 1
+          uniqueItems: true
+        limitedOwners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        signer:
+          type: string
+          format: uuid
+        signature:
+          type: string
+          minLength: 1
         dictionary:
-          $ref: '#/components/schemas/Dictionary_Public'
+          type: string
+          minLength: 1
+      required:
+      - dictionary
+      - hash
+      - id
+      - limitedOwners
+      - operation
+      - owners
+      - signature
+      - signer
+      - timestamp
+      - type
+    ExportFileRequest_Public:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        filePassword:
+          type: string
+        sftpUrl:
+          type: string
+        sftpUsername:
+          type: string
+        sftpPassword:
+          type: string
         emailResultsTo:
           type: array
           items:
             type: string
           uniqueItems: true
+        limit:
+          type: integer
+          format: int32
+        skip:
+          type: integer
+          format: int32
+    SDOReceiptSmartContract_Public:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header_Public'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification_Public'
+        contractSdoId:
+          type: string
+          format: uuid
+        contractOwnerId:
+          type: string
+          format: uuid
+        effectiveId:
+          type: string
+          format: uuid
+        loggedInId:
+          type: string
+          format: uuid
+        receiptSmartContract:
+          $ref: '#/components/schemas/ReceiptSmartContract_Public'
       required:
-      - dictionary
-    JobBase_Public:
+      - contractOwnerId
+      - contractSdoId
+      - effectiveId
+      - header
+      - loggedInId
+      - receiptSmartContract
+    ExportDownloadJob_Public:
       type: object
       properties:
         jobId:
@@ -816,6 +925,127 @@ components:
           type: object
           additionalProperties:
             type: string
+        fileType:
+          type: string
+          enum:
+          - CSV
+          - PIPE
+          - TAB
+          - XLS
+          - XLSX
+          - XLSM
+          - EDI
+          - JSON
+          - XML
+          - PARQUET
+          - SPSS
+        title:
+          type: string
+        description:
+          type: string
+        password:
+          type: string
+        sftpUrl:
+          type: string
+        sftpUsername:
+          type: string
+        sftpPassword:
+          type: string
+        key:
+          type: string
+        tql:
+          type: string
+        dictName:
+          type: string
+      required:
+      - customerName
+      - effectiveId
+      - jobCreated
+      - jobId
+      - loggedInId
+      - mdc
+      - name
+      - sdzName
+      - status
+      - timeoutUnit
+    SmartContractExecJob_Public:
+      type: object
+      properties:
+        jobId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        status:
+          type: string
+          enum:
+          - NEW
+          - QUEUED
+          - RUNNING
+          - CANCELLED
+          - COMPLETED_ERROR
+          - COMPLETED_SUCCESS
+          - INCOMPLETE_ERROR
+        jobCreated:
+          type: string
+          format: date-time
+        jobQueued:
+          type: string
+          format: date-time
+        jobStarted:
+          type: string
+          format: date-time
+        jobCompleted:
+          type: string
+          format: date-time
+        emailRecipients:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        timeout:
+          type: integer
+          format: int32
+        timeoutUnit:
+          type: string
+          enum:
+          - NANOSECONDS
+          - MICROSECONDS
+          - MILLISECONDS
+          - SECONDS
+          - MINUTES
+          - HOURS
+          - DAYS
+        results:
+          $ref: '#/components/schemas/JobResults_Public'
+        customerName:
+          type: string
+          minLength: 1
+        sdzName:
+          type: string
+          minLength: 1
+        effectiveId:
+          type: string
+          format: uuid
+        loggedInId:
+          type: string
+          format: uuid
+        mdc:
+          type: object
+          additionalProperties:
+            type: string
+        sdoId:
+          type: string
+          format: uuid
+        func:
+          type: string
+        args:
+          type: object
+        receipt:
+          $ref: '#/components/schemas/SDOReceiptSmartContract_Public'
+        dictName:
+          type: string
       required:
       - customerName
       - effectiveId
@@ -911,24 +1141,323 @@ components:
       - sdzName
       - status
       - timeoutUnit
-    Verification_Public:
+    TruncateChainJob_Public:
       type: object
       properties:
-        verifier:
+        jobId:
           type: string
           format: uuid
-        verifiedOn:
-          type: string
-          format: date-time
-        notes:
-          type: string
-        hash:
+        name:
           type: string
           minLength: 1
+        status:
+          type: string
+          enum:
+          - NEW
+          - QUEUED
+          - RUNNING
+          - CANCELLED
+          - COMPLETED_ERROR
+          - COMPLETED_SUCCESS
+          - INCOMPLETE_ERROR
+        jobCreated:
+          type: string
+          format: date-time
+        jobQueued:
+          type: string
+          format: date-time
+        jobStarted:
+          type: string
+          format: date-time
+        jobCompleted:
+          type: string
+          format: date-time
+        emailRecipients:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        timeout:
+          type: integer
+          format: int32
+        timeoutUnit:
+          type: string
+          enum:
+          - NANOSECONDS
+          - MICROSECONDS
+          - MILLISECONDS
+          - SECONDS
+          - MINUTES
+          - HOURS
+          - DAYS
+        results:
+          $ref: '#/components/schemas/JobResults_Public'
+        customerName:
+          type: string
+          minLength: 1
+        sdzName:
+          type: string
+          minLength: 1
+        effectiveId:
+          type: string
+          format: uuid
+        loggedInId:
+          type: string
+          format: uuid
+        mdc:
+          type: object
+          additionalProperties:
+            type: string
+        dictName:
+          type: string
       required:
-      - hash
-      - verifiedOn
-      - verifier
+      - customerName
+      - effectiveId
+      - jobCreated
+      - jobId
+      - loggedInId
+      - mdc
+      - name
+      - sdzName
+      - status
+      - timeoutUnit
+    JobResults_Public:
+      type: object
+      properties:
+        results:
+          type: object
+        error:
+          $ref: '#/components/schemas/JsonNode_Public'
+        errorString:
+          type: string
+          writeOnly: true
+        errorStrings:
+          type: array
+          items:
+            type: string
+          writeOnly: true
+    FileDownloadJob_Public:
+      type: object
+      properties:
+        jobId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        status:
+          type: string
+          enum:
+          - NEW
+          - QUEUED
+          - RUNNING
+          - CANCELLED
+          - COMPLETED_ERROR
+          - COMPLETED_SUCCESS
+          - INCOMPLETE_ERROR
+        jobCreated:
+          type: string
+          format: date-time
+        jobQueued:
+          type: string
+          format: date-time
+        jobStarted:
+          type: string
+          format: date-time
+        jobCompleted:
+          type: string
+          format: date-time
+        emailRecipients:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        timeout:
+          type: integer
+          format: int32
+        timeoutUnit:
+          type: string
+          enum:
+          - NANOSECONDS
+          - MICROSECONDS
+          - MILLISECONDS
+          - SECONDS
+          - MINUTES
+          - HOURS
+          - DAYS
+        results:
+          $ref: '#/components/schemas/JobResults_Public'
+        customerName:
+          type: string
+          minLength: 1
+        sdzName:
+          type: string
+          minLength: 1
+        effectiveId:
+          type: string
+          format: uuid
+        loggedInId:
+          type: string
+          format: uuid
+        mdc:
+          type: object
+          additionalProperties:
+            type: string
+        fileType:
+          type: string
+          enum:
+          - CSV
+          - PIPE
+          - TAB
+          - XLS
+          - XLSX
+          - XLSM
+          - EDI
+          - JSON
+          - XML
+          - PARQUET
+          - SPSS
+        title:
+          type: string
+        description:
+          type: string
+        password:
+          type: string
+        sftpUrl:
+          type: string
+        sftpUsername:
+          type: string
+        sftpPassword:
+          type: string
+        key:
+          type: string
+        tql:
+          type: string
+      required:
+      - customerName
+      - effectiveId
+      - jobCreated
+      - jobId
+      - loggedInId
+      - mdc
+      - name
+      - sdzName
+      - status
+      - timeoutUnit
+    Dictionary_Public:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        displayName:
+          type: string
+        groupName:
+          type: string
+        layoutMetadata:
+          type: object
+        undefinedAttributesAction:
+          type: string
+          enum:
+          - KEEP
+          - REMOVE
+          - ERROR
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeDef_Public'
+        indexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndexDef_Public'
+          maxItems: 50
+          minItems: 0
+        properties:
+          type: object
+      required:
+      - attributes
+      - name
+      - undefinedAttributesAction
+    WipeSDZDataJob_Public:
+      type: object
+      properties:
+        jobId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        status:
+          type: string
+          enum:
+          - NEW
+          - QUEUED
+          - RUNNING
+          - CANCELLED
+          - COMPLETED_ERROR
+          - COMPLETED_SUCCESS
+          - INCOMPLETE_ERROR
+        jobCreated:
+          type: string
+          format: date-time
+        jobQueued:
+          type: string
+          format: date-time
+        jobStarted:
+          type: string
+          format: date-time
+        jobCompleted:
+          type: string
+          format: date-time
+        emailRecipients:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        timeout:
+          type: integer
+          format: int32
+        timeoutUnit:
+          type: string
+          enum:
+          - NANOSECONDS
+          - MICROSECONDS
+          - MILLISECONDS
+          - SECONDS
+          - MINUTES
+          - HOURS
+          - DAYS
+        results:
+          $ref: '#/components/schemas/JobResults_Public'
+        customerName:
+          type: string
+          minLength: 1
+        sdzName:
+          type: string
+          minLength: 1
+        effectiveId:
+          type: string
+          format: uuid
+        loggedInId:
+          type: string
+          format: uuid
+        mdc:
+          type: object
+          additionalProperties:
+            type: string
+      required:
+      - customerName
+      - effectiveId
+      - jobCreated
+      - jobId
+      - loggedInId
+      - mdc
+      - name
+      - sdzName
+      - status
+      - timeoutUnit
     ResetSDZJob_Public:
       type: object
       properties:
@@ -1015,460 +1544,26 @@ components:
           items:
             type: string
           uniqueItems: true
-    Header_Public:
+    JobInfoSummaryResponse:
       type: object
       properties:
-        id:
-          type: string
-          format: uuid
-        timestamp:
-          type: string
-          format: date-time
-        hash:
-          type: string
-          minLength: 1
-        previousHash:
-          type: string
-        type:
-          type: string
-          enum:
-          - ASSET
-          - CONSENT_CONTRACT
-          - SMART_CONTRACT
-          - CONSENT_CONTRACT_RECEIPT
-          - SMART_CONTRACT_RECEIPT
-          - BLOB
-        operation:
-          type: string
-          enum:
-          - CREATE
-          - UPDATE
-          - TRANSFER
-          - DELETE
-        owners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          minItems: 1
-          uniqueItems: true
-        limitedOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        signer:
-          type: string
-          format: uuid
-        signature:
-          type: string
-          minLength: 1
-        dictionary:
-          type: string
-          minLength: 1
-      required:
-      - dictionary
-      - hash
-      - id
-      - limitedOwners
-      - operation
-      - owners
-      - signature
-      - signer
-      - timestamp
-      - type
-    SmartContractExecJob_Public:
-      type: object
-      properties:
-        jobId:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        status:
-          type: string
-          enum:
-          - NEW
-          - QUEUED
-          - RUNNING
-          - CANCELLED
-          - COMPLETED_ERROR
-          - COMPLETED_SUCCESS
-          - INCOMPLETE_ERROR
-        jobCreated:
-          type: string
-          format: date-time
-        jobQueued:
-          type: string
-          format: date-time
-        jobStarted:
-          type: string
-          format: date-time
-        jobCompleted:
-          type: string
-          format: date-time
-        emailRecipients:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-        timeout:
+        total:
           type: integer
           format: int32
-        timeoutUnit:
-          type: string
-          enum:
-          - NANOSECONDS
-          - MICROSECONDS
-          - MILLISECONDS
-          - SECONDS
-          - MINUTES
-          - HOURS
-          - DAYS
-        results:
-          $ref: '#/components/schemas/JobResults_Public'
-        customerName:
-          type: string
-          minLength: 1
-        sdzName:
-          type: string
-          minLength: 1
-        effectiveId:
-          type: string
-          format: uuid
-        loggedInId:
-          type: string
-          format: uuid
-        mdc:
-          type: object
-          additionalProperties:
-            type: string
-        sdoId:
-          type: string
-          format: uuid
-        func:
-          type: string
-        args:
-          type: object
-        receipt:
-          $ref: '#/components/schemas/SDOReceiptSmartContract_Public'
-        dictName:
-          type: string
-      required:
-      - customerName
-      - effectiveId
-      - jobCreated
-      - jobId
-      - loggedInId
-      - mdc
-      - name
-      - sdzName
-      - status
-      - timeoutUnit
-    TruncateChainJob_Public:
-      type: object
-      properties:
-        jobId:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        status:
-          type: string
-          enum:
-          - NEW
-          - QUEUED
-          - RUNNING
-          - CANCELLED
-          - COMPLETED_ERROR
-          - COMPLETED_SUCCESS
-          - INCOMPLETE_ERROR
-        jobCreated:
-          type: string
-          format: date-time
-        jobQueued:
-          type: string
-          format: date-time
-        jobStarted:
-          type: string
-          format: date-time
-        jobCompleted:
-          type: string
-          format: date-time
-        emailRecipients:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-        timeout:
+          description: Count of total possible jobs infos for given query
+        limit:
           type: integer
           format: int32
-        timeoutUnit:
-          type: string
-          enum:
-          - NANOSECONDS
-          - MICROSECONDS
-          - MILLISECONDS
-          - SECONDS
-          - MINUTES
-          - HOURS
-          - DAYS
-        results:
-          $ref: '#/components/schemas/JobResults_Public'
-        customerName:
-          type: string
-          minLength: 1
-        sdzName:
-          type: string
-          minLength: 1
-        effectiveId:
-          type: string
-          format: uuid
-        loggedInId:
-          type: string
-          format: uuid
-        mdc:
-          type: object
-          additionalProperties:
-            type: string
-        dictName:
-          type: string
-      required:
-      - customerName
-      - effectiveId
-      - jobCreated
-      - jobId
-      - loggedInId
-      - mdc
-      - name
-      - sdzName
-      - status
-      - timeoutUnit
-    AttributeDef_Public:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        displayName:
-          type: string
-        datatype:
-          type: string
-          enum:
-          - STRING
-          - INTEGER
-          - LONG
-          - STRING_REFERENCE
-          - INTEGER_REFERENCE
-          - LONG_REFERENCE
-          - BOOLEAN
-          - DECIMAL
-          - DATE
-          - DATETIME
-          - ENUM
-          - FINGERPRINT
-          - CLOB
-          - BLOB
-          - OBJECT
-          - STRING_ARRAY
-          - INTEGER_ARRAY
-          - LONG_ARRAY
-          - STRING_REFERENCE_ARRAY
-          - INTEGER_REFERENCE_ARRAY
-          - LONG_REFERENCE_ARRAY
-          - BOOLEAN_ARRAY
-          - DECIMAL_ARRAY
-          - DATE_ARRAY
-          - DATETIME_ARRAY
-          - ENUM_ARRAY
-          - BLOB_ARRAY
-          - OBJECT_ARRAY
-          - VECTOR
-        required:
-          type: boolean
-        precision:
+          description: Limit of jobs infos return for this query
+        skip:
           type: integer
           format: int32
-        defaultValue:
-          type: string
-        min:
-          type: number
-        max:
-          type: number
-        regex:
-          type: string
-        enumValues:
+          description: Skip the first number of job infos for this query
+        jobs:
           type: array
+          description: List of job infos returned for this query
           items:
-            type: string
-            minLength: 1
-          uniqueItems: true
-        fingerprintAttributes:
-          type: array
-          items:
-            type: string
-            minLength: 1
-        vectorAttributes:
-          type: array
-          items:
-            type: string
-            minLength: 1
-        referenceDictionaryName:
-          type: string
-      required:
-      - datatype
-      - enumValues
-      - fingerprintAttributes
-      - name
-      - vectorAttributes
-    DictionaryUploadJob_Public:
-      type: object
-      properties:
-        jobId:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        status:
-          type: string
-          enum:
-          - NEW
-          - QUEUED
-          - RUNNING
-          - CANCELLED
-          - COMPLETED_ERROR
-          - COMPLETED_SUCCESS
-          - INCOMPLETE_ERROR
-        jobCreated:
-          type: string
-          format: date-time
-        jobQueued:
-          type: string
-          format: date-time
-        jobStarted:
-          type: string
-          format: date-time
-        jobCompleted:
-          type: string
-          format: date-time
-        emailRecipients:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-        timeout:
-          type: integer
-          format: int32
-        timeoutUnit:
-          type: string
-          enum:
-          - NANOSECONDS
-          - MICROSECONDS
-          - MILLISECONDS
-          - SECONDS
-          - MINUTES
-          - HOURS
-          - DAYS
-        results:
-          $ref: '#/components/schemas/JobResults_Public'
-        customerName:
-          type: string
-          minLength: 1
-        sdzName:
-          type: string
-          minLength: 1
-        effectiveId:
-          type: string
-          format: uuid
-        loggedInId:
-          type: string
-          format: uuid
-        mdc:
-          type: object
-          additionalProperties:
-            type: string
-        originalFilename:
-          type: string
-        key:
-          type: string
-        dictName:
-          type: string
-      required:
-      - customerName
-      - effectiveId
-      - jobCreated
-      - jobId
-      - loggedInId
-      - mdc
-      - name
-      - sdzName
-      - status
-      - timeoutUnit
-    JobResults_Public:
-      type: object
-      properties:
-        results:
-          type: object
-        error:
-          $ref: '#/components/schemas/JsonNode_Public'
-        errorString:
-          type: string
-          writeOnly: true
-        errorStrings:
-          type: array
-          items:
-            type: string
-          writeOnly: true
-    JobInfoSummary:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the job
-        jobId:
-          type: string
-          format: uuid
-          description: Id of the job
-        status:
-          type: string
-          description: Status of the job
-          enum:
-          - NEW
-          - QUEUED
-          - RUNNING
-          - CANCELLED
-          - COMPLETED_ERROR
-          - COMPLETED_SUCCESS
-          - INCOMPLETE_ERROR
-        jobCreated:
-          type: string
-          format: date-time
-          description: When the job was created
-        jobCompleted:
-          type: string
-          format: date-time
-          description: When the job was completed
-        dictName:
-          type: string
-          description: Name of the associated dictionary
-        loggedInId:
-          type: string
-          format: uuid
-          description: Id of logged in User Wallet that created the job
-        downloadedDate:
-          type: string
-          format: date-time
-          description: Date the attached file was downloaded
-        downloadedWalletId:
-          type: string
-          format: uuid
-          description: Id of logged in user that downloaded the attached file
+            $ref: '#/components/schemas/JobInfoSummary'
     IndexDef_Public:
       type: object
       properties:
@@ -1502,210 +1597,6 @@ components:
       - name
       - numDimensions
       - type
-    FileUploadJob_Public:
-      type: object
-      properties:
-        jobId:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        status:
-          type: string
-          enum:
-          - NEW
-          - QUEUED
-          - RUNNING
-          - CANCELLED
-          - COMPLETED_ERROR
-          - COMPLETED_SUCCESS
-          - INCOMPLETE_ERROR
-        jobCreated:
-          type: string
-          format: date-time
-        jobQueued:
-          type: string
-          format: date-time
-        jobStarted:
-          type: string
-          format: date-time
-        jobCompleted:
-          type: string
-          format: date-time
-        emailRecipients:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-        timeout:
-          type: integer
-          format: int32
-        timeoutUnit:
-          type: string
-          enum:
-          - NANOSECONDS
-          - MICROSECONDS
-          - MILLISECONDS
-          - SECONDS
-          - MINUTES
-          - HOURS
-          - DAYS
-        results:
-          $ref: '#/components/schemas/JobResults_Public'
-        customerName:
-          type: string
-          minLength: 1
-        sdzName:
-          type: string
-          minLength: 1
-        effectiveId:
-          type: string
-          format: uuid
-        loggedInId:
-          type: string
-          format: uuid
-        mdc:
-          type: object
-          additionalProperties:
-            type: string
-        originalFilename:
-          type: string
-        dataSize:
-          type: integer
-          format: int64
-        sheetNum:
-          type: integer
-          format: int32
-        sheetName:
-          type: string
-        numThreads:
-          type: integer
-          format: int32
-        key:
-          type: string
-        owners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        limitedOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        metadata:
-          type: object
-        dataPipelineName:
-          type: string
-        dictName:
-          type: string
-        operation:
-          type: string
-          enum:
-          - CREATE
-          - UPDATE
-          - PATCH
-          - UPSERT
-      required:
-      - customerName
-      - effectiveId
-      - jobCreated
-      - jobId
-      - loggedInId
-      - mdc
-      - name
-      - sdzName
-      - status
-      - timeoutUnit
-    ExportFileRequest_Public:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        filePassword:
-          type: string
-        sftpUrl:
-          type: string
-        sftpUsername:
-          type: string
-        sftpPassword:
-          type: string
-        emailResultsTo:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-        limit:
-          type: integer
-          format: int32
-        skip:
-          type: integer
-          format: int32
-    DropChainJobRequest_Public:
-      type: object
-      properties:
-        emailResultsTo:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-    JobInfoSummaryResponse:
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int32
-          description: Count of total possible jobs infos for given query
-        limit:
-          type: integer
-          format: int32
-          description: Limit of jobs infos return for this query
-        skip:
-          type: integer
-          format: int32
-          description: Skip the first number of job infos for this query
-        jobs:
-          type: array
-          description: List of job infos returned for this query
-          items:
-            $ref: '#/components/schemas/JobInfoSummary'
-    SDOReceiptSmartContract_Public:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/Header_Public'
-        metadata:
-          type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification_Public'
-        contractSdoId:
-          type: string
-          format: uuid
-        contractOwnerId:
-          type: string
-          format: uuid
-        effectiveId:
-          type: string
-          format: uuid
-        loggedInId:
-          type: string
-          format: uuid
-        receiptSmartContract:
-          $ref: '#/components/schemas/ReceiptSmartContract_Public'
-      required:
-      - contractOwnerId
-      - contractSdoId
-      - effectiveId
-      - header
-      - loggedInId
-      - receiptSmartContract
     DropChainJob_Public:
       type: object
       properties:
@@ -1824,6 +1715,93 @@ components:
           type: string
       required:
       - tql
+    DropChainJobRequest_Public:
+      type: object
+      properties:
+        emailResultsTo:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+    AttributeDef_Public:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        displayName:
+          type: string
+        datatype:
+          type: string
+          enum:
+          - STRING
+          - INTEGER
+          - LONG
+          - STRING_REFERENCE
+          - INTEGER_REFERENCE
+          - LONG_REFERENCE
+          - BOOLEAN
+          - DECIMAL
+          - DATE
+          - DATETIME
+          - ENUM
+          - FINGERPRINT
+          - CLOB
+          - BLOB
+          - OBJECT
+          - STRING_ARRAY
+          - INTEGER_ARRAY
+          - LONG_ARRAY
+          - STRING_REFERENCE_ARRAY
+          - INTEGER_REFERENCE_ARRAY
+          - LONG_REFERENCE_ARRAY
+          - BOOLEAN_ARRAY
+          - DECIMAL_ARRAY
+          - DATE_ARRAY
+          - DATETIME_ARRAY
+          - ENUM_ARRAY
+          - BLOB_ARRAY
+          - OBJECT_ARRAY
+          - VECTOR
+        required:
+          type: boolean
+        precision:
+          type: integer
+          format: int32
+        defaultValue:
+          type: string
+        min:
+          type: number
+        max:
+          type: number
+        regex:
+          type: string
+        enumValues:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
+        fingerprintAttributes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        vectorAttributes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        referenceDictionaryName:
+          type: string
+      required:
+      - datatype
+      - enumValues
+      - fingerprintAttributes
+      - name
+      - vectorAttributes
     ReceiptSmartContract_Public:
       type: object
       properties:
@@ -1842,43 +1820,8 @@ components:
       required:
       - function
       - successful
-    Dictionary_Public:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        displayName:
-          type: string
-        groupName:
-          type: string
-        layoutMetadata:
-          type: object
-        undefinedAttributesAction:
-          type: string
-          enum:
-          - KEEP
-          - REMOVE
-          - ERROR
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttributeDef_Public'
-        indexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/IndexDef_Public'
-          maxItems: 50
-          minItems: 0
-        properties:
-          type: object
-      required:
-      - attributes
-      - name
-      - undefinedAttributesAction
-    FileDownloadJob_Public:
+    JsonNode_Public: {}
+    DictionaryUploadJob_Public:
       type: object
       properties:
         jobId:
@@ -1945,143 +1888,9 @@ components:
           type: object
           additionalProperties:
             type: string
-        fileType:
-          type: string
-          enum:
-          - CSV
-          - PIPE
-          - TAB
-          - XLS
-          - XLSX
-          - XLSM
-          - EDI
-          - JSON
-          - XML
-          - PARQUET
-          - SPSS
-        title:
-          type: string
-        description:
-          type: string
-        password:
-          type: string
-        sftpUrl:
-          type: string
-        sftpUsername:
-          type: string
-        sftpPassword:
+        originalFilename:
           type: string
         key:
-          type: string
-        tql:
-          type: string
-      required:
-      - customerName
-      - effectiveId
-      - jobCreated
-      - jobId
-      - loggedInId
-      - mdc
-      - name
-      - sdzName
-      - status
-      - timeoutUnit
-    ExportDownloadJob_Public:
-      type: object
-      properties:
-        jobId:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        status:
-          type: string
-          enum:
-          - NEW
-          - QUEUED
-          - RUNNING
-          - CANCELLED
-          - COMPLETED_ERROR
-          - COMPLETED_SUCCESS
-          - INCOMPLETE_ERROR
-        jobCreated:
-          type: string
-          format: date-time
-        jobQueued:
-          type: string
-          format: date-time
-        jobStarted:
-          type: string
-          format: date-time
-        jobCompleted:
-          type: string
-          format: date-time
-        emailRecipients:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-        timeout:
-          type: integer
-          format: int32
-        timeoutUnit:
-          type: string
-          enum:
-          - NANOSECONDS
-          - MICROSECONDS
-          - MILLISECONDS
-          - SECONDS
-          - MINUTES
-          - HOURS
-          - DAYS
-        results:
-          $ref: '#/components/schemas/JobResults_Public'
-        customerName:
-          type: string
-          minLength: 1
-        sdzName:
-          type: string
-          minLength: 1
-        effectiveId:
-          type: string
-          format: uuid
-        loggedInId:
-          type: string
-          format: uuid
-        mdc:
-          type: object
-          additionalProperties:
-            type: string
-        fileType:
-          type: string
-          enum:
-          - CSV
-          - PIPE
-          - TAB
-          - XLS
-          - XLSX
-          - XLSM
-          - EDI
-          - JSON
-          - XML
-          - PARQUET
-          - SPSS
-        title:
-          type: string
-        description:
-          type: string
-        password:
-          type: string
-        sftpUrl:
-          type: string
-        sftpUsername:
-          type: string
-        sftpPassword:
-          type: string
-        key:
-          type: string
-        tql:
           type: string
         dictName:
           type: string
@@ -2096,8 +1905,155 @@ components:
       - sdzName
       - status
       - timeoutUnit
-    JsonNode_Public: {}
-    WipeSDZDataJob_Public:
+    DictionaryUploadJobRequest_Public:
+      type: object
+      properties:
+        dictionary:
+          $ref: '#/components/schemas/Dictionary_Public'
+        emailResultsTo:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+      required:
+      - dictionary
+    Verification_Public:
+      type: object
+      properties:
+        verifier:
+          type: string
+          format: uuid
+        verifiedOn:
+          type: string
+          format: date-time
+        notes:
+          type: string
+        hash:
+          type: string
+          minLength: 1
+      required:
+      - hash
+      - verifiedOn
+      - verifier
+    FileUploadJob_Public:
+      type: object
+      properties:
+        jobId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        status:
+          type: string
+          enum:
+          - NEW
+          - QUEUED
+          - RUNNING
+          - CANCELLED
+          - COMPLETED_ERROR
+          - COMPLETED_SUCCESS
+          - INCOMPLETE_ERROR
+        jobCreated:
+          type: string
+          format: date-time
+        jobQueued:
+          type: string
+          format: date-time
+        jobStarted:
+          type: string
+          format: date-time
+        jobCompleted:
+          type: string
+          format: date-time
+        emailRecipients:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        timeout:
+          type: integer
+          format: int32
+        timeoutUnit:
+          type: string
+          enum:
+          - NANOSECONDS
+          - MICROSECONDS
+          - MILLISECONDS
+          - SECONDS
+          - MINUTES
+          - HOURS
+          - DAYS
+        results:
+          $ref: '#/components/schemas/JobResults_Public'
+        customerName:
+          type: string
+          minLength: 1
+        sdzName:
+          type: string
+          minLength: 1
+        effectiveId:
+          type: string
+          format: uuid
+        loggedInId:
+          type: string
+          format: uuid
+        mdc:
+          type: object
+          additionalProperties:
+            type: string
+        originalFilename:
+          type: string
+        dataSize:
+          type: integer
+          format: int64
+        sheetNum:
+          type: integer
+          format: int32
+        sheetName:
+          type: string
+        numThreads:
+          type: integer
+          format: int32
+        key:
+          type: string
+        owners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        limitedOwners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        metadata:
+          type: object
+        dataPipelineName:
+          type: string
+        dictName:
+          type: string
+        operation:
+          type: string
+          enum:
+          - CREATE
+          - UPDATE
+          - PATCH
+          - UPSERT
+      required:
+      - customerName
+      - effectiveId
+      - jobCreated
+      - jobId
+      - loggedInId
+      - mdc
+      - name
+      - sdzName
+      - status
+      - timeoutUnit
+    JobBase_Public:
       type: object
       properties:
         jobId:
@@ -2175,3 +2131,47 @@ components:
       - sdzName
       - status
       - timeoutUnit
+    JobInfoSummary:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the job
+        jobId:
+          type: string
+          format: uuid
+          description: Id of the job
+        status:
+          type: string
+          description: Status of the job
+          enum:
+          - NEW
+          - QUEUED
+          - RUNNING
+          - CANCELLED
+          - COMPLETED_ERROR
+          - COMPLETED_SUCCESS
+          - INCOMPLETE_ERROR
+        jobCreated:
+          type: string
+          format: date-time
+          description: When the job was created
+        jobCompleted:
+          type: string
+          format: date-time
+          description: When the job was completed
+        dictName:
+          type: string
+          description: Name of the associated dictionary
+        loggedInId:
+          type: string
+          format: uuid
+          description: Id of logged in User Wallet that created the job
+        downloadedDate:
+          type: string
+          format: date-time
+          description: Date the attached file was downloaded
+        downloadedWalletId:
+          type: string
+          format: uuid
+          description: Id of logged in user that downloaded the attached file

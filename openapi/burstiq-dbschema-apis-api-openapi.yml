@@ -46,6 +46,33 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    DBSIndex:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        unique:
+          type: string
+          enum:
+          - PRIMARY_KEY
+          - UNIQUE_KEY
+          - NORMAL
+          - INDEX1
+          minLength: 1
+        column:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSIndexColumn'
+          minItems: 1
+        comment_tag:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSCommentTag'
+      required:
+      - column
+      - name
+      - unique
     DBSColumn:
       type: object
       properties:
@@ -72,18 +99,6 @@ components:
       required:
       - name
       - type
-    DBSCommentTag:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        value:
-          type: string
-          minLength: 1
-      required:
-      - name
-      - value
     DBSFk:
       type: object
       properties:
@@ -106,6 +121,24 @@ components:
       - name
       - toSchema
       - toTable
+    DBSLayoutGroup:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        schema:
+          type: string
+        color:
+          type: string
+        entity:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBSLayoutEntity'
+          minItems: 1
+      required:
+      - entity
+      - name
     DBSLayout:
       type: object
       properties:
@@ -142,6 +175,18 @@ components:
       - name
       - showColumnType
       - showRelation
+    DBSCommentTag:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        value:
+          type: string
+          minLength: 1
+      required:
+      - name
+      - value
     DBSIndexColumn:
       type: object
       properties:
@@ -150,45 +195,20 @@ components:
           minLength: 1
       required:
       - name
-    DBSIndex:
+    DBSSchema:
       type: object
       properties:
         name:
           type: string
           minLength: 1
-        unique:
-          type: string
-          enum:
-          - PRIMARY_KEY
-          - UNIQUE_KEY
-          - NORMAL
-          - INDEX1
-          minLength: 1
-        column:
+        table:
           type: array
           items:
-            $ref: '#/components/schemas/DBSIndexColumn'
+            $ref: '#/components/schemas/DBSTable'
           minItems: 1
-        comment_tag:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSCommentTag'
-      required:
-      - column
-      - name
-      - unique
-    DBSFkColumn:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        pk:
-          type: string
-          minLength: 1
       required:
       - name
-      - pk
+      - table
     DBSTable:
       type: object
       properties:
@@ -239,38 +259,18 @@ components:
           type: string
       required:
       - name
-    DBSLayoutGroup:
+    DBSFkColumn:
       type: object
       properties:
         name:
           type: string
           minLength: 1
-        schema:
-          type: string
-        color:
-          type: string
-        entity:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSLayoutEntity'
-          minItems: 1
-      required:
-      - entity
-      - name
-    DBSSchema:
-      type: object
-      properties:
-        name:
+        pk:
           type: string
           minLength: 1
-        table:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBSTable'
-          minItems: 1
       required:
       - name
-      - table
+      - pk
     DBSProject:
       type: object
       properties:

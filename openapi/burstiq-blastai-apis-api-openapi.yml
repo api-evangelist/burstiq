@@ -125,6 +125,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Conversation'
+    ConversationResponse:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          format: uuid
+        answer:
+          type: string
     ConversationRequest:
       type: object
       properties:
@@ -143,13 +151,5 @@ components:
           format: date-time
         prompt:
           type: string
-        answer:
-          type: string
-    ConversationResponse:
-      type: object
-      properties:
-        conversationId:
-          type: string
-          format: uuid
         answer:
           type: string

@@ -315,19 +315,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UserGroupReq:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        group:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
     UserGroup:
       type: object
       properties:
@@ -349,3 +336,16 @@ components:
       - group
       - id
       - name
+    UserGroupReq:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        group:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true

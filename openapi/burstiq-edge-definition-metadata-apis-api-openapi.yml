@@ -334,13 +334,6 @@ components:
       - id
       - name
       - toDictionary
-    UpdateEdgeDefRequest:
-      type: object
-      properties:
-        condition:
-          type: array
-          items:
-            $ref: '#/components/schemas/EdgeColumn'
     EdgeColumn:
       type: object
       properties:
@@ -353,3 +346,10 @@ components:
       required:
       - fromCol
       - toCol
+    UpdateEdgeDefRequest:
+      type: object
+      properties:
+        condition:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeColumn'

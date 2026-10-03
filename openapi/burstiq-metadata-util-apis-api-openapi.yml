@@ -78,7 +78,7 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    EdgeDef:
+    UserGroup:
       type: object
       properties:
         id:
@@ -87,23 +87,44 @@ components:
         name:
           type: string
           minLength: 1
-        fromDictionary:
+        description:
           type: string
-          minLength: 1
-        toDictionary:
-          type: string
-          minLength: 1
-        condition:
+        group:
           type: array
           items:
-            $ref: '#/components/schemas/EdgeColumn'
-          minItems: 1
+            type: string
+            format: uuid
+          uniqueItems: true
       required:
-      - condition
-      - fromDictionary
+      - group
       - id
       - name
-      - toDictionary
+    EdgeColumn:
+      type: object
+      properties:
+        fromCol:
+          type: string
+          minLength: 1
+        toCol:
+          type: string
+          minLength: 1
+      required:
+      - fromCol
+      - toCol
+    TermsAgreed:
+      type: object
+      properties:
+        termsId:
+          type: string
+          format: uuid
+        metadata:
+          type: object
+        agreedAt:
+          type: string
+          format: date-time
+      required:
+      - agreedAt
+      - termsId
     Glossary:
       type: object
       properties:
@@ -136,218 +157,6 @@ components:
       required:
       - id
       - term
-    Dictionary:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        displayName:
-          type: string
-        groupName:
-          type: string
-        layoutMetadata:
-          type: object
-        undefinedAttributesAction:
-          type: string
-          enum:
-          - KEEP
-          - REMOVE
-          - ERROR
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttributeDef'
-        indexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/IndexDef'
-          maxItems: 50
-          minItems: 0
-        properties:
-          type: object
-      required:
-      - attributes
-      - name
-      - undefinedAttributesAction
-    UserWallet:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        privateKey:
-          type: string
-          minLength: 1
-        publicKey:
-          type: string
-          minLength: 1
-        email:
-          type: string
-          minLength: 1
-        fullName:
-          type: string
-          minLength: 1
-        principal:
-          type: string
-        termsAgreed:
-          type: array
-          items:
-            $ref: '#/components/schemas/TermsAgreed'
-      required:
-      - email
-      - fullName
-      - id
-      - privateKey
-      - publicKey
-    EdgeColumn:
-      type: object
-      properties:
-        fromCol:
-          type: string
-          minLength: 1
-        toCol:
-          type: string
-          minLength: 1
-      required:
-      - fromCol
-      - toCol
-    Terms:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        documentBase64:
-          type: string
-          minLength: 1
-        version:
-          type: string
-        type:
-          type: string
-        active:
-          type: boolean
-      required:
-      - active
-      - documentBase64
-      - id
-      - name
-    SystemWallet:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        privateKey:
-          type: string
-          minLength: 1
-        publicKey:
-          type: string
-          minLength: 1
-        type:
-          type: string
-          enum:
-          - CUSTODIAN_OWNER
-          - CUSTODIAN_LIMITED_OWNER
-          - TENANT_OWNER
-          - TENANT_LIMITED_OWNER
-        description:
-          type: string
-          minLength: 1
-        writeUserGroup:
-          type: string
-          format: uuid
-        accessControlUserGroup:
-          type: string
-          format: uuid
-      required:
-      - accessControlUserGroup
-      - description
-      - id
-      - privateKey
-      - publicKey
-      - type
-    IndexDef:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        attributes:
-          type: array
-          items:
-            type: string
-            minLength: 1
-          minItems: 1
-        type:
-          type: string
-          enum:
-          - PRIMARY
-          - UNIQUE
-          - NORMAL
-          - KEYWORD
-          - FULL
-          - VECTOR
-        numDimensions:
-          type: integer
-          format: int32
-          maximum: 8192
-          minimum: 1
-        partialFilterTql:
-          type: string
-      required:
-      - attributes
-      - name
-      - numDimensions
-      - type
-    SearchResults:
-      type: object
-      properties:
-        dictionaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Dictionary'
-          uniqueItems: true
-        edgeDefs:
-          type: array
-          items:
-            $ref: '#/components/schemas/EdgeDef'
-          uniqueItems: true
-        userGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserGroup'
-          uniqueItems: true
-        userWallets:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserWallet'
-          uniqueItems: true
-        systemWallets:
-          type: array
-          items:
-            $ref: '#/components/schemas/SystemWallet'
-          uniqueItems: true
-        terms:
-          type: array
-          items:
-            $ref: '#/components/schemas/Terms'
-          uniqueItems: true
-        dataPipelines:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataPipeline'
-          uniqueItems: true
-        glossaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Glossary'
-          uniqueItems: true
     AttributeDef:
       type: object
       properties:
@@ -427,6 +236,36 @@ components:
       - fingerprintAttributes
       - name
       - vectorAttributes
+    UserWallet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        privateKey:
+          type: string
+          minLength: 1
+        publicKey:
+          type: string
+          minLength: 1
+        email:
+          type: string
+          minLength: 1
+        fullName:
+          type: string
+          minLength: 1
+        principal:
+          type: string
+        termsAgreed:
+          type: array
+          items:
+            $ref: '#/components/schemas/TermsAgreed'
+      required:
+      - email
+      - fullName
+      - id
+      - privateKey
+      - publicKey
     DataPipeline:
       type: object
       properties:
@@ -446,7 +285,7 @@ components:
       required:
       - id
       - name
-    UserGroup:
+    Terms:
       type: object
       properties:
         id:
@@ -455,29 +294,190 @@ components:
         name:
           type: string
           minLength: 1
+        documentBase64:
+          type: string
+          minLength: 1
+        version:
+          type: string
+        type:
+          type: string
+        active:
+          type: boolean
+      required:
+      - active
+      - documentBase64
+      - id
+      - name
+    EdgeDef:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        fromDictionary:
+          type: string
+          minLength: 1
+        toDictionary:
+          type: string
+          minLength: 1
+        condition:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeColumn'
+          minItems: 1
+      required:
+      - condition
+      - fromDictionary
+      - id
+      - name
+      - toDictionary
+    SystemWallet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        privateKey:
+          type: string
+          minLength: 1
+        publicKey:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          enum:
+          - CUSTODIAN_OWNER
+          - CUSTODIAN_LIMITED_OWNER
+          - TENANT_OWNER
+          - TENANT_LIMITED_OWNER
         description:
           type: string
-        group:
+          minLength: 1
+        writeUserGroup:
+          type: string
+          format: uuid
+        accessControlUserGroup:
+          type: string
+          format: uuid
+      required:
+      - accessControlUserGroup
+      - description
+      - id
+      - privateKey
+      - publicKey
+      - type
+    SearchResults:
+      type: object
+      properties:
+        dictionaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dictionary'
+          uniqueItems: true
+        edgeDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeDef'
+          uniqueItems: true
+        userGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserGroup'
+          uniqueItems: true
+        userWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserWallet'
+          uniqueItems: true
+        systemWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemWallet'
+          uniqueItems: true
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Terms'
+          uniqueItems: true
+        dataPipelines:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipeline'
+          uniqueItems: true
+        glossaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Glossary'
+          uniqueItems: true
+    IndexDef:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        attributes:
           type: array
           items:
             type: string
-            format: uuid
-          uniqueItems: true
+            minLength: 1
+          minItems: 1
+        type:
+          type: string
+          enum:
+          - PRIMARY
+          - UNIQUE
+          - NORMAL
+          - KEYWORD
+          - FULL
+          - VECTOR
+        numDimensions:
+          type: integer
+          format: int32
+          maximum: 8192
+          minimum: 1
+        partialFilterTql:
+          type: string
       required:
-      - group
-      - id
+      - attributes
       - name
-    TermsAgreed:
+      - numDimensions
+      - type
+    Dictionary:
       type: object
       properties:
-        termsId:
+        name:
           type: string
-          format: uuid
-        metadata:
+          minLength: 1
+        description:
+          type: string
+        displayName:
+          type: string
+        groupName:
+          type: string
+        layoutMetadata:
           type: object
-        agreedAt:
+        undefinedAttributesAction:
           type: string
-          format: date-time
+          enum:
+          - KEEP
+          - REMOVE
+          - ERROR
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeDef'
+        indexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndexDef'
+          maxItems: 50
+          minItems: 0
+        properties:
+          type: object
       required:
-      - agreedAt
-      - termsId
+      - attributes
+      - name
+      - undefinedAttributesAction

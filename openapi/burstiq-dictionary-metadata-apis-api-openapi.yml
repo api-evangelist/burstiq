@@ -435,6 +435,15 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    DictionaryMapping:
+      type: object
+      properties:
+        dictionary:
+          $ref: '#/components/schemas/Dictionary'
+        mapping:
+          type: object
+      required:
+      - dictionary
     AttributeDef:
       type: object
       properties:
@@ -514,6 +523,39 @@ components:
       - fingerprintAttributes
       - name
       - vectorAttributes
+    IndexDef:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        attributes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          minItems: 1
+        type:
+          type: string
+          enum:
+          - PRIMARY
+          - UNIQUE
+          - NORMAL
+          - KEYWORD
+          - FULL
+          - VECTOR
+        numDimensions:
+          type: integer
+          format: int32
+          maximum: 8192
+          minimum: 1
+        partialFilterTql:
+          type: string
+      required:
+      - attributes
+      - name
+      - numDimensions
+      - type
     Dictionary:
       type: object
       properties:
@@ -550,45 +592,3 @@ components:
       - attributes
       - name
       - undefinedAttributesAction
-    IndexDef:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        attributes:
-          type: array
-          items:
-            type: string
-            minLength: 1
-          minItems: 1
-        type:
-          type: string
-          enum:
-          - PRIMARY
-          - UNIQUE
-          - NORMAL
-          - KEYWORD
-          - FULL
-          - VECTOR
-        numDimensions:
-          type: integer
-          format: int32
-          maximum: 8192
-          minimum: 1
-        partialFilterTql:
-          type: string
-      required:
-      - attributes
-      - name
-      - numDimensions
-      - type
-    DictionaryMapping:
-      type: object
-      properties:
-        dictionary:
-          $ref: '#/components/schemas/Dictionary'
-        mapping:
-          type: object
-      required:
-      - dictionary

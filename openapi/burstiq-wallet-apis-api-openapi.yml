@@ -84,30 +84,31 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UserWalletResponse:
+    WalletResolverResponse:
       type: object
       properties:
-        id:
-          type: string
-          format: uuid
-        principal:
-          type: string
-        email:
-          type: string
-        fullName:
-          type: string
-        termsAgreed:
+        userWallets:
           type: array
           items:
-            $ref: '#/components/schemas/TermsAgreed'
-        hash:
-          type: string
-        author:
+            $ref: '#/components/schemas/UserWalletResponse'
+        systemWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemWalletResponse'
+    TermsAgreed:
+      type: object
+      properties:
+        termsId:
           type: string
           format: uuid
-        timestamp:
+        metadata:
+          type: object
+        agreedAt:
           type: string
           format: date-time
+      required:
+      - agreedAt
+      - termsId
     SystemWalletResponse:
       type: object
       properties:
@@ -143,28 +144,27 @@ components:
       - description
       - id
       - type
-    WalletResolverResponse:
+    UserWalletResponse:
       type: object
       properties:
-        userWallets:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserWalletResponse'
-        systemWallets:
-          type: array
-          items:
-            $ref: '#/components/schemas/SystemWalletResponse'
-    TermsAgreed:
-      type: object
-      properties:
-        termsId:
+        id:
           type: string
           format: uuid
-        metadata:
-          type: object
-        agreedAt:
+        principal:
+          type: string
+        email:
+          type: string
+        fullName:
+          type: string
+        termsAgreed:
+          type: array
+          items:
+            $ref: '#/components/schemas/TermsAgreed'
+        hash:
+          type: string
+        author:
+          type: string
+          format: uuid
+        timestamp:
           type: string
           format: date-time
-      required:
-      - agreedAt
-      - termsId

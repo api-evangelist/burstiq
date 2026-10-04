@@ -133,16 +133,6 @@ components:
           format: uuid
         answer:
           type: string
-    ConversationRequest:
-      type: object
-      properties:
-        conversationId:
-          type: string
-          format: uuid
-        userPrompt:
-          type: string
-        approvalToUseMetadata:
-          type: boolean
     Conversation:
       type: object
       properties:
@@ -153,3 +143,13 @@ components:
           type: string
         answer:
           type: string
+    ConversationRequest:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          format: uuid
+        userPrompt:
+          type: string
+        approvalToUseMetadata:
+          type: boolean

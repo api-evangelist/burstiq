@@ -95,20 +95,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SystemWalletResponse'
-    TermsAgreed:
+    UserWalletResponse:
       type: object
       properties:
-        termsId:
+        id:
           type: string
           format: uuid
-        metadata:
-          type: object
-        agreedAt:
+        principal:
+          type: string
+        email:
+          type: string
+        fullName:
+          type: string
+        termsAgreed:
+          type: array
+          items:
+            $ref: '#/components/schemas/TermsAgreed'
+        hash:
+          type: string
+        author:
+          type: string
+          format: uuid
+        timestamp:
           type: string
           format: date-time
-      required:
-      - agreedAt
-      - termsId
     SystemWalletResponse:
       type: object
       properties:
@@ -144,27 +154,17 @@ components:
       - description
       - id
       - type
-    UserWalletResponse:
+    TermsAgreed:
       type: object
       properties:
-        id:
+        termsId:
           type: string
           format: uuid
-        principal:
-          type: string
-        email:
-          type: string
-        fullName:
-          type: string
-        termsAgreed:
-          type: array
-          items:
-            $ref: '#/components/schemas/TermsAgreed'
-        hash:
-          type: string
-        author:
-          type: string
-          format: uuid
-        timestamp:
+        metadata:
+          type: object
+        agreedAt:
           type: string
           format: date-time
+      required:
+      - agreedAt
+      - termsId

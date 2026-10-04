@@ -266,15 +266,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DataPipelineInput:
-      type: object
-      properties:
-        data:
-          type: object
-        metadata:
-          type: object
-      required:
-      - data
     JSTransformStep:
       type: object
       properties:
@@ -294,3 +285,12 @@ components:
       required:
       - jsBase64
       - name
+    DataPipelineInput:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+      required:
+      - data

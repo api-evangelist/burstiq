@@ -169,22 +169,6 @@ components:
       required:
       - legalName
       - shortName
-    NotificationSubscription:
-      type: object
-      properties:
-        callbackURL:
-          type: string
-          format: uri
-        queueArn:
-          type: string
-        modifySDO:
-          type: boolean
-        smartContractExec:
-          type: boolean
-        fileUploadJob:
-          type: boolean
-        fileDownloadJob:
-          type: boolean
     SecureDataZone:
       type: object
       properties:
@@ -228,3 +212,19 @@ components:
       - dbName
       - name
       - realm
+    NotificationSubscription:
+      type: object
+      properties:
+        callbackURL:
+          type: string
+          format: uri
+        queueArn:
+          type: string
+        modifySDO:
+          type: boolean
+        smartContractExec:
+          type: boolean
+        fileUploadJob:
+          type: boolean
+        fileDownloadJob:
+          type: boolean

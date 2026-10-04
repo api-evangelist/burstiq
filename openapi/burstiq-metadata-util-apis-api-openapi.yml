@@ -78,27 +78,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UserGroup:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        group:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-      required:
-      - group
-      - id
-      - name
     EdgeColumn:
       type: object
       properties:
@@ -111,52 +90,6 @@ components:
       required:
       - fromCol
       - toCol
-    TermsAgreed:
-      type: object
-      properties:
-        termsId:
-          type: string
-          format: uuid
-        metadata:
-          type: object
-        agreedAt:
-          type: string
-          format: date-time
-      required:
-      - agreedAt
-      - termsId
-    Glossary:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        term:
-          type: string
-          minLength: 1
-        type:
-          type: string
-        description:
-          type: string
-        abbreviations:
-          type: array
-          items:
-            type: string
-            minLength: 1
-          uniqueItems: true
-        aliases:
-          type: array
-          items:
-            type: string
-            minLength: 1
-          uniqueItems: true
-        groupName:
-          type: string
-        properties:
-          type: object
-      required:
-      - id
-      - term
     AttributeDef:
       type: object
       properties:
@@ -236,6 +169,151 @@ components:
       - fingerprintAttributes
       - name
       - vectorAttributes
+    Glossary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        term:
+          type: string
+          minLength: 1
+        type:
+          type: string
+        description:
+          type: string
+        abbreviations:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
+        aliases:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          uniqueItems: true
+        groupName:
+          type: string
+        properties:
+          type: object
+      required:
+      - id
+      - term
+    DataPipeline:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        stepIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      required:
+      - id
+      - name
+    UserGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        group:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+      required:
+      - group
+      - id
+      - name
+    TermsAgreed:
+      type: object
+      properties:
+        termsId:
+          type: string
+          format: uuid
+        metadata:
+          type: object
+        agreedAt:
+          type: string
+          format: date-time
+      required:
+      - agreedAt
+      - termsId
+    EdgeDef:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        fromDictionary:
+          type: string
+          minLength: 1
+        toDictionary:
+          type: string
+          minLength: 1
+        condition:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeColumn'
+          minItems: 1
+      required:
+      - condition
+      - fromDictionary
+      - id
+      - name
+      - toDictionary
+    IndexDef:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        attributes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          minItems: 1
+        type:
+          type: string
+          enum:
+          - PRIMARY
+          - UNIQUE
+          - NORMAL
+          - KEYWORD
+          - FULL
+          - VECTOR
+        numDimensions:
+          type: integer
+          format: int32
+          maximum: 8192
+          minimum: 1
+        partialFilterTql:
+          type: string
+      required:
+      - attributes
+      - name
+      - numDimensions
+      - type
     UserWallet:
       type: object
       properties:
@@ -266,74 +344,6 @@ components:
       - id
       - privateKey
       - publicKey
-    DataPipeline:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        stepIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      required:
-      - id
-      - name
-    Terms:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        documentBase64:
-          type: string
-          minLength: 1
-        version:
-          type: string
-        type:
-          type: string
-        active:
-          type: boolean
-      required:
-      - active
-      - documentBase64
-      - id
-      - name
-    EdgeDef:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-          minLength: 1
-        fromDictionary:
-          type: string
-          minLength: 1
-        toDictionary:
-          type: string
-          minLength: 1
-        condition:
-          type: array
-          items:
-            $ref: '#/components/schemas/EdgeColumn'
-          minItems: 1
-      required:
-      - condition
-      - fromDictionary
-      - id
-      - name
-      - toDictionary
     SystemWallet:
       type: object
       properties:
@@ -369,6 +379,29 @@ components:
       - privateKey
       - publicKey
       - type
+    Terms:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        documentBase64:
+          type: string
+          minLength: 1
+        version:
+          type: string
+        type:
+          type: string
+        active:
+          type: boolean
+      required:
+      - active
+      - documentBase64
+      - id
+      - name
     SearchResults:
       type: object
       properties:
@@ -412,39 +445,6 @@ components:
           items:
             $ref: '#/components/schemas/Glossary'
           uniqueItems: true
-    IndexDef:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        attributes:
-          type: array
-          items:
-            type: string
-            minLength: 1
-          minItems: 1
-        type:
-          type: string
-          enum:
-          - PRIMARY
-          - UNIQUE
-          - NORMAL
-          - KEYWORD
-          - FULL
-          - VECTOR
-        numDimensions:
-          type: integer
-          format: int32
-          maximum: 8192
-          minimum: 1
-        partialFilterTql:
-          type: string
-      required:
-      - attributes
-      - name
-      - numDimensions
-      - type
     Dictionary:
       type: object
       properties:

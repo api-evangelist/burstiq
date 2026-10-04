@@ -308,6 +308,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    EdgeColumn:
+      type: object
+      properties:
+        fromCol:
+          type: string
+          minLength: 1
+        toCol:
+          type: string
+          minLength: 1
+      required:
+      - fromCol
+      - toCol
+    UpdateEdgeDefRequest:
+      type: object
+      properties:
+        condition:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdgeColumn'
     EdgeDef:
       type: object
       properties:
@@ -334,22 +353,3 @@ components:
       - id
       - name
       - toDictionary
-    EdgeColumn:
-      type: object
-      properties:
-        fromCol:
-          type: string
-          minLength: 1
-        toCol:
-          type: string
-          minLength: 1
-      required:
-      - fromCol
-      - toCol
-    UpdateEdgeDefRequest:
-      type: object
-      properties:
-        condition:
-          type: array
-          items:
-            $ref: '#/components/schemas/EdgeColumn'

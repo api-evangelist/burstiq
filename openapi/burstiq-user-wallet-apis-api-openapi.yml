@@ -380,6 +380,37 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    UserWalletResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        principal:
+          type: string
+        email:
+          type: string
+        fullName:
+          type: string
+        termsAgreed:
+          type: array
+          items:
+            $ref: '#/components/schemas/TermsAgreed'
+        hash:
+          type: string
+        author:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+    UserWalletUpdateRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        fullName:
+          type: string
     TermsAgreed:
       type: object
       properties:
@@ -394,13 +425,6 @@ components:
       required:
       - agreedAt
       - termsId
-    UserWalletUpdateRequest:
-      type: object
-      properties:
-        email:
-          type: string
-        fullName:
-          type: string
     UserWallet:
       type: object
       properties:
@@ -431,27 +455,3 @@ components:
       - id
       - privateKey
       - publicKey
-    UserWalletResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        principal:
-          type: string
-        email:
-          type: string
-        fullName:
-          type: string
-        termsAgreed:
-          type: array
-          items:
-            $ref: '#/components/schemas/TermsAgreed'
-        hash:
-          type: string
-        author:
-          type: string
-          format: uuid
-        timestamp:
-          type: string
-          format: date-time

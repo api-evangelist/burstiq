@@ -120,6 +120,65 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    NotificationSubscription:
+      type: object
+      properties:
+        callbackURL:
+          type: string
+          format: uri
+        queueArn:
+          type: string
+        modifySDO:
+          type: boolean
+        smartContractExec:
+          type: boolean
+        fileUploadJob:
+          type: boolean
+        fileDownloadJob:
+          type: boolean
+    SecureDataZone:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        realm:
+          type: string
+          enum:
+          - PROD
+          - UAT
+          - STAGE
+          - DEV
+          - TRIAL
+        fingerprintKdks:
+          type: object
+          additionalProperties:
+            type: string
+        disableSignature:
+          type: boolean
+        strictDates:
+          type: boolean
+        throttleCapacity:
+          type: integer
+          format: int32
+          minimum: 0
+        notificationSubscription:
+          $ref: '#/components/schemas/NotificationSubscription'
+        dbHost:
+          type: string
+          minLength: 1
+        dbUsername:
+          type: string
+        dbPassword:
+          type: string
+        dbName:
+          type: string
+          minLength: 1
+      required:
+      - dbHost
+      - dbName
+      - name
+      - realm
     Customer:
       type: object
       properties:
@@ -169,62 +228,3 @@ components:
       required:
       - legalName
       - shortName
-    SecureDataZone:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        realm:
-          type: string
-          enum:
-          - PROD
-          - UAT
-          - STAGE
-          - DEV
-          - TRIAL
-        fingerprintKdks:
-          type: object
-          additionalProperties:
-            type: string
-        disableSignature:
-          type: boolean
-        strictDates:
-          type: boolean
-        throttleCapacity:
-          type: integer
-          format: int32
-          minimum: 0
-        notificationSubscription:
-          $ref: '#/components/schemas/NotificationSubscription'
-        dbHost:
-          type: string
-          minLength: 1
-        dbUsername:
-          type: string
-        dbPassword:
-          type: string
-        dbName:
-          type: string
-          minLength: 1
-      required:
-      - dbHost
-      - dbName
-      - name
-      - realm
-    NotificationSubscription:
-      type: object
-      properties:
-        callbackURL:
-          type: string
-          format: uri
-        queueArn:
-          type: string
-        modifySDO:
-          type: boolean
-        smartContractExec:
-          type: boolean
-        fileUploadJob:
-          type: boolean
-        fileDownloadJob:
-          type: boolean

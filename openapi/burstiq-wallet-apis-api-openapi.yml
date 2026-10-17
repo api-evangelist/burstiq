@@ -84,17 +84,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    WalletResolverResponse:
-      type: object
-      properties:
-        userWallets:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserWalletResponse'
-        systemWallets:
-          type: array
-          items:
-            $ref: '#/components/schemas/SystemWalletResponse'
     UserWalletResponse:
       type: object
       properties:
@@ -154,6 +143,17 @@ components:
       - description
       - id
       - type
+    WalletResolverResponse:
+      type: object
+      properties:
+        userWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserWalletResponse'
+        systemWallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemWalletResponse'
     TermsAgreed:
       type: object
       properties:

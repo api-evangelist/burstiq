@@ -342,6 +342,29 @@ components:
       - privateKey
       - publicKey
       - type
+    SystemWalletCreateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          enum:
+          - CUSTODIAN_OWNER
+          - CUSTODIAN_LIMITED_OWNER
+          - TENANT_OWNER
+          - TENANT_LIMITED_OWNER
+        writeUserGroup:
+          type: string
+          format: uuid
+        accessControlUserGroup:
+          type: string
+          format: uuid
+      required:
+      - accessControlUserGroup
+      - description
+      - type
     SystemWalletUpdateRequest:
       type: object
       properties:
@@ -396,27 +419,4 @@ components:
       - accessControlUserGroup
       - description
       - id
-      - type
-    SystemWalletCreateRequest:
-      type: object
-      properties:
-        description:
-          type: string
-          minLength: 1
-        type:
-          type: string
-          enum:
-          - CUSTODIAN_OWNER
-          - CUSTODIAN_LIMITED_OWNER
-          - TENANT_OWNER
-          - TENANT_LIMITED_OWNER
-        writeUserGroup:
-          type: string
-          format: uuid
-        accessControlUserGroup:
-          type: string
-          format: uuid
-      required:
-      - accessControlUserGroup
-      - description
       - type

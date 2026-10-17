@@ -1850,96 +1850,15 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    QueryRequest:
+    UpdateAssetRequest:
       type: object
       properties:
-        query:
-          type: string
-          minLength: 1
-      required:
-      - query
-    TransferRequest_Public:
-      type: object
-      properties:
-        newOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        newLimitedOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-    PatchAssetRequest_Public:
-      type: object
-      properties:
-        pkFields:
-          type: object
-        patchFields:
+        data:
           type: object
         metadata:
           type: object
-      required:
-      - patchFields
-      - pkFields
-    ShortestPathResults:
-      type: object
-      properties:
-        paths:
-          type: array
-          items:
-            type: array
-            items:
-              $ref: '#/components/schemas/Edge'
-        vertices:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/SDOAsset'
-    Blob_Public:
-      type: object
-      properties:
-        name:
+        dataPipelineName:
           type: string
-          minLength: 1
-        attribute:
-          type: string
-          minLength: 1
-        key:
-          type: string
-          minLength: 1
-        hash:
-          type: string
-          minLength: 1
-        size:
-          type: integer
-          format: int64
-      required:
-      - attribute
-      - hash
-      - key
-      - name
-      - size
-    Verification:
-      type: object
-      properties:
-        verifier:
-          type: string
-          format: uuid
-        verifiedOn:
-          type: string
-          format: date-time
-        notes:
-          type: string
-        hash:
-          type: string
-          minLength: 1
-      required:
-      - hash
-      - verifiedOn
-      - verifier
     SDOSmartContract_Public:
       type: object
       properties:
@@ -1963,7 +1882,20 @@ components:
       - codeBase64
       - header
       - name
-    NewFullEdgeRequest:
+    SDO_Public:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header_Public'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification_Public'
+      required:
+      - header
+    NewEdgeRequest:
       type: object
       properties:
         label:
@@ -1977,45 +1909,10 @@ components:
           format: uuid
         properties:
           type: object
-        fromDict:
-          type: string
-          minLength: 1
-        fromSdoId:
-          type: string
-          format: uuid
       required:
-      - fromDict
-      - fromSdoId
       - label
       - toDict
       - toSdoId
-    Verification_Public:
-      type: object
-      properties:
-        verifier:
-          type: string
-          format: uuid
-        verifiedOn:
-          type: string
-          format: date-time
-        notes:
-          type: string
-        hash:
-          type: string
-          minLength: 1
-      required:
-      - hash
-      - verifiedOn
-      - verifier
-    ObjectId:
-      type: object
-      properties:
-        timestamp:
-          type: integer
-          format: int32
-        date:
-          type: string
-          format: date-time
     ConsentContract_Public:
       type: object
       properties:
@@ -2043,24 +1940,54 @@ components:
           type: string
         jpath:
           type: string
-    NewEdgeRequest:
+    VerificationRequest_Public:
       type: object
       properties:
-        label:
+        name:
           type: string
           minLength: 1
-        toDict:
+        verifiedOn:
+          type: string
+          format: date-time
+        notes:
           type: string
           minLength: 1
-        toSdoId:
-          type: string
-          format: uuid
-        properties:
-          type: object
       required:
-      - label
-      - toDict
-      - toSdoId
+      - name
+      - notes
+      - verifiedOn
+    UpdateAssetRequest_Public:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+        dataPipelineName:
+          type: string
+    CreateAssetRequest_Public:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+        owners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        limitedOwners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        dataPipelineName:
+          type: string
+      required:
+      - data
     UpsertBulkAssetResponse_Public:
       type: object
       properties:
@@ -2072,6 +1999,71 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AssetError_Public'
+    SDOAsset:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification'
+        data:
+          type: object
+        _id:
+          $ref: '#/components/schemas/ObjectId'
+      required:
+      - data
+      - header
+    SmartContractRequest_Public:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        javaScript:
+          type: string
+          minLength: 1
+        metadata:
+          type: object
+      required:
+      - javaScript
+      - name
+    Verification:
+      type: object
+      properties:
+        verifier:
+          type: string
+          format: uuid
+        verifiedOn:
+          type: string
+          format: date-time
+        notes:
+          type: string
+        hash:
+          type: string
+          minLength: 1
+      required:
+      - hash
+      - verifiedOn
+      - verifier
+    AssetError_Public:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+        error:
+          type: string
+          minLength: 1
+      required:
+      - data
+      - error
     Edge_Public:
       type: object
       properties:
@@ -2116,243 +2108,16 @@ components:
       - timestamp
       - toChain
       - toSDOId
-    Asset_Public:
+    QueryValidateRequest:
       type: object
       properties:
-        data:
-          type: object
-        metadata:
-          type: object
-      required:
-      - data
-    CreateAssetRequest_Public:
-      type: object
-      properties:
-        data:
-          type: object
-        metadata:
-          type: object
-        owners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        limitedOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        dataPipelineName:
-          type: string
-      required:
-      - data
-    FullEdge_Public:
-      type: object
-      properties:
-        from:
-          $ref: '#/components/schemas/SDOAsset_Public'
-        edge:
-          $ref: '#/components/schemas/Edge_Public'
-        to:
-          $ref: '#/components/schemas/SDOAsset_Public'
-      required:
-      - edge
-      - from
-      - to
-    ReceiptConsentContract_Public:
-      type: object
-      properties:
-        tqlBase64:
+        query:
           type: string
           minLength: 1
-      required:
-      - tqlBase64
-    ReceiptSmartContract_Public:
-      type: object
-      properties:
-        function:
-          type: string
-          minLength: 1
-        arguments:
-          type: object
-        response: {}
-        successful:
+        mustHaveGraph:
           type: boolean
-        consoleBase64:
-          type: string
-        errorLogBase64:
-          type: string
       required:
-      - function
-      - successful
-    SDOConsentContract_Public:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/Header_Public'
-        metadata:
-          type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification_Public'
-        consentContract:
-          $ref: '#/components/schemas/ConsentContract_Public'
-      required:
-      - consentContract
-      - header
-    CreateOrUpdateConsentContractRequest_Public:
-      type: object
-      properties:
-        consentContract:
-          $ref: '#/components/schemas/ConsentContract_Public'
-        metadata:
-          type: object
-      required:
-      - consentContract
-    SDOBlob_Public:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/Header_Public'
-        metadata:
-          type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification_Public'
-        blob:
-          $ref: '#/components/schemas/Blob_Public'
-      required:
-      - blob
-      - header
-    Header:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        timestamp:
-          type: string
-          format: date-time
-        hash:
-          type: string
-          minLength: 1
-        previousHash:
-          type: string
-        type:
-          type: string
-          enum:
-          - ASSET
-          - CONSENT_CONTRACT
-          - SMART_CONTRACT
-          - CONSENT_CONTRACT_RECEIPT
-          - SMART_CONTRACT_RECEIPT
-          - BLOB
-        operation:
-          type: string
-          enum:
-          - CREATE
-          - UPDATE
-          - TRANSFER
-          - DELETE
-        owners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          minItems: 1
-          uniqueItems: true
-        limitedOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        signer:
-          type: string
-          format: uuid
-        signature:
-          type: string
-          minLength: 1
-        dictionary:
-          type: string
-          minLength: 1
-      required:
-      - dictionary
-      - hash
-      - id
-      - limitedOwners
-      - operation
-      - owners
-      - signature
-      - signer
-      - timestamp
-      - type
-    SmartContractRequest_Public:
-      type: object
-      properties:
-        name:
-          type: string
-          minLength: 1
-        description:
-          type: string
-        javaScript:
-          type: string
-          minLength: 1
-        metadata:
-          type: object
-      required:
-      - javaScript
-      - name
-    UpdateAssetRequest_Public:
-      type: object
-      properties:
-        data:
-          type: object
-        metadata:
-          type: object
-        dataPipelineName:
-          type: string
-    UpsertAssetRequest_Public:
-      type: object
-      properties:
-        data:
-          type: object
-        metadata:
-          type: object
-        owners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        limitedOwners:
-          type: array
-          items:
-            type: string
-            format: uuid
-          uniqueItems: true
-        dataPipelineName:
-          type: string
-      required:
-      - data
-    SDO_Public:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/Header_Public'
-        metadata:
-          type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification_Public'
-      required:
-      - header
-    JsonNode_Public: {}
+      - query
     SDOReceiptConsentContract_Public:
       type: object
       properties:
@@ -2385,16 +2150,83 @@ components:
       - header
       - loggedInId
       - receiptConsentContract
-    UpdateAssetRequest:
+    Edge:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+        fromChain:
+          type: string
+          minLength: 1
+        fromInternalId:
+          $ref: '#/components/schemas/ObjectId'
+        fromSDOId:
+          type: string
+          format: uuid
+        toChain:
+          type: string
+          minLength: 1
+        toInternalId:
+          $ref: '#/components/schemas/ObjectId'
+        toSDOId:
+          type: string
+          format: uuid
+        label:
+          type: string
+          minLength: 1
+        edgeType:
+          type: string
+          enum:
+          - AUTO
+          - MANUAL
+          - BLOB
+        properties:
+          type: object
+        depth:
+          type: integer
+          format: int32
+        _id:
+          $ref: '#/components/schemas/ObjectId'
+      required:
+      - edgeType
+      - fromChain
+      - fromInternalId
+      - fromSDOId
+      - id
+      - label
+      - timestamp
+      - toChain
+      - toInternalId
+      - toSDOId
+    UpsertAssetRequest_Public:
       type: object
       properties:
         data:
           type: object
         metadata:
           type: object
+        owners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        limitedOwners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
         dataPipelineName:
           type: string
-    SDOReceiptSmartContract_Public:
+      required:
+      - data
+    JsonNode_Public: {}
+    SDOConsentContract_Public:
       type: object
       properties:
         header:
@@ -2405,72 +2237,10 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/Verification_Public'
-        contractSdoId:
-          type: string
-          format: uuid
-        contractOwnerId:
-          type: string
-          format: uuid
-        effectiveId:
-          type: string
-          format: uuid
-        loggedInId:
-          type: string
-          format: uuid
-        receiptSmartContract:
-          $ref: '#/components/schemas/ReceiptSmartContract_Public'
+        consentContract:
+          $ref: '#/components/schemas/ConsentContract_Public'
       required:
-      - contractOwnerId
-      - contractSdoId
-      - effectiveId
-      - header
-      - loggedInId
-      - receiptSmartContract
-    AssetError_Public:
-      type: object
-      properties:
-        data:
-          type: object
-        metadata:
-          type: object
-        error:
-          type: string
-          minLength: 1
-      required:
-      - data
-      - error
-    UpdateEdgeRequest:
-      type: object
-      properties:
-        properties:
-          type: object
-    QueryValidateRequest:
-      type: object
-      properties:
-        query:
-          type: string
-          minLength: 1
-        mustHaveGraph:
-          type: boolean
-      required:
-      - query
-    SDOAsset:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/Header'
-        metadata:
-          type: object
-        verifications:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Verification'
-        data:
-          type: object
-        _id:
-          $ref: '#/components/schemas/ObjectId'
-      required:
-      - data
+      - consentContract
       - header
     Header_Public:
       type: object
@@ -2535,12 +2305,238 @@ components:
       - signer
       - timestamp
       - type
+    Verification_Public:
+      type: object
+      properties:
+        verifier:
+          type: string
+          format: uuid
+        verifiedOn:
+          type: string
+          format: date-time
+        notes:
+          type: string
+        hash:
+          type: string
+          minLength: 1
+      required:
+      - hash
+      - verifiedOn
+      - verifier
+    NewFullEdgeRequest:
+      type: object
+      properties:
+        label:
+          type: string
+          minLength: 1
+        toDict:
+          type: string
+          minLength: 1
+        toSdoId:
+          type: string
+          format: uuid
+        properties:
+          type: object
+        fromDict:
+          type: string
+          minLength: 1
+        fromSdoId:
+          type: string
+          format: uuid
+      required:
+      - fromDict
+      - fromSdoId
+      - label
+      - toDict
+      - toSdoId
+    CreateOrUpdateConsentContractRequest_Public:
+      type: object
+      properties:
+        consentContract:
+          $ref: '#/components/schemas/ConsentContract_Public'
+        metadata:
+          type: object
+      required:
+      - consentContract
+    SDOBlob_Public:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header_Public'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification_Public'
+        blob:
+          $ref: '#/components/schemas/Blob_Public'
+      required:
+      - blob
+      - header
+    QueryRequest:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 1
+      required:
+      - query
+    Asset_Public:
+      type: object
+      properties:
+        data:
+          type: object
+        metadata:
+          type: object
+      required:
+      - data
     CountResponse:
       type: object
       properties:
         count:
           type: integer
           format: int64
+    ShortestPathResults:
+      type: object
+      properties:
+        paths:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/Edge'
+        vertices:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SDOAsset'
+    Header:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+        hash:
+          type: string
+          minLength: 1
+        previousHash:
+          type: string
+        type:
+          type: string
+          enum:
+          - ASSET
+          - CONSENT_CONTRACT
+          - SMART_CONTRACT
+          - CONSENT_CONTRACT_RECEIPT
+          - SMART_CONTRACT_RECEIPT
+          - BLOB
+        operation:
+          type: string
+          enum:
+          - CREATE
+          - UPDATE
+          - TRANSFER
+          - DELETE
+        owners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          minItems: 1
+          uniqueItems: true
+        limitedOwners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        signer:
+          type: string
+          format: uuid
+        signature:
+          type: string
+          minLength: 1
+        dictionary:
+          type: string
+          minLength: 1
+      required:
+      - dictionary
+      - hash
+      - id
+      - limitedOwners
+      - operation
+      - owners
+      - signature
+      - signer
+      - timestamp
+      - type
+    SDOReceiptSmartContract_Public:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/Header_Public'
+        metadata:
+          type: object
+        verifications:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Verification_Public'
+        contractSdoId:
+          type: string
+          format: uuid
+        contractOwnerId:
+          type: string
+          format: uuid
+        effectiveId:
+          type: string
+          format: uuid
+        loggedInId:
+          type: string
+          format: uuid
+        receiptSmartContract:
+          $ref: '#/components/schemas/ReceiptSmartContract_Public'
+      required:
+      - contractOwnerId
+      - contractSdoId
+      - effectiveId
+      - header
+      - loggedInId
+      - receiptSmartContract
+    ReceiptConsentContract_Public:
+      type: object
+      properties:
+        tqlBase64:
+          type: string
+          minLength: 1
+      required:
+      - tqlBase64
+    Blob_Public:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        attribute:
+          type: string
+          minLength: 1
+        key:
+          type: string
+          minLength: 1
+        hash:
+          type: string
+          minLength: 1
+        size:
+          type: integer
+          format: int64
+      required:
+      - attribute
+      - hash
+      - key
+      - name
+      - size
     SDOAsset_Public:
       type: object
       properties:
@@ -2583,71 +2579,75 @@ components:
           uniqueItems: true
         dataPipelineName:
           type: string
-    VerificationRequest_Public:
+    PatchAssetRequest_Public:
       type: object
       properties:
-        name:
-          type: string
-          minLength: 1
-        verifiedOn:
-          type: string
-          format: date-time
-        notes:
-          type: string
-          minLength: 1
+        pkFields:
+          type: object
+        patchFields:
+          type: object
+        metadata:
+          type: object
       required:
-      - name
-      - notes
-      - verifiedOn
-    Edge:
+      - patchFields
+      - pkFields
+    UpdateEdgeRequest:
       type: object
       properties:
-        id:
-          type: string
-          format: uuid
-        timestamp:
-          type: string
-          format: date-time
-        fromChain:
-          type: string
-          minLength: 1
-        fromInternalId:
-          $ref: '#/components/schemas/ObjectId'
-        fromSDOId:
-          type: string
-          format: uuid
-        toChain:
-          type: string
-          minLength: 1
-        toInternalId:
-          $ref: '#/components/schemas/ObjectId'
-        toSDOId:
-          type: string
-          format: uuid
-        label:
-          type: string
-          minLength: 1
-        edgeType:
-          type: string
-          enum:
-          - AUTO
-          - MANUAL
-          - BLOB
         properties:
           type: object
-        depth:
+    ObjectId:
+      type: object
+      properties:
+        timestamp:
           type: integer
           format: int32
-        _id:
-          $ref: '#/components/schemas/ObjectId'
+        date:
+          type: string
+          format: date-time
+    ReceiptSmartContract_Public:
+      type: object
+      properties:
+        function:
+          type: string
+          minLength: 1
+        arguments:
+          type: object
+        response: {}
+        successful:
+          type: boolean
+        consoleBase64:
+          type: string
+        errorLogBase64:
+          type: string
       required:
-      - edgeType
-      - fromChain
-      - fromInternalId
-      - fromSDOId
-      - id
-      - label
-      - timestamp
-      - toChain
-      - toInternalId
-      - toSDOId
+      - function
+      - successful
+    FullEdge_Public:
+      type: object
+      properties:
+        from:
+          $ref: '#/components/schemas/SDOAsset_Public'
+        edge:
+          $ref: '#/components/schemas/Edge_Public'
+        to:
+          $ref: '#/components/schemas/SDOAsset_Public'
+      required:
+      - edge
+      - from
+      - to
+    TransferRequest_Public:
+      type: object
+      properties:
+        newOwners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+        newLimitedOwners:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true

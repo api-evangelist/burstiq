@@ -115,24 +115,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ConversationHistory:
-      type: object
-      properties:
-        conversationId:
-          type: string
-          format: uuid
-        history:
-          type: array
-          items:
-            $ref: '#/components/schemas/Conversation'
-    ConversationResponse:
-      type: object
-      properties:
-        conversationId:
-          type: string
-          format: uuid
-        answer:
-          type: string
     Conversation:
       type: object
       properties:
@@ -153,3 +135,21 @@ components:
           type: string
         approvalToUseMetadata:
           type: boolean
+    ConversationResponse:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          format: uuid
+        answer:
+          type: string
+    ConversationHistory:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          format: uuid
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/Conversation'

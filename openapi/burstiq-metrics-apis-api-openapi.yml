@@ -42,53 +42,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ChainMetrics:
-      type: object
-      properties:
-        assets:
-          type: integer
-          format: int64
-        smartContracts:
-          type: integer
-          format: int64
-        consentContracts:
-          type: integer
-          format: int64
-        blobs:
-          type: integer
-          format: int64
-        blobsGB:
-          type: number
-        assetsHistory:
-          type: integer
-          format: int64
-        smartContractsHistory:
-          type: integer
-          format: int64
-        consentContractsHistory:
-          type: integer
-          format: int64
-        smartContractsReceipts:
-          type: integer
-          format: int64
-        consentContractsReceipts:
-          type: integer
-          format: int64
-        blobsGBFromBytes:
-          type: integer
-          format: int64
-          writeOnly: true
-      required:
-      - assets
-      - assetsHistory
-      - blobs
-      - blobsGB
-      - consentContracts
-      - consentContractsHistory
-      - consentContractsReceipts
-      - smartContracts
-      - smartContractsHistory
-      - smartContractsReceipts
     SDZMetrics:
       type: object
       properties:
@@ -138,3 +91,50 @@ components:
       - totalBlobsGB
       - totalEdges
       - totalNodes
+    ChainMetrics:
+      type: object
+      properties:
+        assets:
+          type: integer
+          format: int64
+        smartContracts:
+          type: integer
+          format: int64
+        consentContracts:
+          type: integer
+          format: int64
+        blobs:
+          type: integer
+          format: int64
+        blobsGB:
+          type: number
+        assetsHistory:
+          type: integer
+          format: int64
+        smartContractsHistory:
+          type: integer
+          format: int64
+        consentContractsHistory:
+          type: integer
+          format: int64
+        smartContractsReceipts:
+          type: integer
+          format: int64
+        consentContractsReceipts:
+          type: integer
+          format: int64
+        blobsGBFromBytes:
+          type: integer
+          format: int64
+          writeOnly: true
+      required:
+      - assets
+      - assetsHistory
+      - blobs
+      - blobsGB
+      - consentContracts
+      - consentContractsHistory
+      - consentContractsReceipts
+      - smartContracts
+      - smartContractsHistory
+      - smartContractsReceipts
